@@ -16,19 +16,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Decorative Black Hole Hero (no dependencies) -->
+  <!-- Interstellar Black Hole — v5 (pure WebGL) -->
 <section id="bh-hero" class="hero3d-bh" aria-hidden="true">
   <div class="bh-fallback"><div class="bh-stars"></div></div>
 </section>
 
-<script src="./js/blackhole-hero.js"></script>
+<script src="./js/blackhole-interstellar-v5.js"></script>
 <script>
-  // Mount after the section; uses pure WebGL, no CDN.
-  window.BlackHoleHero.mount({
+  window.InterstellarBH.mount({
     selector: "#bh-hero",
     heightVh: 78,
-    accent: "#64ffda",     // tweak color to taste
-    pixelRatioCap: 1.5
+    accent: "#ffd8a8",   // warm golden-white (Interstellar look)
+    // Enhanced controls:
+    quality: "auto",     // low | auto | high
+    beamStrength: 0.72,  // stronger approaching-side glow
+    lensStrength: 1.0,   // stronger lens halo
+    speed: 1.1,          // disk swirl speed
+    diskInner: 1.18,
+    diskOuter: 3.4,
+    sensitivity: 0.14,
+    controls: true       // set false to hide the tiny panel
   });
 </script>
 
