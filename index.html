@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Divyanshu Kumar — Behavioral Finance, Data Science & Strategy</title>
+  <meta name="description" content="Portfolio of Divyanshu Kumar — Behavioral Finance × Data Science × Strategic Design. Projects, research, leadership, writing.">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:title" content="Divyanshu Kumar — Behavioral Finance, Data Science & Strategy">
+  <meta property="og:description" content="Evidence-first portfolio with interactive projects, leadership, and research.">
+  <meta property="og:image" content="images/avatar.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.8em%27 font-size=%2780%27>Δ</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- JWST-inspired cursor (7 hex mirrors + ring) -->
+  <div id="jwst-cursor" aria-hidden="true">
+    <div class="ring"></div>
+    <div class="hex c"></div>
+    <div class="hex t"></div>
+    <div class="hex tr"></div>
+    <div class="hex tl"></div>
+    <div class="hex b"></div>
+    <div class="hex br"></div>
+    <div class="hex bl"></div>
+  </div>
+
+  <header class="topnav" role="banner">
+    <div class="wrap">
+      <a class="brand" href="#home" data-magnet>Divyanshu Kumar</a>
+      <nav class="links" aria-label="Primary">
+        <a href="#projects" data-magnet>Projects</a>
+        <a href="#about" data-magnet>About</a>
+        <a href="#education" data-magnet>Education</a>
+        <a href="#experience" data-magnet>Experience</a>
+        <a href="#leadership" data-magnet>Leadership</a>
+        <a href="#research" data-magnet>Research</a>
+        <a href="#certifications" data-magnet>Certifications</a>
+        <a href="#writing" data-magnet>Writing</a>
+        <a href="#contact" data-magnet>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="section hero" aria-label="Hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><strong>Divyanshu Kumar</strong> · BBA (Finance & Marketing Analytics), Christ University, Delhi NCR ’27</p>
+          <h1>Behavioral Finance × Data Science × Strategic Design</h1>
+          <p class="tagline">I turn messy problems into crisp decisions—using data, psychology, and first‑principles strategy.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="PF.pdf" download data-magnet>Download Résumé</a>
+            <a class="btn" href="mailto:divyanshukumar0163@gmail.com" data-magnet>Email Me</a>
+            <a class="btn ghost" href="#projects" data-magnet>View Projects</a>
+          </div>
+          <ul class="hero-pills">
+            <li>Peer Educator</li><li>Researcher</li><li>Builder</li>
+          </ul>
+        </div>
+        <div class="hero-card" data-tilt>
+          <img src="images/avatar.png" alt="Portrait of Divyanshu Kumar" loading="lazy">
+          <div class="badge"><span class="dot"></span> Evidence over promises</div>
+        </div>
+      </div>
+      <div class="spotlight" aria-hidden="true"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2>About</h2>
+        <p>I’m a Christ University (Delhi NCR) sophomore working where <strong>behavioral finance, data science, and strategy</strong> meet. I turn signals from earnings calls, news, and markets into decisions—using clean data, bias‑aware analysis, and clear communication.</p>
+        <ul class="chips"><li>Clarity over noise</li><li>Ethics over shortcuts</li><li>Compounding over hacks</li></ul>
+        <div class="columns">
+          <div>
+            <h3>Focus (2025–2027) — Entrepreneur</h3>
+            <ul class="list">
+              <li>Validate opportunities fast: <em>customer interviews → prototype → revenue</em>.</li>
+              <li>Ship public artifacts: demos, case studies, and learning write‑ups.</li>
+              <li>Build a small, cross‑functional team; design culture & ops.</li>
+              <li>Secure pilots/partnerships; focus on cash‑flow + runway discipline.</li>
+              <li>Compete in national circuits; publish practical research.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <p class="panel-title">Operating Principles</p>
+            <ul class="list tight">
+              <li>Define success clearly before starting.</li>
+              <li>Bias‑aware analysis beats cleverness.</li>
+              <li>Write it down. Share the method.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="wrap">
+        <h2>Education</h2>
+        <ul class="bullets">
+          <li><strong>Christ University, Delhi NCR</strong> — BBA (Finance & Marketing Analytics), 2024–2028</li>
+          <li><strong>IIT Kanpur</strong> — <em>Summer Training in Excel (1 month)</em></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS (Interactive Tabs) -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <h2>Signature Projects</h2>
+        <div class="tabs" role="tablist" aria-label="Projects">
+          <button role="tab" aria-selected="true" aria-controls="p1" id="t1" class="tab">Market Intelligence</button>
+          <button role="tab" aria-selected="false" aria-controls="p2" id="t2" class="tab">Earnings‑Call Analyzer</button>
+          <button role="tab" aria-selected="false" aria-controls="p3" id="t3" class="tab">Project Apex</button>
+          <button role="tab" aria-selected="false" aria-controls="p4" id="t4" class="tab">Nova × Tritan</button>
+          <button role="tab" aria-selected="false" aria-controls="p5" id="t5" class="tab">Stealth Startup</button>
+        </div>
+        <div class="panels">
+          <section role="tabpanel" id="p1" aria-labelledby="t1" class="panel-card show">
+            <h3>Real‑Time Market Intelligence System</h3>
+            <p>Scrapes live NSE data, parses headlines, and aggregates sentiment to produce an actionable “market mood” snapshot. Built with Selenium, rule‑based parsers, and LLM prompts; emphasizes observability and error handling.</p>
+            <div class="tags"><span>Python</span><span>Selenium</span><span>LLM prompts</span><span>Pandas</span></div>
+          </section>
+          <section role="tabpanel" id="p2" aria-labelledby="t2" class="panel-card">
+            <h3>Earnings‑Call Analyzer (Prototype)</h3>
+            <p>Pipeline to fetch transcripts, clean text, and analyze <strong>cognitive‑bias markers</strong> (e.g., escalation language, commitment framing). Outputs dashboards for peer review.</p>
+            <div class="tags"><span>Scraping</span><span>NLP</span><span>Bias markers</span></div>
+          </section>
+          <section role="tabpanel" id="p3" aria-labelledby="t3" class="panel-card">
+            <h3>Project Apex</h3>
+            <p>A 60‑day transformation sprint (health, skills, finance, communication, career, EQ) with public accountability and measurable checkpoints.</p>
+          </section>
+          <section role="tabpanel" id="p4" aria-labelledby="t4" class="panel-card">
+            <h3>Nova × Tritan (2025–2026)</h3>
+            <p>A long‑horizon personal systems project—designing the operating system for a top‑tier internship by Summer 2026, with research, competitions, and portfolio assets.</p>
+          </section>
+          <section role="tabpanel" id="p5" aria-labelledby="t5" class="panel-card">
+            <h3>Stealth Startup — Intersection Lab</h3>
+            <p>Exploring a venture at the intersection of <strong>GenAI, Quantum computing, metaphysics, cosmology, neuroscience, private equity & M&A</strong>. Scope: knowledge graphs + agentic research + decision dashboards for high‑stakes investing.</p>
+            <div class="tags"><span>GenAI</span><span>Knowledge Graphs</span><span>Agents</span><span>FinTech</span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="wrap">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div class="t-item reveal">
+            <h3>Management Consulting Intern — S.K. Chadha & Associates</h3>
+            <p class="muted">May 2025 – Jun 2025 · Clients: AMS Healthcare, boAt</p>
+            <ul class="list">
+              <li>Built pricing & competitor models for <strong>AMS CPAP/BIPAP & sleep‑study</strong>; delivered a <strong>bundled GTM</strong> with cross‑sell levers.</li>
+              <li>Ran an on‑ground <strong>mystery audit</strong> to map patient journey & leakage points; proposed SOPs, partner scorecard, and referral loops.</li>
+              <li>For <strong>boAt</strong>: created vendor–finance–marketing coordination workflow; tightened review cadence and budget alignment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="section">
+      <div class="wrap">
+        <h2>Leadership & Initiatives</h2>
+        <div class="lead-grid">
+          <article class="lead-card">
+            <header><h3>Student Council Representative</h3><p class="muted">Governance & Mediation</p></header>
+            <ul class="list tight">
+              <li>Coordinated student–faculty feedback loops and academic policy inputs.</li>
+              <li>Facilitated town‑halls; documented action items transparently.</li>
+            </ul>
+          </article>
+          <article class="lead-card">
+            <header><h3>Peer Educator — Student Well‑being & Learning</h3><p class="muted">Programs & Enablement</p></header>
+            <ul class="list tight">
+              <li>Designed sessions on study systems, EI, Excel/Python/Power BI.</li>
+              <li>Shipped a 7‑day “Exam Sprint” with templates and checklists.</li>
+            </ul>
+          </article>
+          <article class="lead-card">
+            <header><h3>Co‑founder — Jigyaasa</h3><p class="muted">Learning & Resilience</p></header>
+            <ul class="list tight">
+              <li>Built peer‑led assets for note‑taking, recall, and exam prep.</li>
+              <li>Scaled via modular toolkits and documentation.</li>
+            </ul>
+          </article>
+          <article class="lead-card">
+            <header><h3>Finance & AI Cell (Youngest OB)</h3><p class="muted">Workshops & Ops</p></header>
+            <ul class="list tight">
+              <li>Led primers on financial modelling and AI‑in‑finance demos.</li>
+              <li>Standardized session outlines & evaluation rubrics.</li>
+            </ul>
+          </article>
+          <article class="lead-card">
+            <header><h3>Enactus — Research Team</h3><p class="muted">Social Enterprise</p></header>
+            <ul class="list tight">
+              <li>Researched business models for sustainability‑focused ventures.</li>
+            </ul>
+          </article>
+          <article class="lead-card">
+            <header><h3>Alumni Cell</h3><p class="muted">Community & Mentorship</p></header>
+            <ul class="list tight">
+              <li>Supported outreach for alumni engagement and mentorship.</li>
+            </ul>
+          </article>
+          <article class="lead-card">
+            <header><h3>Theatre — Volunteer</h3><p class="muted">Communication</p></header>
+            <ul class="list tight">
+              <li>Sharpened public‑speaking and narrative craft through stage.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <div class="wrap">
+        <h2>Research & Working Papers</h2>
+        <ul class="bullets">
+          <li><strong>Linguistic Signals of Sunk‑Cost Fallacy in Earnings Calls</strong> — Predicting future losses in Indian firms.</li>
+          <li><strong>AI & Blockchain Synergy in Green Supply Chains</strong> — Traceability, data assurance, and incentives.</li>
+          <li><strong>IndustriAI Conference — IIT Madras (Working Paper)</strong> — Accepted for presentation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS (interactive) -->
+    <section id="certifications" class="section">
+      <div class="wrap">
+        <h2>Certifications (Selected) & Skills</h2>
+        <div class="accordion" role="tablist" aria-label="Certifications">
+          <button class="acc" aria-expanded="false"><span>Finance & Strategy</span></button>
+          <div class="acc-panel">
+            <ul class="bullets">
+              <li><strong>Strategy & Game Theory for Management</strong> — IIM Ahmedabad</li>
+              <li><strong>Bloomberg Market Concepts</strong> — <em>in progress</em></li>
+              <li><strong>NISM</strong> modules — <em>in progress</em></li>
+            </ul>
+          </div>
+          <button class="acc" aria-expanded="false"><span>Analytics & Data</span></button>
+          <div class="acc-panel">
+            <ul class="bullets">
+              <li><strong>Google Data Analytics</strong></li>
+              <li><strong>IIT Kanpur</strong> — Summer Training in Excel (1 month)</li>
+              <li><strong>Tableau / Power BI</strong> (courses)</li>
+              <li><strong>Python</strong> — data cleaning, EDA, automation</li>
+            </ul>
+          </div>
+          <button class="acc" aria-expanded="false"><span>Other</span></button>
+          <div class="acc-panel">
+            <ul class="bullets">
+              <li><strong>Circular Economy</strong> — University of London</li>
+              <li><strong>Positive Psychology: Visionary Thinking</strong> — University of Pennsylvania</li>
+              <li><strong>IoT</strong> — IIT Bombay</li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="chips">
+          <li>Problem‑solving</li><li>Analytical reasoning</li><li>Critical thinking</li><li>Adaptability</li><li>EQ</li>
+          <li>Excel</li><li>Power BI</li><li>Tableau</li><li>Python</li><li>Scraping</li><li>Prompt & systems design</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing" class="section">
+      <div class="wrap">
+        <h2>Writing & Thought Leadership</h2>
+        <p>Drafting a <strong>self‑introspection book</strong> based on structured reflections; I’ve filled <strong>12 notebooks</strong> and publish articles-in-progress on decision‑making and learning systems.</p>
+        <ul class="bullets">
+          <li><em>Why Neutral Sentiment Often Hides Risk in Bank Earnings Calls</em></li>
+          <li><em>A Student’s Guide to Peer‑Learning Systems That Actually Work</em></li>
+          <li><em>Bias‑Aware Dashboards: Turning Text into Trade‑relevant Signals</em></li>
+          <li><em>From Theatre to Consulting: Communication Lessons that Travel</em></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <div class="contact-card">
+          <div class="contact-actions">
+            <button class="btn primary" data-copy="divyanshukumar0163@gmail.com">Copy Email</button>
+            <a class="btn" href="mailto:divyanshukumar0163@gmail.com">Email Me</a>
+            <button class="btn" data-copy="+917979877403">Copy Phone</button>
+            <a class="btn ghost" target="_blank" rel="noopener" href="https://linkedin.com/in/divyanshukumar27">LinkedIn</a>
+            <a class="btn" href="PF.pdf" download>Download Résumé</a>
+          </div>
+          <p class="muted small">Prefer email for collaboration/speaking; replies within 48 hours on weekdays.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <p>© <span id="year"></span> Divyanshu Kumar — Built for clarity, speed, and accessibility.</p>
+      <a href="#home" class="to-top" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
