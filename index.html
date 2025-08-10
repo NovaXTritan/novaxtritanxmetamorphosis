@@ -15,33 +15,14 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.8em%27 font-size=%2780%27>Δ</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
-  <script src="js/blackhole-interstellar-v5.js" defer></script> <script defer> (function(){ const isMobile = /Mobi|Android/i.test(navigator.userAgent); window.InterstellarBH && window.InterstellarBH.mount({ selector: '#bh-hero', heightVh: isMobile ? 84 : 92, accent: '#ffd8a8', quality: 'auto', beamStrength: 0.72, lensStrength: 1.0, speed: 1.1, diskInner: 1.25, diskOuter: 3.20, sensitivity: 0.13, controls: false }); })(); </script>
 <body>
-  <section id="bh-hero" class="bh-hero"> <div class="hero-content"> <h1 class="hero-title">Divyanshu Kumar</h1> <p class="hero-subtitle">Behavioral Finance × Data Science × Strategic Design</p> <div class="hero-ctas"> <a class="btn btn-primary" href="#projects">View Projects</a> <a class="btn" href="#contact">Contact</a> </div> </div> </section>
-  <!-- Interstellar Black Hole — v5 (pure WebGL) -->
-<section id="bh-hero" class="hero3d-bh" aria-hidden="true">
-  <div class="bh-fallback"><div class="bh-stars"></div></div>
-</section>
 
-<script src="./js/blackhole-interstellar-v5.js"></script>
-<script>
-  window.InterstellarBH.mount({
-    selector: "#bh-hero",
-    heightVh: 78,
-    accent: "#ffd8a8",   // warm golden-white (Interstellar look)
-    // Enhanced controls:
-    quality: "auto",     // low | auto | high
-    beamStrength: 0.72,  // stronger approaching-side glow
-    lensStrength: 1.0,   // stronger lens halo
-    speed: 1.1,          // disk swirl speed
-    diskInner: 1.18,
-    diskOuter: 3.4,
-    sensitivity: 0.14,
-    controls: true       // set false to hide the tiny panel
-  });
-</script>
+  <!-- Interstellar Black Hole — v5 (decorative only, no text inside) -->
+  <section id="bh-hero" class="hero3d-bh" aria-hidden="true">
+    <div class="bh-fallback"><div class="bh-stars"></div></div>
+  </section>
 
-  <!-- JWST-inspired cursor (7 hex mirrors + ring) -->
+  <!-- JWST-inspired cursor -->
   <div id="jwst-cursor" aria-hidden="true">
     <div class="ring"></div>
     <div class="hex c"></div>
@@ -71,13 +52,13 @@
   </header>
 
   <main id="home">
-    <!-- HERO -->
+    <!-- HERO (your content hero with name/CTAs) -->
     <section class="section hero" aria-label="Hero">
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><strong>Divyanshu Kumar</strong> · BBA (Finance & Marketing Analytics), Christ University, Delhi NCR ’27</p>
           <h1>Behavioral Finance × Data Science × Strategic Design</h1>
-          <p class="tagline">I turn messy problems into crisp decisions—using data, psychology, and first‑principles strategy.</p>
+          <p class="tagline">I turn messy problems into crisp decisions—using data, psychology, and first-principles strategy.</p>
           <div class="cta-row">
             <a class="btn primary" href="PF.pdf" download data-magnet>Download Résumé</a>
             <a class="btn" href="mailto:divyanshukumar0163@gmail.com" data-magnet>Email Me</a>
@@ -99,16 +80,16 @@
     <section id="about" class="section">
       <div class="wrap">
         <h2>About</h2>
-        <p>I’m a Christ University (Delhi NCR) sophomore working where <strong>behavioral finance, data science, and strategy</strong> meet. I turn signals from earnings calls, news, and markets into decisions—using clean data, bias‑aware analysis, and clear communication.</p>
+        <p>I’m a Christ University (Delhi NCR) sophomore working where <strong>behavioral finance, data science, and strategy</strong> meet. I turn signals from earnings calls, news, and markets into decisions—using clean data, bias-aware analysis, and clear communication.</p>
         <ul class="chips"><li>Clarity over noise</li><li>Ethics over shortcuts</li><li>Compounding over hacks</li></ul>
         <div class="columns">
           <div>
             <h3>Focus (2025–2027) — Entrepreneur</h3>
             <ul class="list">
               <li>Validate opportunities fast: <em>customer interviews → prototype → revenue</em>.</li>
-              <li>Ship public artifacts: demos, case studies, and learning write‑ups.</li>
-              <li>Build a small, cross‑functional team; design culture & ops.</li>
-              <li>Secure pilots/partnerships; focus on cash‑flow + runway discipline.</li>
+              <li>Ship public artifacts: demos, case studies, and learning write-ups.</li>
+              <li>Build a small, cross-functional team; design culture & ops.</li>
+              <li>Secure pilots/partnerships; focus on cash-flow + runway discipline.</li>
               <li>Compete in national circuits; publish practical research.</li>
             </ul>
           </div>
@@ -116,7 +97,7 @@
             <p class="panel-title">Operating Principles</p>
             <ul class="list tight">
               <li>Define success clearly before starting.</li>
-              <li>Bias‑aware analysis beats cleverness.</li>
+              <li>Bias-aware analysis beats cleverness.</li>
               <li>Write it down. Share the method.</li>
             </ul>
           </div>
@@ -141,33 +122,33 @@
         <h2>Signature Projects</h2>
         <div class="tabs" role="tablist" aria-label="Projects">
           <button role="tab" aria-selected="true" aria-controls="p1" id="t1" class="tab">Market Intelligence</button>
-          <button role="tab" aria-selected="false" aria-controls="p2" id="t2" class="tab">Earnings‑Call Analyzer</button>
+          <button role="tab" aria-selected="false" aria-controls="p2" id="t2" class="tab">Earnings-Call Analyzer</button>
           <button role="tab" aria-selected="false" aria-controls="p3" id="t3" class="tab">Project Apex</button>
           <button role="tab" aria-selected="false" aria-controls="p4" id="t4" class="tab">Nova × Tritan</button>
           <button role="tab" aria-selected="false" aria-controls="p5" id="t5" class="tab">Stealth Startup</button>
         </div>
         <div class="panels">
           <section role="tabpanel" id="p1" aria-labelledby="t1" class="panel-card show">
-            <h3>Real‑Time Market Intelligence System</h3>
-            <p>Scrapes live NSE data, parses headlines, and aggregates sentiment to produce an actionable “market mood” snapshot. Built with Selenium, rule‑based parsers, and LLM prompts; emphasizes observability and error handling.</p>
+            <h3>Real-Time Market Intelligence System</h3>
+            <p>Scrapes live NSE data, parses headlines, and aggregates sentiment to produce an actionable “market mood” snapshot. Built with Selenium, rule-based parsers, and LLM prompts; emphasizes observability and error handling.</p>
             <div class="tags"><span>Python</span><span>Selenium</span><span>LLM prompts</span><span>Pandas</span></div>
           </section>
           <section role="tabpanel" id="p2" aria-labelledby="t2" class="panel-card">
-            <h3>Earnings‑Call Analyzer (Prototype)</h3>
-            <p>Pipeline to fetch transcripts, clean text, and analyze <strong>cognitive‑bias markers</strong> (e.g., escalation language, commitment framing). Outputs dashboards for peer review.</p>
+            <h3>Earnings-Call Analyzer (Prototype)</h3>
+            <p>Pipeline to fetch transcripts, clean text, and analyze <strong>cognitive-bias markers</strong> (e.g., escalation language, commitment framing). Outputs dashboards for peer review.</p>
             <div class="tags"><span>Scraping</span><span>NLP</span><span>Bias markers</span></div>
           </section>
           <section role="tabpanel" id="p3" aria-labelledby="t3" class="panel-card">
             <h3>Project Apex</h3>
-            <p>A 60‑day transformation sprint (health, skills, finance, communication, career, EQ) with public accountability and measurable checkpoints.</p>
+            <p>A 60-day transformation sprint (health, skills, finance, communication, career, EQ) with public accountability and measurable checkpoints.</p>
           </section>
           <section role="tabpanel" id="p4" aria-labelledby="t4" class="panel-card">
             <h3>Nova × Tritan (2025–2026)</h3>
-            <p>A long‑horizon personal systems project—designing the operating system for a top‑tier internship by Summer 2026, with research, competitions, and portfolio assets.</p>
+            <p>A long-horizon personal systems project—designing the operating system for a top-tier internship by Summer 2026, with research, competitions, and portfolio assets.</p>
           </section>
           <section role="tabpanel" id="p5" aria-labelledby="t5" class="panel-card">
             <h3>Stealth Startup — Intersection Lab</h3>
-            <p>Exploring a venture at the intersection of <strong>GenAI, Quantum computing, metaphysics, cosmology, neuroscience, private equity & M&A</strong>. Scope: knowledge graphs + agentic research + decision dashboards for high‑stakes investing.</p>
+            <p>Exploring a venture at the intersection of <strong>GenAI, Quantum computing, metaphysics, cosmology, neuroscience, private equity & M&A</strong>. Scope: knowledge graphs + agentic research + decision dashboards for high-stakes investing.</p>
             <div class="tags"><span>GenAI</span><span>Knowledge Graphs</span><span>Agents</span><span>FinTech</span></div>
           </section>
         </div>
@@ -183,8 +164,8 @@
             <h3>Management Consulting Intern — S.K. Chadha & Associates</h3>
             <p class="muted">May 2025 – Jun 2025 · Clients: AMS Healthcare, boAt</p>
             <ul class="list">
-              <li>Built pricing & competitor models for <strong>AMS CPAP/BIPAP & sleep‑study</strong>; delivered a <strong>bundled GTM</strong> with cross‑sell levers.</li>
-              <li>Ran an on‑ground <strong>mystery audit</strong> to map patient journey & leakage points; proposed SOPs, partner scorecard, and referral loops.</li>
+              <li>Built pricing & competitor models for <strong>AMS CPAP/BIPAP & sleep-study</strong>; delivered a <strong>bundled GTM</strong> with cross-sell levers.</li>
+              <li>Ran an on-ground <strong>mystery audit</strong> to map patient journey & leakage points; proposed SOPs, partner scorecard, and referral loops.</li>
               <li>For <strong>boAt</strong>: created vendor–finance–marketing coordination workflow; tightened review cadence and budget alignment.</li>
             </ul>
           </div>
@@ -201,34 +182,34 @@
             <header><h3>Student Council Representative</h3><p class="muted">Governance & Mediation</p></header>
             <ul class="list tight">
               <li>Coordinated student–faculty feedback loops and academic policy inputs.</li>
-              <li>Facilitated town‑halls; documented action items transparently.</li>
+              <li>Facilitated town-halls; documented action items transparently.</li>
             </ul>
           </article>
           <article class="lead-card">
-            <header><h3>Peer Educator — Student Well‑being & Learning</h3><p class="muted">Programs & Enablement</p></header>
+            <header><h3>Peer Educator — Student Well-being & Learning</h3><p class="muted">Programs & Enablement</p></header>
             <ul class="list tight">
               <li>Designed sessions on study systems, EI, Excel/Python/Power BI.</li>
-              <li>Shipped a 7‑day “Exam Sprint” with templates and checklists.</li>
+              <li>Shipped a 7-day “Exam Sprint” with templates and checklists.</li>
             </ul>
           </article>
           <article class="lead-card">
-            <header><h3>Co‑founder — Jigyaasa</h3><p class="muted">Learning & Resilience</p></header>
+            <header><h3>Co-founder — Jigyaasa</h3><p class="muted">Learning & Resilience</p></header>
             <ul class="list tight">
-              <li>Built peer‑led assets for note‑taking, recall, and exam prep.</li>
+              <li>Built peer-led assets for note-taking, recall, and exam prep.</li>
               <li>Scaled via modular toolkits and documentation.</li>
             </ul>
           </article>
           <article class="lead-card">
             <header><h3>Finance & AI Cell (Youngest OB)</h3><p class="muted">Workshops & Ops</p></header>
             <ul class="list tight">
-              <li>Led primers on financial modelling and AI‑in‑finance demos.</li>
+              <li>Led primers on financial modelling and AI-in-finance demos.</li>
               <li>Standardized session outlines & evaluation rubrics.</li>
             </ul>
           </article>
           <article class="lead-card">
             <header><h3>Enactus — Research Team</h3><p class="muted">Social Enterprise</p></header>
             <ul class="list tight">
-              <li>Researched business models for sustainability‑focused ventures.</li>
+              <li>Researched business models for sustainability-focused ventures.</li>
             </ul>
           </article>
           <article class="lead-card">
@@ -240,7 +221,7 @@
           <article class="lead-card">
             <header><h3>Theatre — Volunteer</h3><p class="muted">Communication</p></header>
             <ul class="list tight">
-              <li>Sharpened public‑speaking and narrative craft through stage.</li>
+              <li>Sharpened public-speaking and narrative craft through stage.</li>
             </ul>
           </article>
         </div>
@@ -252,7 +233,7 @@
       <div class="wrap">
         <h2>Research & Working Papers</h2>
         <ul class="bullets">
-          <li><strong>Linguistic Signals of Sunk‑Cost Fallacy in Earnings Calls</strong> — Predicting future losses in Indian firms.</li>
+          <li><strong>Linguistic Signals of Sunk-Cost Fallacy in Earnings Calls</strong> — Predicting future losses in Indian firms.</li>
           <li><strong>AI & Blockchain Synergy in Green Supply Chains</strong> — Traceability, data assurance, and incentives.</li>
           <li><strong>IndustriAI Conference — IIT Madras (Working Paper)</strong> — Accepted for presentation.</li>
         </ul>
@@ -292,7 +273,7 @@
         </div>
 
         <ul class="chips">
-          <li>Problem‑solving</li><li>Analytical reasoning</li><li>Critical thinking</li><li>Adaptability</li><li>EQ</li>
+          <li>Problem-solving</li><li>Analytical reasoning</li><li>Critical thinking</li><li>Adaptability</li><li>EQ</li>
           <li>Excel</li><li>Power BI</li><li>Tableau</li><li>Python</li><li>Scraping</li><li>Prompt & systems design</li>
         </ul>
       </div>
@@ -302,11 +283,11 @@
     <section id="writing" class="section">
       <div class="wrap">
         <h2>Writing & Thought Leadership</h2>
-        <p>Drafting a <strong>self‑introspection book</strong> based on structured reflections; I’ve filled <strong>12 notebooks</strong> and publish articles-in-progress on decision‑making and learning systems.</p>
+        <p>Drafting a <strong>self-introspection book</strong> based on structured reflections; I’ve filled <strong>12 notebooks</strong> and publish articles-in-progress on decision-making and learning systems.</p>
         <ul class="bullets">
           <li><em>Why Neutral Sentiment Often Hides Risk in Bank Earnings Calls</em></li>
-          <li><em>A Student’s Guide to Peer‑Learning Systems That Actually Work</em></li>
-          <li><em>Bias‑Aware Dashboards: Turning Text into Trade‑relevant Signals</em></li>
+          <li><em>A Student’s Guide to Peer-Learning Systems That Actually Work</em></li>
+          <li><em>Bias-Aware Dashboards: Turning Text into Trade-relevant Signals</em></li>
           <li><em>From Theatre to Consulting: Communication Lessons that Travel</em></li>
         </ul>
       </div>
@@ -337,6 +318,28 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <!-- Your site JS -->
+  <script src="script.js"></script>
+
+  <!-- Interstellar Black Hole — v5 (load & mount once) -->
+  <script src="js/blackhole-interstellar-v5.js"></script>
+  <script>
+    (function () {
+      const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+      window.InterstellarBH.mount({
+        selector: "#bh-hero",
+        heightVh: isMobile ? 84 : 92,
+        accent: "#ffd8a8",
+        quality: "auto",      // low | auto | high
+        beamStrength: 0.72,   // approaching-side glow
+        lensStrength: 1.0,    // halo strength
+        speed: 1.1,           // swirl rate
+        diskInner: 1.18,
+        diskOuter: 3.4,
+        sensitivity: 0.14,
+        controls: false       // set true to show tiny ⚙️ panel
+      });
+    })();
+  </script>
 </body>
 </html>
