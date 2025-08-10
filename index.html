@@ -16,6 +16,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Decorative Black Hole Hero (no dependencies) -->
+<section id="bh-hero" class="hero3d-bh" aria-hidden="true">
+  <div class="bh-fallback"><div class="bh-stars"></div></div>
+</section>
+
+<script src="./js/blackhole-hero.js"></script>
+<script>
+  // Mount after the section; uses pure WebGL, no CDN.
+  window.BlackHoleHero.mount({
+    selector: "#bh-hero",
+    heightVh: 78,
+    accent: "#64ffda",     // tweak color to taste
+    pixelRatioCap: 1.5
+  });
+</script>
+
   <!-- JWST-inspired cursor (7 hex mirrors + ring) -->
   <div id="jwst-cursor" aria-hidden="true">
     <div class="ring"></div>
