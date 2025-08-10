@@ -1,4 +1,3 @@
-
 /*! Interstellar Black Hole — v5 (pure WebGL, no deps)
  *  Features:
  *   - Relativistic beaming (tunable)
@@ -36,6 +35,7 @@
   precision highp float;
   out vec2 vUv;
   void main(){
+    // Fullscreen triangle via gl_VertexID (WebGL2)
     vec2 pos = vec2((gl_VertexID << 1) & 2, gl_VertexID & 2);
     vUv = pos;
     gl_Position = vec4(pos * 2.0 - 1.0, 0.0, 1.0);
@@ -56,28 +56,37 @@
   uniform float u_diskIn;  // disk inner radius
   uniform float u_diskOut; // disk outer radius
 
-  const float rH = 0.55;   // event horizon radius
-  const float rPh = 0.85;  // photon ring hint radius
-  const float focal = 1.9; // camera focal length
+  // Event horizon, photon ring, camera focal length
+  const float rH   = 0.55;
+  const float rPh  = 0.85;
+  const float focal= 1.9;
 
+  // --- helpers ---
   float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453123); }
   float noise(vec2 p){
-    vec2 i = floor(p), f = fract(p);
-    float a = hash(i);
-    float b = hash(i + vec2(1.,0.));
-    float c = hash(i + vec2(0.,1.));
-    float d = hash(i + vec2(1.,1.));
-    vec2 u = f * f * (3. - 2. * f);
-    return mix(a,b,u.x) + (c-a)*u.y*(1.-u.x) + (d-b)*u.x*u.y;
+    vec2 i=floor(p), f=fract(p);
+    float a=hash(i), b=hash(i+vec2(1.,0.)), c=hash(i+vec2(0.,1.)), d=hash(i+vec2(1.,1.));
+    vec2 u=f*f*(3.-2.*f);
+    return mix(a,b,u.x)+(c-a)*u.y*(1.-u.x)+(d-b)*u.x*u.y;
   }
   mat3 rotX(float a){ float s=sin(a), c=cos(a); return mat3(1.,0.,0., 0.,c,-s, 0.,s,c); }
   mat3 rotY(float a){ float s=sin(a), c=cos(a); return mat3(c,0.,s, 0.,1.,0., -s,0.,c); }
+
+  float lineToPointDistance(vec3 ro, vec3 rd, vec3 p){
+    return length(cross(p - ro, rd)) / max(length(rd), 1e-5);
+  }
+  bool rayPlane(vec3 ro, vec3 rd, vec3 n, float d, out float t){
+    float dn = dot(rd, n);
+    if (abs(dn) < 1e-4) return false;
+    t = -(dot(ro, n) + d) / dn;
+    return t > 0.0;
+  }
 
   vec3 diskShade(vec3 pos, vec3 n, vec3 viewDir, vec3 accent, float diskIn, float diskOut, float speed){
     vec3 u = normalize(pos - dot(pos, n) * n); // radial in plane
     vec3 t = normalize(cross(n, u));           // tangent (orbital)
     float doppler = max(0.0, 1.0 + u_beam * dot(t, viewDir));
-    float boost = pow(doppler, 3.0);           // cinematic beaming
+    float boost = pow(doppler, 3.0);
 
     float R = length(u * dot(pos, u));
     float ring = smoothstep(diskIn, diskIn+0.25, R) * smoothstep(diskOut, diskOut-0.35, R);
@@ -90,6 +99,80 @@
     return col * ring * boost;
   }
 
+  void main(){
+    // Screen coords -> camera ray
+    vec2 p = vUv * 2.0 - 1.0;
+    p.x *= u_res.x / u_res.y;
+
+    vec3 ro = vec3(0.0, 0.0, 3.0);
+    vec3 rd = normalize(vec3(p, -focal));
+
+    // Mouse tilt (edge-on like Interstellar)
+    float yaw = u_mouse.x * 0.35;
+    float pitch = -u_mouse.y * 0.22;
+    rd = rotY(yaw) * rotX(pitch) * rd;
+    ro = rotY(yaw) * rotX(pitch) * ro;
+
+    // Disk plane (slightly tilted)
+    vec3 nDisk = normalize(rotX(0.35) * vec3(0.0, 1.0, 0.0));
+
+    // Space background (subtle structured starfield)
+    vec2 sp = p * 1.8 + vec2(u_time * 0.02, 0.0);
+    float stars = 0.0;
+    for (int i=0;i<3;i++){
+      stars += smoothstep(0.85, 1.0, noise(sp*(3.0+float(i)*1.7))) * (0.20 + float(i)*0.13);
+      sp *= 1.6;
+    }
+    vec3 col = vec3(0.02, 0.05, 0.11) + stars * vec3(0.7,0.8,1.0) * 0.25;
+
+    // Impact parameter: if captured by horizon, paint black
+    float b = lineToPointDistance(ro, rd, vec3(0.0));
+    if (b < rH){ frag = vec4(0.0,0.0,0.0,1.0); return; }
+
+    // Direct disk image
+    float tHit;
+    if (rayPlane(ro, rd, nDisk, 0.0, tHit)){
+      vec3 hit = ro + rd * tHit;
+      float h = dot(hit, nDisk);
+      vec3 inPlane = hit - nDisk * h;
+      float R = length(inPlane);
+      if (R > u_diskIn && R < u_diskOut){
+        vec3 vdir = normalize(-rd);
+        col += diskShade(inPlane, nDisk, vdir, u_accent, u_diskIn, u_diskOut, u_speed) * 0.85;
+      }
+    }
+
+    // Lensed (bent) disk image
+    float alpha = clamp(u_lens / (b + 0.25), 0.0, 1.2);
+    vec3 toward = normalize(-ro);
+    vec3 rdBent = normalize(mix(rd, toward, alpha));
+    if (rayPlane(ro, rdBent, nDisk, 0.0, tHit)){
+      vec3 hit = ro + rdBent * tHit;
+      float h = dot(hit, nDisk);
+      vec3 inPlane = hit - nDisk * h;
+      float R = length(inPlane);
+      if (R > u_diskIn && R < u_diskOut){
+        vec3 vdir = normalize(-rdBent);
+        col += diskShade(inPlane, nDisk, vdir, u_accent, u_diskIn, u_diskOut, u_speed) * 0.45;
+      }
+    }
+
+    // Photon ring hint
+    float ring = smoothstep(rPh-0.02, rPh, b) * smoothstep(rPh+0.08, rPh+0.02, b);
+    col += u_accent * ring * 0.25;
+
+    // Vignette
+    float r = length(p);
+    col *= mix(0.85, 1.0, smoothstep(1.2, 0.1, r));
+
+    frag = vec4(col, 1.0);
+  }`;
+
+  function hexToRgb(hex){
+    const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return m ? [parseInt(m[1],16)/255, parseInt(m[2],16)/255, parseInt(m[3],16)/255] : [1, .85, .66];
+  }
+
   function mount(opts){
     const {
       selector = "#bh-hero",
@@ -97,7 +180,6 @@
       pixelRatioCap = 1.5,
       heightVh = 78,
       forceMotion = false,
-      // new
       quality = "auto",          // "low" | "auto" | "high"
       beamStrength = 0.65,       // 0.5–0.9
       lensStrength = 0.9,        // 0.6–1.2
@@ -122,18 +204,15 @@
       el.style.minHeight = "420px";
     }
 
-    const canvas = document.createElement("canvas");
+    // Require WebGL2 (GLSL 300 es). If missing, degrade gracefully.
+    const gl = el.appendChild(document.createElement("canvas"))
+      .getContext("webgl2", { antialias:true, alpha:true, premultipliedAlpha:false });
+    if (!gl){ console.warn("[InterstellarBH] WebGL2 not available — fallback stays"); return; }
+    const canvas = gl.canvas;
     canvas.style.position = "absolute"; canvas.style.inset = "0"; canvas.style.width = "100%"; canvas.style.height = "100%";
     canvas.setAttribute("aria-hidden","true");
-    el.appendChild(canvas);
 
-    const gl = canvas.getContext("webgl2", { antialias:true, alpha:true, premultipliedAlpha:false }) ||
-               canvas.getContext("webgl",  { antialias:true, alpha:true, premultipliedAlpha:false });
-    if (!gl){ console.warn("[InterstellarBH] No WebGL — fallback stays"); return; }
-
-    const VERT_SRC = VERT;
-    const FRAG_SRC = FRAG;
-    const prog = makeProgram(gl, VERT_SRC, FRAG_SRC); gl.useProgram(prog);
+    const prog = makeProgram(gl, VERT, FRAG); gl.useProgram(prog);
     const vao = gl.createVertexArray && gl.createVertexArray(); if (vao) gl.bindVertexArray(vao);
 
     const u_res   = gl.getUniformLocation(prog, "u_res");
@@ -146,10 +225,6 @@
     const u_dIn   = gl.getUniformLocation(prog, "u_diskIn");
     const u_dOut  = gl.getUniformLocation(prog, "u_diskOut");
 
-    function hexToRgb(hex){
-      const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-      return m ? [parseInt(m[1],16)/255, parseInt(m[2],16)/255, parseInt(m[3],16)/255] : [1, .85, .66];
-    }
     const [ar, ag, ab] = hexToRgb(accent); gl.uniform3f(u_acc, ar, ag, ab);
     gl.uniform1f(u_beam,  beamStrength);
     gl.uniform1f(u_lens,  lensStrength);
@@ -157,7 +232,7 @@
     gl.uniform1f(u_dIn,   diskInner);
     gl.uniform1f(u_dOut,  diskOuter);
 
-    // Quality -> pixel ratio cap
+    // Quality → pixel ratio cap
     let cap = pixelRatioCap;
     if (quality === "high") cap = Math.max(cap, 2.0);
     if (quality === "low")  cap = Math.min(cap, 1.25);
@@ -174,8 +249,9 @@
       const h = Math.max(1, Math.floor(el.clientHeight * ratio));
       if (canvas.width !== w || canvas.height !== h){ canvas.width = w; canvas.height = h; }
       gl.viewport(0,0,w,h);
-      gl.uniform2f(u_res, w, h);
+      gl.uniform2f(u_res, float(w), float(h));
     }
+    function float(v){ return v; }
     resize(); window.addEventListener("resize", resize);
 
     // Input
