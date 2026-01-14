@@ -199,154 +199,567 @@
     <section id="projects" class="section">
       <div class="wrap">
         <h2 class="reveal">Signature Projects</h2>
+        <p class="section-subtitle muted">Building products with real users and publishing research with measurable impact</p>
         <div class="tabs" role="tablist" aria-label="Projects">
-          <button role="tab" aria-selected="true" aria-controls="p1" id="t1" class="tab" data-magnet>Cosmos</button>
-          <button role="tab" aria-selected="false" aria-controls="p2" id="t2" class="tab" data-magnet>SEC Bias Detection</button>
-          <button role="tab" aria-selected="false" aria-controls="p3" id="t3" class="tab" data-magnet>FinSight</button>
-          <button role="tab" aria-selected="false" aria-controls="p4" id="t4" class="tab" data-magnet>Stock Bubble Detection</button>
-          <button role="tab" aria-selected="false" aria-controls="p5" id="t5" class="tab" data-magnet>HR Analytics Dashboard</button>
+          <button role="tab" aria-selected="true" aria-controls="p1" id="t1" class="tab" data-magnet>
+            <span class="tab-icon">&#127759;</span>Cosmos
+            <span class="tab-status live">Live</span>
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="p2" id="t2" class="tab" data-magnet>
+            <span class="tab-icon">&#129504;</span>SEC Bias Detection
+            <span class="tab-status research">Research</span>
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="p3" id="t3" class="tab" data-magnet>
+            <span class="tab-icon">&#128200;</span>FinSight
+            <span class="tab-status building">Building</span>
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="p4" id="t4" class="tab" data-magnet>
+            <span class="tab-icon">&#128202;</span>Stock Bubble Detection
+            <span class="tab-status completed">Completed</span>
+          </button>
+          <button role="tab" aria-selected="false" aria-controls="p5" id="t5" class="tab" data-magnet>
+            <span class="tab-icon">&#128101;</span>HR Analytics
+            <span class="tab-status completed">Completed</span>
+          </button>
         </div>
         <div class="panels">
           <!-- COSMOS -->
-          <section role="tabpanel" id="p1" aria-labelledby="t1" class="panel-card show holo">
-            <h3>Cosmos — Peer Learning Platform</h3>
-            <p class="muted small">Founder & Developer · Aug 2024 – Present · React, Firebase, Real-time Sync</p>
-            
-            <p><strong>The Problem:</strong> Every year, thousands of CS students in India grind 8-10 hours daily—solving DSA problems, building projects, preparing for interviews. Most don't get the internship. Not because they lack effort, but because <em>effort without feedback is noise</em>.</p>
-            
-            <p>Students don't know which hours actually moved the needle, whether their "progress" is real or performative, or how their preparation compares to peers who succeeded. Traditional solutions fail: mentors don't scale, communities become noise, accountability apps track tasks—not outcomes.</p>
-            
-            <p class="panel-title" style="margin-top:1rem;">The Thesis: Evidence-Based Design</p>
-            <p>I spent weeks reviewing <strong>15+ peer-reviewed papers</strong> on learning science. The evidence pointed to specific mechanisms:</p>
-            <ul class="list tight">
-              <li><strong>Retrieval practice (d = 0.70):</strong> Daily proof submissions, not just check-ins</li>
-              <li><strong>Implementation intentions (d = 0.65):</strong> Goal-setting tied to specific actions</li>
-              <li><strong>Cooperative learning (d = 0.40):</strong> Pod-based peer feedback loops</li>
-              <li><strong>Public commitment:</strong> Weekly reflections shared with pod</li>
-            </ul>
-            <p>Most "accountability" apps ignore this research. They gamify streaks without understanding why streaks sometimes work—and when they backfire.</p>
-            
-            <p class="panel-title" style="margin-top:1rem;">The Product</p>
-            <p>Cosmos organizes students into <strong>pods</strong>—micro-communities of 5-8 people with similar goals (e.g., "SDE internship at product companies, Summer 2026"). Each pod runs on a weekly rhythm:</p>
-            <ul class="list tight">
-              <li><strong>Daily proof submissions:</strong> Not "I studied 4 hours" but "Here's the problem I solved, here's where I got stuck"</li>
-              <li><strong>Peer feedback:</strong> Pod members review each other's work, catch blind spots</li>
-              <li><strong>Streak tracking:</strong> Consistency signals, not vanity metrics</li>
-              <li><strong>Weekly reflections:</strong> What worked? What didn't? Shared transparently</li>
-            </ul>
-            <p>No instructors. No courses. Just structured peer pressure from people who understand your exact situation.</p>
-            
-            <p class="panel-title" style="margin-top:1rem;">Technical Implementation</p>
-            <ul class="list tight">
-              <li><strong>Frontend:</strong> React with Vite for fast iteration</li>
-              <li><strong>Backend:</strong> Firebase (Firestore for real-time sync, Auth for user management, Hosting)</li>
-              <li><strong>Key systems:</strong> Real-time pod activity feeds, streak calculation with timezone handling, proper session management</li>
-              <li><strong>Security incident & recovery:</strong> Accidentally exposed API keys in public commit. Detected within hours, rotated credentials, rebuilt deployment pipeline with proper key restrictions via Google Cloud Console. Documented incident and prevention measures.</li>
-            </ul>
-            
-            <p class="panel-title" style="margin-top:1rem;">Current State & Honest Challenges</p>
-            <p><strong>30 beta pods</strong>—but facing the classic cold start problem. Empty pods kill retention: student joins, sees no activity, leaves. Death spiral.</p>
-            <p>What I'm iterating on: consolidating to 1-3 genuinely active pods before scaling, community-led growth via existing WhatsApp/Telegram groups, activation mechanics—what gets a new member to post within 24 hours?</p>
-            <p><em>This is the hardest part of building a community product. No amount of features fixes an empty room.</em></p>
-            
-            <p class="panel-title" style="margin-top:1rem;">What's Next</p>
-            <p><strong>AI-powered journal analysis (planned):</strong> Integrating Gemini API to surface patterns—"You've spent 60% of time on easy problems" or "Your stuck points cluster around dynamic programming." The goal: make effort legible.</p>
-            
+          <section role="tabpanel" id="p1" aria-labelledby="t1" class="panel-card show holo project-journey" data-project="cosmos">
+            <!-- Project Hero -->
+            <div class="project-hero journey-step" data-step="0">
+              <div class="project-title-animated">
+                <h3 class="typewriter-title" data-text="Cosmos — Peer Learning Platform">Cosmos — Peer Learning Platform</h3>
+                <span class="project-badge product pulse-badge">Product</span>
+              </div>
+              <p class="project-tagline muted small">Founder & Developer · Aug 2024 – Present</p>
+
+              <!-- Animated Metrics -->
+              <div class="metrics-showcase">
+                <div class="metric-card glass">
+                  <span class="metric-number counter" data-target="30">0</span>
+                  <span class="metric-label">Beta Pods</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number counter" data-target="15">0</span>
+                  <span class="metric-label">Papers Reviewed</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number">5-8</span>
+                  <span class="metric-label">Students/Pod</span>
+                  <div class="metric-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Journey Timeline -->
+            <div class="journey-timeline">
+              <div class="timeline-track">
+                <div class="timeline-progress"></div>
+              </div>
+              <div class="timeline-markers">
+                <button class="timeline-marker active" data-target="problem"><span>01</span>Problem</button>
+                <button class="timeline-marker" data-target="insight"><span>02</span>Insight</button>
+                <button class="timeline-marker" data-target="solution"><span>03</span>Solution</button>
+                <button class="timeline-marker" data-target="impact"><span>04</span>Impact</button>
+              </div>
+            </div>
+
+            <!-- Journey Steps -->
+            <div class="journey-content">
+              <!-- PROBLEM -->
+              <div class="journey-step active" data-section="problem">
+                <div class="step-header">
+                  <span class="step-number">01</span>
+                  <h4 class="step-title">The Problem</h4>
+                  <span class="step-icon">&#128161;</span>
+                </div>
+                <div class="step-content stagger-children">
+                  <p class="highlight-text typewriter-text">"Effort without feedback is noise."</p>
+                  <p>Every year, thousands of CS students in India grind <strong class="counter-inline" data-target="8">0</strong>-10 hours daily—solving DSA problems, building projects, preparing for interviews. Most don't get the internship.</p>
+                  <div class="insight-box">
+                    <span class="insight-icon">&#10067;</span>
+                    <div>
+                      <p><strong>The core issue:</strong> Students don't know which hours actually moved the needle, whether their "progress" is real or performative, or how their preparation compares to peers who succeeded.</p>
+                    </div>
+                  </div>
+                  <p class="fade-in-text">Traditional solutions fail: mentors don't scale, communities become noise, accountability apps track tasks—not outcomes.</p>
+                </div>
+              </div>
+
+              <!-- INSIGHT -->
+              <div class="journey-step" data-section="insight">
+                <div class="step-header">
+                  <span class="step-number">02</span>
+                  <h4 class="step-title">The Insight</h4>
+                  <span class="step-icon">&#129504;</span>
+                </div>
+                <div class="step-content stagger-children">
+                  <p class="highlight-text">Evidence-Based Design from Learning Science</p>
+                  <p>I spent weeks reviewing <strong>15+ peer-reviewed papers</strong> on learning science. The evidence pointed to specific mechanisms:</p>
+                  <div class="evidence-grid">
+                    <div class="evidence-card" data-delay="0">
+                      <div class="evidence-effect">d = 0.70</div>
+                      <h5>Retrieval Practice</h5>
+                      <p>Daily proof submissions, not just check-ins</p>
+                    </div>
+                    <div class="evidence-card" data-delay="1">
+                      <div class="evidence-effect">d = 0.65</div>
+                      <h5>Implementation Intentions</h5>
+                      <p>Goal-setting tied to specific actions</p>
+                    </div>
+                    <div class="evidence-card" data-delay="2">
+                      <div class="evidence-effect">d = 0.40</div>
+                      <h5>Cooperative Learning</h5>
+                      <p>Pod-based peer feedback loops</p>
+                    </div>
+                    <div class="evidence-card" data-delay="3">
+                      <div class="evidence-effect">&#10003;</div>
+                      <h5>Public Commitment</h5>
+                      <p>Weekly reflections shared with pod</p>
+                    </div>
+                  </div>
+                  <p class="critique-text"><em>Most "accountability" apps ignore this research. They gamify streaks without understanding why streaks sometimes work—and when they backfire.</em></p>
+                </div>
+              </div>
+
+              <!-- SOLUTION -->
+              <div class="journey-step" data-section="solution">
+                <div class="step-header">
+                  <span class="step-number">03</span>
+                  <h4 class="step-title">The Solution</h4>
+                  <span class="step-icon">&#128736;</span>
+                </div>
+                <div class="step-content stagger-children">
+                  <p class="highlight-text">Pods: Micro-communities with shared goals</p>
+                  <p>Cosmos organizes students into <strong>pods</strong>—micro-communities of 5-8 people with similar goals. Each pod runs on a weekly rhythm:</p>
+
+                  <div class="feature-flow">
+                    <div class="feature-node" data-delay="0">
+                      <div class="node-icon">&#128221;</div>
+                      <h5>Daily Proof Submissions</h5>
+                      <p>Not "I studied 4 hours" but "Here's the problem I solved, here's where I got stuck"</p>
+                    </div>
+                    <div class="flow-connector"></div>
+                    <div class="feature-node" data-delay="1">
+                      <div class="node-icon">&#128101;</div>
+                      <h5>Peer Feedback</h5>
+                      <p>Pod members review each other's work, catch blind spots</p>
+                    </div>
+                    <div class="flow-connector"></div>
+                    <div class="feature-node" data-delay="2">
+                      <div class="node-icon">&#128293;</div>
+                      <h5>Streak Tracking</h5>
+                      <p>Consistency signals, not vanity metrics</p>
+                    </div>
+                    <div class="flow-connector"></div>
+                    <div class="feature-node" data-delay="3">
+                      <div class="node-icon">&#128172;</div>
+                      <h5>Weekly Reflections</h5>
+                      <p>What worked? What didn't? Shared transparently</p>
+                    </div>
+                  </div>
+
+                  <div class="tech-stack-animated">
+                    <h5>Technical Stack</h5>
+                    <div class="stack-items">
+                      <span class="stack-item" data-delay="0">React + Vite</span>
+                      <span class="stack-item" data-delay="1">Firebase</span>
+                      <span class="stack-item" data-delay="2">Real-time Sync</span>
+                      <span class="stack-item" data-delay="3">Auth System</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- IMPACT -->
+              <div class="journey-step" data-section="impact">
+                <div class="step-header">
+                  <span class="step-number">04</span>
+                  <h4 class="step-title">Impact & Next</h4>
+                  <span class="step-icon">&#128640;</span>
+                </div>
+                <div class="step-content stagger-children">
+                  <div class="status-banner building">
+                    <span class="status-pulse"></span>
+                    <span>Currently Building</span>
+                  </div>
+
+                  <div class="impact-metrics">
+                    <div class="impact-card">
+                      <span class="impact-number counter" data-target="30">0</span>
+                      <span class="impact-label">Beta Pods Active</span>
+                    </div>
+                    <div class="impact-card challenge">
+                      <span class="impact-icon">&#9888;</span>
+                      <span class="impact-label">Cold Start Problem</span>
+                    </div>
+                  </div>
+
+                  <div class="honest-section">
+                    <h5>Honest Challenges</h5>
+                    <p>Empty pods kill retention: student joins, sees no activity, leaves. Death spiral.</p>
+                    <p><strong>What I'm iterating on:</strong> Consolidating to 1-3 genuinely active pods before scaling, community-led growth via existing WhatsApp/Telegram groups, activation mechanics.</p>
+                    <p class="wisdom-quote"><em>"This is the hardest part of building a community product. No amount of features fixes an empty room."</em></p>
+                  </div>
+
+                  <div class="future-box">
+                    <h5>&#128302; What's Next</h5>
+                    <p><strong>AI-powered journal analysis:</strong> Integrating Gemini API to surface patterns—"You've spent 60% of time on easy problems" or "Your stuck points cluster around dynamic programming."</p>
+                    <p class="goal-text">The goal: <span class="typewriter-inline">make effort legible.</span></p>
+                  </div>
+
+                  <div class="project-cta">
+                    <a href="https://cosmos-e42b5.web.app/" target="_blank" rel="noopener" class="btn primary cta-animated">
+                      <span>View Live</span>
+                      <span class="cta-arrow">&#8594;</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="tags"><span>React</span><span>Firebase</span><span>Real-time Sync</span><span>Learning Science</span><span>Community Product</span></div>
-            <p style="margin-top:.8rem;">
-              <a href="https://cosmos-e42b5.web.app/" target="_blank" rel="noopener" class="btn primary" style="padding:.4rem .7rem; font-size:.85rem;">View Live →</a>
-            </p>
           </section>
 
           <!-- SEC BIAS DETECTION -->
-          <section role="tabpanel" id="p2" aria-labelledby="t2" class="panel-card holo">
-            <h3>Sunk Cost Fallacy Detection in SEC Filings</h3>
-            <p class="muted small">Python, Claude AI, SEC EDGAR, NLP</p>
-            <p>AI system to detect cognitive biases in corporate MD&A disclosures—validated against real financial outcomes.</p>
-            <ul class="list tight">
-              <li>Validated against <strong>$6.5B+ in subsequent write-offs</strong> across NVIDIA and Alphabet (FY2022-2025)</li>
-              <li>Built <strong>three-stage detection pipeline</strong>: Llama 3.1 → Claude AI → human verification</li>
-              <li>Identified <strong>6 SCF instances in NVIDIA</strong> preceding $1.4B inventory provisions and <strong>2 in Alphabet</strong> preceding $5.1B equity losses</li>
-              <li>Discovered struggling firms exhibit <strong>2-3x higher SCF rates</strong> than stable companies</li>
-              <li>Established that <strong>8B-parameter models lack reasoning capacity</strong> for cognitive bias detection</li>
-              <li><strong>Targeting publication</strong> via Miami Behavioral Finance Conference → Journal of Finance / RFS</li>
-            </ul>
+          <section role="tabpanel" id="p2" aria-labelledby="t2" class="panel-card holo project-journey" data-project="sec">
+            <div class="project-hero journey-step" data-step="0">
+              <div class="project-title-animated">
+                <h3 class="typewriter-title" data-text="Sunk Cost Fallacy Detection in SEC Filings">Sunk Cost Fallacy Detection in SEC Filings</h3>
+                <span class="project-badge research pulse-badge">Research</span>
+              </div>
+              <p class="project-tagline muted small">Python, Claude AI, SEC EDGAR, NLP</p>
+
+              <div class="metrics-showcase">
+                <div class="metric-card glass highlight">
+                  <span class="metric-number">$6.5B+</span>
+                  <span class="metric-label">Validated Against</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number counter" data-target="8">0</span>
+                  <span class="metric-label">SCF Instances</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number">2-3x</span>
+                  <span class="metric-label">Higher in Struggling Firms</span>
+                  <div class="metric-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="compact-journey stagger-children">
+              <div class="journey-block" data-delay="0">
+                <div class="block-marker">&#129504;</div>
+                <div class="block-content">
+                  <h5>The Question</h5>
+                  <p class="highlight-text typewriter-text">"Can AI detect cognitive biases in corporate disclosures before they become costly?"</p>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="1">
+                <div class="block-marker">&#128269;</div>
+                <div class="block-content">
+                  <h5>The Method</h5>
+                  <div class="pipeline-flow">
+                    <span class="pipeline-node">Llama 3.1</span>
+                    <span class="pipeline-arrow">&#8594;</span>
+                    <span class="pipeline-node active">Claude AI</span>
+                    <span class="pipeline-arrow">&#8594;</span>
+                    <span class="pipeline-node">Human Verification</span>
+                  </div>
+                  <p class="muted small">Three-stage detection pipeline for cognitive bias identification</p>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="2">
+                <div class="block-marker">&#128200;</div>
+                <div class="block-content">
+                  <h5>Key Findings</h5>
+                  <div class="findings-grid">
+                    <div class="finding-item">
+                      <span class="finding-company">NVIDIA</span>
+                      <span class="finding-stat">6 SCF instances</span>
+                      <span class="finding-result">$1.4B inventory provisions</span>
+                    </div>
+                    <div class="finding-item">
+                      <span class="finding-company">Alphabet</span>
+                      <span class="finding-stat">2 SCF instances</span>
+                      <span class="finding-result">$5.1B equity losses</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="3">
+                <div class="block-marker">&#127919;</div>
+                <div class="block-content">
+                  <h5>Publication Target</h5>
+                  <div class="publication-path">
+                    <span class="pub-step">Miami Behavioral Finance Conference</span>
+                    <span class="pub-arrow">&#8594;</span>
+                    <span class="pub-step target">Journal of Finance / RFS</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="tags"><span>Python</span><span>NLP</span><span>Claude AI</span><span>SEC EDGAR</span><span>Behavioral Finance</span></div>
           </section>
 
           <!-- FINSIGHT -->
-          <section role="tabpanel" id="p3" aria-labelledby="t3" class="panel-card holo">
-            <h3>FinSight — Market Anomaly Detection for Retail Traders</h3>
-            <p class="muted small">Python, FastAPI, PostgreSQL, JWT Auth</p>
-            
-            <p><strong>The Problem:</strong> Retail traders compete against hedge funds with sophisticated tools that detect market anomalies before they become obvious. These institutional tools cost thousands per month and require analyst teams. The average person has no access to this intelligence.</p>
-            
-            <p><strong>What FinSight Does:</strong> AI-powered platform bringing institutional-grade anomaly detection to retail traders—watching markets across multiple timeframes and alerting when something unusual happens.</p>
-            
-            <p class="panel-title" style="margin-top:1rem;">How It Works</p>
-            <ul class="list tight">
-              <li><strong>Multi-Timeframe Anomaly Detection:</strong> Analyzes patterns across daily, weekly, and monthly horizons simultaneously—a stock might look normal daily but show warning signs weekly</li>
-              <li><strong>Causal Learning Algorithms:</strong> Understands <em>why</em> anomalies occur, not just correlations—reducing false positives</li>
-              <li><strong>Agent-Based Decision System:</strong> Multiple specialized "agents" focus on different market behaviors; collective judgment outperforms any single approach</li>
-              <li><strong>Composite Confidence Scoring:</strong> Every signal includes strength evidence—helping prioritize which anomalies deserve attention</li>
-            </ul>
-            
-            <p class="panel-title" style="margin-top:1rem;">Technical Implementation</p>
-            <ul class="list tight">
-              <li><strong>Backend:</strong> FastAPI (Python) with async architecture for concurrent requests</li>
-              <li><strong>Database:</strong> PostgreSQL with asyncpg—stores accounts, watchlists, signal history</li>
-              <li><strong>Auth:</strong> JWT-based token system for secure sessions</li>
-              <li><strong>API:</strong> RESTful routes for auth, signals, watchlist management, user profiles</li>
-              <li><strong>Frontend:</strong> Single HTML file with Tailwind CSS—no build process, deploys anywhere</li>
-            </ul>
-            
-            <p class="panel-title" style="margin-top:1rem;">The Journey</p>
-            <p>Started as a CLI tool with hardcoded user ID. Rebuilt from ground up into multi-user web platform: fixed SQL injection vulnerabilities, built user management, created HTTP API layer, designed zero-dependency frontend.</p>
-            
-            <p><strong>Status:</strong> Functional API, user auth, watchlist management, signal delivery. Ready for cloud deployment (Railway + Vercel + Supabase on free tiers).</p>
-            
+          <section role="tabpanel" id="p3" aria-labelledby="t3" class="panel-card holo project-journey" data-project="finsight">
+            <div class="project-hero journey-step" data-step="0">
+              <div class="project-title-animated">
+                <h3 class="typewriter-title" data-text="FinSight — Market Anomaly Detection">FinSight — Market Anomaly Detection</h3>
+                <span class="project-badge fintech pulse-badge">FinTech</span>
+              </div>
+              <p class="project-tagline muted small">Python, FastAPI, PostgreSQL, JWT Auth</p>
+
+              <div class="metrics-showcase">
+                <div class="metric-card glass">
+                  <span class="metric-number">Multi</span>
+                  <span class="metric-label">Timeframe Analysis</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number">AI</span>
+                  <span class="metric-label">Agent System</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number">Async</span>
+                  <span class="metric-label">Architecture</span>
+                  <div class="metric-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="compact-journey stagger-children">
+              <div class="journey-block" data-delay="0">
+                <div class="block-marker">&#128161;</div>
+                <div class="block-content">
+                  <h5>The Problem</h5>
+                  <p class="highlight-text typewriter-text">"Retail traders compete with institutional tools costing thousands per month."</p>
+                  <p class="muted small">Hedge funds detect anomalies before they become obvious. The average person has no access to this intelligence.</p>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="1">
+                <div class="block-marker">&#129504;</div>
+                <div class="block-content">
+                  <h5>The Solution</h5>
+                  <p>Institutional-grade anomaly detection for retail traders.</p>
+                  <div class="feature-pills">
+                    <span class="feature-pill" data-delay="0">Multi-Timeframe Detection</span>
+                    <span class="feature-pill" data-delay="1">Causal Learning</span>
+                    <span class="feature-pill" data-delay="2">Agent-Based Decisions</span>
+                    <span class="feature-pill" data-delay="3">Confidence Scoring</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="2">
+                <div class="block-marker">&#128736;</div>
+                <div class="block-content">
+                  <h5>Architecture</h5>
+                  <div class="arch-diagram">
+                    <div class="arch-layer">
+                      <span class="arch-label">Frontend</span>
+                      <span class="arch-tech">Tailwind CSS</span>
+                    </div>
+                    <div class="arch-connector">&#8595;</div>
+                    <div class="arch-layer">
+                      <span class="arch-label">API</span>
+                      <span class="arch-tech">FastAPI + JWT</span>
+                    </div>
+                    <div class="arch-connector">&#8595;</div>
+                    <div class="arch-layer">
+                      <span class="arch-label">Database</span>
+                      <span class="arch-tech">PostgreSQL + asyncpg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="3">
+                <div class="block-marker">&#128640;</div>
+                <div class="block-content">
+                  <h5>Evolution</h5>
+                  <div class="evolution-timeline">
+                    <div class="evo-step past">CLI Tool</div>
+                    <div class="evo-arrow">&#8594;</div>
+                    <div class="evo-step past">Fixed Security</div>
+                    <div class="evo-arrow">&#8594;</div>
+                    <div class="evo-step current">Multi-user Platform</div>
+                    <div class="evo-arrow">&#8594;</div>
+                    <div class="evo-step future">Cloud Deploy</div>
+                  </div>
+                  <div class="status-banner ready">
+                    <span class="status-pulse"></span>
+                    <span>Ready for Deployment</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>JWT Auth</span><span>Async</span><span>FinTech</span></div>
           </section>
 
           <!-- STOCK BUBBLE DETECTION -->
-          <section role="tabpanel" id="p4" aria-labelledby="t4" class="panel-card holo">
-            <h3>AI-Driven Stock Bubble Detection</h3>
-            <p class="muted small">Python, Econometrics</p>
-            <p>Econometric research on speculative asset pricing using Nobel Prize-winning methodology.</p>
-            <ul class="list tight">
-              <li>Applied <strong>Phillips-Shi-Yu methodology</strong> (Nobel Prize-winning econometric approach) to detect explosive price behavior</li>
-              <li>Analyzed <strong>7 major tech stocks</strong>: NVIDIA, Tesla, Meta, and others</li>
-              <li>Presented <strong>graduate-level quantitative research</strong> demonstrating predictive framework for identifying speculative pricing patterns</li>
-            </ul>
+          <section role="tabpanel" id="p4" aria-labelledby="t4" class="panel-card holo project-journey" data-project="bubble">
+            <div class="project-hero journey-step" data-step="0">
+              <div class="project-title-animated">
+                <h3 class="typewriter-title" data-text="AI-Driven Stock Bubble Detection">AI-Driven Stock Bubble Detection</h3>
+                <span class="project-badge research pulse-badge">Research</span>
+              </div>
+              <p class="project-tagline muted small">Python, Econometrics</p>
+
+              <div class="metrics-showcase">
+                <div class="metric-card glass">
+                  <span class="metric-number counter" data-target="7">0</span>
+                  <span class="metric-label">Stocks Analyzed</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass highlight">
+                  <span class="metric-number">Nobel</span>
+                  <span class="metric-label">Prize Methodology</span>
+                  <div class="metric-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="compact-journey stagger-children">
+              <div class="journey-block" data-delay="0">
+                <div class="block-marker">&#127942;</div>
+                <div class="block-content">
+                  <h5>The Foundation</h5>
+                  <p class="highlight-text">"Phillips-Shi-Yu Methodology"</p>
+                  <p class="muted small">Nobel Prize-winning econometric approach to detect explosive price behavior in financial markets.</p>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="1">
+                <div class="block-marker">&#128202;</div>
+                <div class="block-content">
+                  <h5>Analysis Scope</h5>
+                  <div class="stock-grid">
+                    <span class="stock-chip">NVIDIA</span>
+                    <span class="stock-chip">Tesla</span>
+                    <span class="stock-chip">Meta</span>
+                    <span class="stock-chip">+4 more</span>
+                  </div>
+                  <p class="muted small">Graduate-level quantitative research on 7 major tech stocks</p>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="2">
+                <div class="block-marker">&#127919;</div>
+                <div class="block-content">
+                  <h5>Output</h5>
+                  <p>Predictive framework for identifying speculative pricing patterns before market corrections.</p>
+                  <div class="project-cta" style="margin-top:1rem;">
+                    <a href="https://www.linkedin.com/in/divyanshukumar27" target="_blank" rel="noopener" class="btn ghost cta-animated">
+                      <span>View LinkedIn Post</span>
+                      <span class="cta-arrow">&#8594;</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="tags"><span>Python</span><span>Econometrics</span><span>Phillips-Shi-Yu</span><span>Time Series</span></div>
-            <p style="margin-top:.8rem;"><a href="https://linkedin.com/in/divyanshukumar27" target="_blank" rel="noopener" class="btn ghost" style="padding:.4rem .7rem; font-size:.85rem;">View LinkedIn Post →</a></p>
           </section>
 
           <!-- HR ANALYTICS DASHBOARD -->
-          <section role="tabpanel" id="p5" aria-labelledby="t5" class="panel-card holo">
-            <h3>HR Analytics Dashboard — IIT Kanpur</h3>
-            <p class="muted small">Project Intern · E&ICT Academy, IIT Kanpur · May–Jul 2025 · 6 Weeks</p>
-            
-            <p class="panel-title">The Problem</p>
-            <p>HR teams at mid-sized organizations spend hours manually compiling reports from scattered spreadsheets. Leadership decisions on hiring, retention, and workforce planning happen without real-time visibility into key metrics.</p>
-            
-            <p class="panel-title">The Solution</p>
-            <p>Built a comprehensive HR Analytics Dashboard using Advanced Excel that transforms raw employee data into actionable insights—headcount trends, attrition analysis, department breakdowns, and performance distributions.</p>
-            
-            <p class="panel-title">Key Results</p>
-            <ul class="list tight">
-              <li>Reduced manual reporting time from <strong>4 hours to 15 minutes weekly</strong> (94% reduction)</li>
-              <li>Identified <strong>23% attrition spike in Q3</strong>, enabling targeted retention interventions</li>
-              <li>Dashboard serves <strong>200+ employee organization</strong> with automated refresh</li>
-            </ul>
-            
-            <p class="panel-title">Technical Implementation</p>
-            <ul class="list tight">
-              <li>Advanced Excel: XLOOKUP, INDEX-MATCH, dynamic arrays, conditional formatting</li>
-              <li>Data visualization: Interactive charts, slicers, pivot tables</li>
-              <li>Automated calculations: Turnover rates, tenure analysis, department metrics</li>
-            </ul>
-            
+          <section role="tabpanel" id="p5" aria-labelledby="t5" class="panel-card holo project-journey" data-project="hr">
+            <div class="project-hero journey-step" data-step="0">
+              <div class="project-title-animated">
+                <h3 class="typewriter-title" data-text="HR Analytics Dashboard — IIT Kanpur">HR Analytics Dashboard — IIT Kanpur</h3>
+                <span class="project-badge analytics pulse-badge">Analytics</span>
+              </div>
+              <p class="project-tagline muted small">Project Intern · E&ICT Academy, IIT Kanpur · May–Jul 2025 · 6 Weeks</p>
+
+              <div class="metrics-showcase">
+                <div class="metric-card glass highlight">
+                  <span class="metric-number counter" data-target="94" data-suffix="%">0</span>
+                  <span class="metric-label">Time Saved</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number counter" data-target="200" data-suffix="+">0</span>
+                  <span class="metric-label">Employees Served</span>
+                  <div class="metric-glow"></div>
+                </div>
+                <div class="metric-card glass">
+                  <span class="metric-number counter" data-target="23" data-suffix="%">0</span>
+                  <span class="metric-label">Attrition Identified</span>
+                  <div class="metric-glow"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="compact-journey stagger-children">
+              <div class="journey-block" data-delay="0">
+                <div class="block-marker">&#128161;</div>
+                <div class="block-content">
+                  <h5>The Problem</h5>
+                  <p class="highlight-text typewriter-text">"Hours spent on scattered spreadsheets. Zero real-time visibility."</p>
+                  <p class="muted small">Leadership decisions on hiring, retention, and workforce planning were flying blind.</p>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="1">
+                <div class="block-marker">&#128736;</div>
+                <div class="block-content">
+                  <h5>The Solution</h5>
+                  <p>Comprehensive HR Analytics Dashboard transforming raw data into actionable insights.</p>
+                  <div class="feature-pills">
+                    <span class="feature-pill">Headcount Trends</span>
+                    <span class="feature-pill">Attrition Analysis</span>
+                    <span class="feature-pill">Department Breakdowns</span>
+                    <span class="feature-pill">Performance Dist.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="2">
+                <div class="block-marker">&#128200;</div>
+                <div class="block-content">
+                  <h5>Impact</h5>
+                  <div class="impact-comparison">
+                    <div class="before">
+                      <span class="time-value">4 hours</span>
+                      <span class="time-label">Before</span>
+                    </div>
+                    <div class="transform-arrow">&#8594;</div>
+                    <div class="after">
+                      <span class="time-value">15 min</span>
+                      <span class="time-label">After</span>
+                    </div>
+                  </div>
+                  <p class="muted small">Weekly reporting time reduction</p>
+                </div>
+              </div>
+
+              <div class="journey-block" data-delay="3">
+                <div class="block-marker">&#9881;</div>
+                <div class="block-content">
+                  <h5>Tech Stack</h5>
+                  <div class="tech-pills">
+                    <span class="tech-pill">XLOOKUP</span>
+                    <span class="tech-pill">INDEX-MATCH</span>
+                    <span class="tech-pill">Dynamic Arrays</span>
+                    <span class="tech-pill">Pivot Tables</span>
+                    <span class="tech-pill">Slicers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="tags"><span>Excel</span><span>HR Analytics</span><span>Data Visualization</span><span>Power BI</span><span>Dashboard Design</span></div>
           </section>
         </div>
@@ -451,25 +864,71 @@
     <section id="research" class="section">
       <div class="wrap">
         <h2 class="reveal">Research & Working Papers</h2>
-        
-        <div class="panel holo" style="margin-bottom:1.2rem;">
-          <h3>Sunk Cost Fallacy Detection in SEC Filings</h3>
-          <p class="muted small">Status: Targeting Journal of Finance / RFS</p>
-          <p>Developing AI system to detect cognitive biases in corporate MD&A disclosures. Validated methodology against <strong>$6.5B+ in subsequent write-offs</strong> across NVIDIA and Alphabet. Building commercial application for M&A due diligence.</p>
+        <p class="section-subtitle muted">Academic research at the intersection of AI, behavioral finance, and sustainable systems</p>
+
+        <div class="research-grid">
+
+          <!-- Featured Research -->
+          <article class="research-card featured holo">
+            <div class="research-status-bar">
+              <span class="research-status targeting">Targeting Publication</span>
+              <span class="research-venue">Journal of Finance / RFS</span>
+            </div>
+            <div class="research-icon">&#129504;</div>
+            <h3>Sunk Cost Fallacy Detection in SEC Filings</h3>
+            <p class="research-meta">Behavioral Finance × AI × NLP</p>
+            <p>Developing AI system to detect cognitive biases in corporate MD&A disclosures. Validated methodology against <strong>$6.5B+ in subsequent write-offs</strong> across NVIDIA and Alphabet.</p>
+            <div class="research-highlights">
+              <div class="research-stat">
+                <span class="stat-number">$6.5B+</span>
+                <span class="stat-desc">Validated Against</span>
+              </div>
+              <div class="research-stat">
+                <span class="stat-number">8</span>
+                <span class="stat-desc">SCF Instances Found</span>
+              </div>
+              <div class="research-stat">
+                <span class="stat-number">2-3x</span>
+                <span class="stat-desc">Higher SCF in Struggling Firms</span>
+              </div>
+            </div>
+            <div class="research-tags">
+              <span>Python</span><span>Claude AI</span><span>SEC EDGAR</span><span>NLP</span>
+            </div>
+          </article>
+
+          <!-- Accepted Paper -->
+          <article class="research-card holo">
+            <div class="research-status-bar">
+              <span class="research-status accepted">Paper Accepted</span>
+              <span class="research-venue">IIT Madras</span>
+            </div>
+            <div class="research-icon">&#127891;</div>
+            <h3>IndustriAI Conference — IIT Madras</h3>
+            <p class="research-meta">AI Applications in Industry</p>
+            <p>Working paper accepted for presentation at IIT Madras conference on AI applications in industry. Exploring practical implementations of machine learning in industrial contexts.</p>
+            <div class="research-tags">
+              <span>AI</span><span>Industry 4.0</span><span>Machine Learning</span>
+            </div>
+          </article>
+
+          <!-- Presented Paper -->
+          <article class="research-card holo">
+            <div class="research-status-bar">
+              <span class="research-status presented">Presented</span>
+              <span class="research-venue">DigitBase 2024 · University of Malaysia</span>
+            </div>
+            <div class="research-icon">&#127793;</div>
+            <h3>AI & Blockchain Synergy in Green Supply Chains</h3>
+            <p class="research-meta">Sustainability × Blockchain × AI</p>
+            <p>Research on traceability, data assurance, and incentive mechanisms for sustainable supply chain management. Presented internationally at DigitBase 2024.</p>
+            <div class="research-tags">
+              <span>Blockchain</span><span>Sustainability</span><span>Supply Chain</span><span>AI</span>
+            </div>
+          </article>
+
         </div>
-        
-        <div class="panel holo" style="margin-bottom:1.2rem;">
-          <h3>IndustriAI Conference — IIT Madras</h3>
-          <p class="muted small">Status: Paper Accepted</p>
-          <p>Working paper accepted for presentation at IIT Madras conference on AI applications in industry.</p>
-        </div>
-        
-        <div class="panel holo">
-          <h3>AI & Blockchain Synergy in Green Supply Chains</h3>
-          <p class="muted small">Status: Presented at DigitBase 2024, University of Malaysia</p>
-          <p>Research on traceability, data assurance, and incentive mechanisms for sustainable supply chain management.</p>
-        </div>
-        
+
       </div>
     </section>
 
@@ -655,7 +1114,7 @@
             <button class="btn primary" data-copy="divyanshu@nova-cosmos.com">Copy Email</button>
             <a class="btn" href="mailto:divyanshu@nova-cosmos.com">Email Me</a>
             <button class="btn" data-copy="+917979877403">Copy Phone</button>
-            <a class="btn ghost" target="_blank" rel="noopener" href="https://linkedin.com/in/divyanshukumar27">LinkedIn</a>
+            <a class="btn ghost" target="_blank" rel="noopener" href="https://www.linkedin.com/in/divyanshukumar27">LinkedIn</a>
             <a class="btn" href="Divyanshu_Kumar_Resume.pdf" download>Download Résumé</a>
           </div>
           <p class="muted small" style="margin-top:1rem;">Prefer email for collaboration or opportunities; replies within 48 hours on weekdays.</p>

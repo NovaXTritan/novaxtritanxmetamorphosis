@@ -1,0 +1,15 @@
+# Robots.txt for Divyanshu Kumar Portfolio
+# https://divyanshukumar.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://novaxtritanxmetamorphosis.vercel.app/sitemap.xml
+
+# Disallow admin/private paths (if any)
+Disallow: /.git/
+Disallow: /.claude/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

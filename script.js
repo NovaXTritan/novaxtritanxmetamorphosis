@@ -153,20 +153,22 @@
 
   $$('.reveal, .t-item, .drift').forEach(el => revealObserver.observe(el));
 
-  // ===== Animated Statistics Counter =====
+  // ===== Unified Animated Counter =====
+  // Handles both stat-value (data-count) and project journey counters (data-target)
   function animateCounter(el) {
-    const target = parseFloat(el.getAttribute('data-count')) || 0;
+    // Support both data-count and data-target attributes
+    const target = parseFloat(el.getAttribute('data-count') || el.getAttribute('data-target')) || 0;
     const prefix = el.getAttribute('data-prefix') || '';
     const suffix = el.getAttribute('data-suffix') || '';
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const start = performance.now();
     const isDecimal = target % 1 !== 0;
 
     function update(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
+      // Ease out expo for smoother animation
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const current = target * eased;
 
       if (isDecimal) {
@@ -534,8 +536,10 @@
         await navigator.clipboard.writeText(text);
         btn.textContent = 'Copied!';
         setTimeout(() => btn.textContent = originalText, 1200);
-      } catch (err) {
-        console.error('Copy failed:', err);
+      } catch {
+        // Fallback: show error feedback to user instead of console
+        btn.textContent = 'Failed';
+        setTimeout(() => btn.textContent = originalText, 1200);
       }
     });
   });
@@ -569,5 +573,153 @@
   } else {
     document.body.classList.add('reduced');
   }
-  
+
+  // ===== Animated Project Journey =====
+
+  // Observer for project journey counters (uses unified animateCounter above)
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  $$('.counter').forEach(counter => counterObserver.observe(counter));
+
+  // Journey Timeline Navigation
+  $$('.journey-timeline').forEach(timeline => {
+    const markers = $$('.timeline-marker', timeline);
+    const progress = $('.timeline-progress', timeline);
+    const journeyContent = timeline.nextElementSibling;
+
+    if (!journeyContent || !journeyContent.classList.contains('journey-content')) return;
+
+    const steps = $$('.journey-step', journeyContent);
+
+    markers.forEach((marker, index) => {
+      marker.addEventListener('click', () => {
+        // Update markers
+        markers.forEach(m => m.classList.remove('active'));
+        marker.classList.add('active');
+
+        // Update progress bar
+        const progressPercent = ((index + 1) / markers.length) * 100;
+        if (progress) progress.style.width = progressPercent + '%';
+
+        // Show corresponding step
+        steps.forEach(s => s.classList.remove('active'));
+        const targetSection = marker.dataset.target;
+        const targetStep = steps.find(s => s.dataset.section === targetSection);
+        if (targetStep) {
+          targetStep.classList.add('active');
+          // Re-trigger stagger animations
+          const staggerContainer = targetStep.querySelector('.stagger-children');
+          if (staggerContainer) {
+            staggerContainer.classList.remove('stagger-children');
+            void staggerContainer.offsetWidth; // Force reflow
+            staggerContainer.classList.add('stagger-children');
+          }
+        }
+      });
+    });
+  });
+
+  // Typewriter Effect for Titles
+  function typewriterEffect(element) {
+    const text = element.dataset.text || element.textContent;
+    element.textContent = '';
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        element.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 50);
+      } else {
+        element.classList.add('typed');
+      }
+    }
+
+    type();
+  }
+
+  // Observer for typewriter titles
+  const typewriterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.typed) {
+        entry.target.dataset.typed = 'true';
+        if (!reduced) {
+          typewriterEffect(entry.target);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  $$('.typewriter-title').forEach(title => {
+    if (!reduced) {
+      typewriterObserver.observe(title);
+    }
+  });
+
+  // Re-animate journey content when tab is switched
+  $$('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      setTimeout(() => {
+        // Find the active panel
+        const panelId = tab.getAttribute('aria-controls');
+        const panel = $('#' + panelId);
+
+        if (panel && panel.classList.contains('project-journey')) {
+          // Re-trigger counter animations
+          $$('.counter', panel).forEach(counter => {
+            if (counter.dataset.animated !== 'true') {
+              counter.dataset.animated = 'true';
+              animateCounter(counter);
+            }
+          });
+
+          // Reset journey to first step
+          const timeline = $('.journey-timeline', panel);
+          if (timeline) {
+            const firstMarker = $('.timeline-marker', timeline);
+            if (firstMarker) firstMarker.click();
+          }
+        }
+      }, 100);
+    });
+  });
+
+  // Auto-advance journey on scroll (for Cosmos main project)
+  let lastScrollY = window.scrollY;
+  const cosmosPanel = $('#p1');
+
+  if (cosmosPanel && cosmosPanel.classList.contains('project-journey')) {
+    const scrollAdvanceHandler = throttle(() => {
+      if (!cosmosPanel.classList.contains('show')) return;
+
+      const panelRect = cosmosPanel.getBoundingClientRect();
+      const scrollProgress = Math.max(0, Math.min(1,
+        (window.innerHeight - panelRect.top) / (panelRect.height + window.innerHeight)
+      ));
+
+      const timeline = $('.journey-timeline', cosmosPanel);
+      if (!timeline) return;
+
+      const markers = $$('.timeline-marker', timeline);
+      const stepIndex = Math.min(Math.floor(scrollProgress * markers.length), markers.length - 1);
+
+      const currentActive = $('.timeline-marker.active', timeline);
+      const currentIndex = markers.indexOf(currentActive);
+
+      // Only advance, don't go backwards automatically
+      if (stepIndex > currentIndex && markers[stepIndex]) {
+        markers[stepIndex].click();
+      }
+    }, 200);
+
+    window.addEventListener('scroll', scrollAdvanceHandler, { passive: true });
+  }
+
 })();
