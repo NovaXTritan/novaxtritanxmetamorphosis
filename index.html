@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Divyanshu Kumar — MSME Lending × AI Research × Product Builder</title>
+  <meta name="description" content="I run family MSME lending operations while building AI to detect cognitive biases in SEC filings—validated against $6.5B in subsequent write-offs. BBA Finance student at Christ University.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#070c14">
+  <meta property="og:title" content="Divyanshu Kumar — MSME Lending × AI Research × Product Builder">
+  <meta property="og:description" content="Portfolio showcasing lending operations, AI research validated against $6.5B write-offs, and product development. BBA Finance student at Christ University.">
+  <meta property="og:image" content="images/1745733549930.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://divyanshukumar.com">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Divyanshu Kumar — MSME Lending × AI Research × Product Builder">
+  <meta name="twitter:description" content="Portfolio showcasing lending operations, AI research validated against $6.5B write-offs, and product development.">
+  <meta name="twitter:image" content="https://divyanshukumar.com/images/1745733549930.jpg">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://divyanshukumar.com">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Divyanshu Kumar",
+    "url": "https://divyanshukumar.com",
+    "image": "https://divyanshukumar.com/images/1745733549930.jpg",
+    "jobTitle": "MSME Lending Consultant & AI Researcher",
+    "description": "I run family MSME lending operations while building AI to detect cognitive biases in SEC filings—validated against $6.5B in subsequent write-offs.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Christ University",
+      "address": "Delhi NCR, India"
+    },
+    "knowsAbout": ["MSME Lending", "AI Research", "Product Development", "Financial Analysis", "Machine Learning", "SEC Filings Analysis"],
+    "sameAs": [
+      "https://www.linkedin.com/in/divyanshukumar-nova",
+      "https://github.com/divyanshukumar"
+    ],
+    "email": "divyanshu@nova-cosmos.com"
+  }
+  </script>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon-180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.8em%27 font-size=%2780%27>Δ</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-logo">DK</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="topnav" role="banner">
+    <div class="wrap">
+      <a class="brand" href="#home" data-magnet>Divyanshu Kumar</a>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="links" aria-label="Primary">
+        <a href="#about" data-magnet>About</a>
+        <a href="#projects" data-magnet>Projects</a>
+        <a href="#experience" data-magnet>Experience</a>
+        <a href="#leadership" data-magnet>Leadership</a>
+        <a href="#research" data-magnet>Research</a>
+        <a href="#achievements" data-magnet>Achievements</a>
+        <a href="#certifications" data-magnet>Skills</a>
+        <a href="#contact" data-magnet>Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn" aria-label="Toggle theme" data-magnet>Dark</button>
+        <button id="kbar-open" class="btn ghost" aria-label="Open command palette" data-magnet>⌘K</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interstellar Black Hole — decorative background -->
+  <section id="bh-hero" class="hero3d-bh" aria-hidden="true">
+    <div class="bh-fallback"><div class="bh-stars"></div></div>
+  </section>
+
+  <!-- Global starfield (behind everything) -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+  
+  <!-- JWST-inspired cursor -->
+  <div id="jwst-cursor" aria-hidden="true">
+    <div class="ring"></div>
+    <div class="hex c"></div>
+    <div class="hex t"></div>
+    <div class="hex tr"></div>
+    <div class="hex tl"></div>
+    <div class="hex b"></div>
+    <div class="hex br"></div>
+    <div class="hex bl"></div>
+  </div>
+
+  <!-- Right-rail section mini-map -->
+  <aside class="minimap" aria-label="Section map">
+    <a href="#about" aria-label="About"></a>
+    <a href="#projects" aria-label="Projects"></a>
+    <a href="#experience" aria-label="Experience"></a>
+    <a href="#leadership" aria-label="Leadership"></a>
+    <a href="#research" aria-label="Research"></a>
+    <a href="#achievements" aria-label="Achievements"></a>
+    <a href="#certifications" aria-label="Skills"></a>
+    <a href="#contact" aria-label="Contact"></a>
+  </aside>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section id="home" class="section hero" aria-label="Hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><strong>Divyanshu Kumar</strong> · BBA (Finance & Marketing Analytics), Christ University, Delhi NCR ’27</p>
+          <h1 class="sig">MSME Lending × AI Research × Product Builder</h1>
+          <p class="tagline">I run family lending operations while building AI to detect cognitive biases in SEC filings—validated against $6.5B in subsequent write-offs.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="Divyanshu_Kumar_Resume.pdf" download data-magnet>Download Résumé</a>
+            <a class="btn" href="mailto:divyanshu@nova-cosmos.com" data-magnet>Email Me</a>
+            <a class="btn ghost" href="#projects" data-magnet>View Projects</a>
+          </div>
+          <!-- Animated Statistics -->
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-value" data-count="100" data-prefix="₹" data-suffix="Cr+">0</span>
+              <span class="stat-label">Deal Flow</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value" data-count="6.5" data-prefix="$" data-suffix="B">0</span>
+              <span class="stat-label">Research Validation</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value" data-count="30" data-suffix="+">0</span>
+              <span class="stat-label">Beta Users</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value" data-count="5" data-suffix="+">0</span>
+              <span class="stat-label">AI Projects</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card holo" data-tilt>
+          <img src="images/1745733549930.jpg" alt="Portrait of Divyanshu Kumar" loading="lazy" width="640" height="640">
+          <div class="badge"><span class="dot"></span> Evidence over promises</div>
+        </div>
+      </div>
+      <div class="spotlight" aria-hidden="true"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2 class="reveal">About</h2>
+        <p>I'm a Christ University (Delhi NCR) sophomore who runs <strong>multi-crore MSME lending operations</strong> while building <strong>AI systems to detect cognitive biases in SEC filings</strong>.</p>
+        
+        <p>I learn best through real stakes—processing ₹3-100 crore loan cases taught me more about financial analysis than any textbook could:</p>
+        <ul class="list tight" style="margin-bottom:1rem;">
+          <li>Processing ₹3-100 crore loan cases across 7 banking partners</li>
+          <li>Consulting for brands like <strong>boAt</strong> and <strong>AMS Healthcare</strong></li>
+          <li>Building products with real users and publishing research validated against <strong>$6.5B+ in corporate write-offs</strong></li>
+        </ul>
+        
+        <ul class="chips"><li>Evidence over promises</li><li>Ship before perfecting</li><li>Real stakes over simulations</li></ul>
+        
+        <div class="columns">
+          <div class="panel holo">
+            <h3>What I'm Building (2025–2027)</h3>
+            <ul class="list">
+              <li><strong>Cosmos</strong> — Peer learning platform with 30 active beta pods</li>
+              <li><strong>FinSight</strong> — AI-powered market anomaly detection for retail traders</li>
+              <li><strong>SEC Bias Detection</strong> — Targeting publication at Journal of Finance / RFS</li>
+            </ul>
+          </div>
+          <div class="panel holo">
+            <p class="panel-title">Operating Principles</p>
+            <ul class="list tight">
+              <li>Evidence over promises</li>
+              <li>Ship before perfecting</li>
+              <li>Real stakes over simulations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (Interactive Tabs) -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Signature Projects</h2>
+        <div class="tabs" role="tablist" aria-label="Projects">
+          <button role="tab" aria-selected="true" aria-controls="p1" id="t1" class="tab" data-magnet>Cosmos</button>
+          <button role="tab" aria-selected="false" aria-controls="p2" id="t2" class="tab" data-magnet>SEC Bias Detection</button>
+          <button role="tab" aria-selected="false" aria-controls="p3" id="t3" class="tab" data-magnet>FinSight</button>
+          <button role="tab" aria-selected="false" aria-controls="p4" id="t4" class="tab" data-magnet>Stock Bubble Detection</button>
+          <button role="tab" aria-selected="false" aria-controls="p5" id="t5" class="tab" data-magnet>HR Analytics Dashboard</button>
+        </div>
+        <div class="panels">
+          <!-- COSMOS -->
+          <section role="tabpanel" id="p1" aria-labelledby="t1" class="panel-card show holo">
+            <h3>Cosmos — Peer Learning Platform</h3>
+            <p class="muted small">Founder & Developer · Aug 2024 – Present · React, Firebase, Real-time Sync</p>
+            
+            <p><strong>The Problem:</strong> Every year, thousands of CS students in India grind 8-10 hours daily—solving DSA problems, building projects, preparing for interviews. Most don't get the internship. Not because they lack effort, but because <em>effort without feedback is noise</em>.</p>
+            
+            <p>Students don't know which hours actually moved the needle, whether their "progress" is real or performative, or how their preparation compares to peers who succeeded. Traditional solutions fail: mentors don't scale, communities become noise, accountability apps track tasks—not outcomes.</p>
+            
+            <p class="panel-title" style="margin-top:1rem;">The Thesis: Evidence-Based Design</p>
+            <p>I spent weeks reviewing <strong>15+ peer-reviewed papers</strong> on learning science. The evidence pointed to specific mechanisms:</p>
+            <ul class="list tight">
+              <li><strong>Retrieval practice (d = 0.70):</strong> Daily proof submissions, not just check-ins</li>
+              <li><strong>Implementation intentions (d = 0.65):</strong> Goal-setting tied to specific actions</li>
+              <li><strong>Cooperative learning (d = 0.40):</strong> Pod-based peer feedback loops</li>
+              <li><strong>Public commitment:</strong> Weekly reflections shared with pod</li>
+            </ul>
+            <p>Most "accountability" apps ignore this research. They gamify streaks without understanding why streaks sometimes work—and when they backfire.</p>
+            
+            <p class="panel-title" style="margin-top:1rem;">The Product</p>
+            <p>Cosmos organizes students into <strong>pods</strong>—micro-communities of 5-8 people with similar goals (e.g., "SDE internship at product companies, Summer 2026"). Each pod runs on a weekly rhythm:</p>
+            <ul class="list tight">
+              <li><strong>Daily proof submissions:</strong> Not "I studied 4 hours" but "Here's the problem I solved, here's where I got stuck"</li>
+              <li><strong>Peer feedback:</strong> Pod members review each other's work, catch blind spots</li>
+              <li><strong>Streak tracking:</strong> Consistency signals, not vanity metrics</li>
+              <li><strong>Weekly reflections:</strong> What worked? What didn't? Shared transparently</li>
+            </ul>
+            <p>No instructors. No courses. Just structured peer pressure from people who understand your exact situation.</p>
+            
+            <p class="panel-title" style="margin-top:1rem;">Technical Implementation</p>
+            <ul class="list tight">
+              <li><strong>Frontend:</strong> React with Vite for fast iteration</li>
+              <li><strong>Backend:</strong> Firebase (Firestore for real-time sync, Auth for user management, Hosting)</li>
+              <li><strong>Key systems:</strong> Real-time pod activity feeds, streak calculation with timezone handling, proper session management</li>
+              <li><strong>Security incident & recovery:</strong> Accidentally exposed API keys in public commit. Detected within hours, rotated credentials, rebuilt deployment pipeline with proper key restrictions via Google Cloud Console. Documented incident and prevention measures.</li>
+            </ul>
+            
+            <p class="panel-title" style="margin-top:1rem;">Current State & Honest Challenges</p>
+            <p><strong>30 beta pods</strong>—but facing the classic cold start problem. Empty pods kill retention: student joins, sees no activity, leaves. Death spiral.</p>
+            <p>What I'm iterating on: consolidating to 1-3 genuinely active pods before scaling, community-led growth via existing WhatsApp/Telegram groups, activation mechanics—what gets a new member to post within 24 hours?</p>
+            <p><em>This is the hardest part of building a community product. No amount of features fixes an empty room.</em></p>
+            
+            <p class="panel-title" style="margin-top:1rem;">What's Next</p>
+            <p><strong>AI-powered journal analysis (planned):</strong> Integrating Gemini API to surface patterns—"You've spent 60% of time on easy problems" or "Your stuck points cluster around dynamic programming." The goal: make effort legible.</p>
+            
+            <div class="tags"><span>React</span><span>Firebase</span><span>Real-time Sync</span><span>Learning Science</span><span>Community Product</span></div>
+            <p style="margin-top:.8rem;">
+              <a href="https://cosmos-e42b5.web.app/" target="_blank" rel="noopener" class="btn primary" style="padding:.4rem .7rem; font-size:.85rem;">View Live →</a>
+            </p>
+          </section>
+
+          <!-- SEC BIAS DETECTION -->
+          <section role="tabpanel" id="p2" aria-labelledby="t2" class="panel-card holo">
+            <h3>Sunk Cost Fallacy Detection in SEC Filings</h3>
+            <p class="muted small">Python, Claude AI, SEC EDGAR, NLP</p>
+            <p>AI system to detect cognitive biases in corporate MD&A disclosures—validated against real financial outcomes.</p>
+            <ul class="list tight">
+              <li>Validated against <strong>$6.5B+ in subsequent write-offs</strong> across NVIDIA and Alphabet (FY2022-2025)</li>
+              <li>Built <strong>three-stage detection pipeline</strong>: Llama 3.1 → Claude AI → human verification</li>
+              <li>Identified <strong>6 SCF instances in NVIDIA</strong> preceding $1.4B inventory provisions and <strong>2 in Alphabet</strong> preceding $5.1B equity losses</li>
+              <li>Discovered struggling firms exhibit <strong>2-3x higher SCF rates</strong> than stable companies</li>
+              <li>Established that <strong>8B-parameter models lack reasoning capacity</strong> for cognitive bias detection</li>
+              <li><strong>Targeting publication</strong> via Miami Behavioral Finance Conference → Journal of Finance / RFS</li>
+            </ul>
+            <div class="tags"><span>Python</span><span>NLP</span><span>Claude AI</span><span>SEC EDGAR</span><span>Behavioral Finance</span></div>
+          </section>
+
+          <!-- FINSIGHT -->
+          <section role="tabpanel" id="p3" aria-labelledby="t3" class="panel-card holo">
+            <h3>FinSight — Market Anomaly Detection for Retail Traders</h3>
+            <p class="muted small">Python, FastAPI, PostgreSQL, JWT Auth</p>
+            
+            <p><strong>The Problem:</strong> Retail traders compete against hedge funds with sophisticated tools that detect market anomalies before they become obvious. These institutional tools cost thousands per month and require analyst teams. The average person has no access to this intelligence.</p>
+            
+            <p><strong>What FinSight Does:</strong> AI-powered platform bringing institutional-grade anomaly detection to retail traders—watching markets across multiple timeframes and alerting when something unusual happens.</p>
+            
+            <p class="panel-title" style="margin-top:1rem;">How It Works</p>
+            <ul class="list tight">
+              <li><strong>Multi-Timeframe Anomaly Detection:</strong> Analyzes patterns across daily, weekly, and monthly horizons simultaneously—a stock might look normal daily but show warning signs weekly</li>
+              <li><strong>Causal Learning Algorithms:</strong> Understands <em>why</em> anomalies occur, not just correlations—reducing false positives</li>
+              <li><strong>Agent-Based Decision System:</strong> Multiple specialized "agents" focus on different market behaviors; collective judgment outperforms any single approach</li>
+              <li><strong>Composite Confidence Scoring:</strong> Every signal includes strength evidence—helping prioritize which anomalies deserve attention</li>
+            </ul>
+            
+            <p class="panel-title" style="margin-top:1rem;">Technical Implementation</p>
+            <ul class="list tight">
+              <li><strong>Backend:</strong> FastAPI (Python) with async architecture for concurrent requests</li>
+              <li><strong>Database:</strong> PostgreSQL with asyncpg—stores accounts, watchlists, signal history</li>
+              <li><strong>Auth:</strong> JWT-based token system for secure sessions</li>
+              <li><strong>API:</strong> RESTful routes for auth, signals, watchlist management, user profiles</li>
+              <li><strong>Frontend:</strong> Single HTML file with Tailwind CSS—no build process, deploys anywhere</li>
+            </ul>
+            
+            <p class="panel-title" style="margin-top:1rem;">The Journey</p>
+            <p>Started as a CLI tool with hardcoded user ID. Rebuilt from ground up into multi-user web platform: fixed SQL injection vulnerabilities, built user management, created HTTP API layer, designed zero-dependency frontend.</p>
+            
+            <p><strong>Status:</strong> Functional API, user auth, watchlist management, signal delivery. Ready for cloud deployment (Railway + Vercel + Supabase on free tiers).</p>
+            
+            <div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>JWT Auth</span><span>Async</span><span>FinTech</span></div>
+          </section>
+
+          <!-- STOCK BUBBLE DETECTION -->
+          <section role="tabpanel" id="p4" aria-labelledby="t4" class="panel-card holo">
+            <h3>AI-Driven Stock Bubble Detection</h3>
+            <p class="muted small">Python, Econometrics</p>
+            <p>Econometric research on speculative asset pricing using Nobel Prize-winning methodology.</p>
+            <ul class="list tight">
+              <li>Applied <strong>Phillips-Shi-Yu methodology</strong> (Nobel Prize-winning econometric approach) to detect explosive price behavior</li>
+              <li>Analyzed <strong>7 major tech stocks</strong>: NVIDIA, Tesla, Meta, and others</li>
+              <li>Presented <strong>graduate-level quantitative research</strong> demonstrating predictive framework for identifying speculative pricing patterns</li>
+            </ul>
+            <div class="tags"><span>Python</span><span>Econometrics</span><span>Phillips-Shi-Yu</span><span>Time Series</span></div>
+            <p style="margin-top:.8rem;"><a href="https://linkedin.com/in/divyanshukumar27" target="_blank" rel="noopener" class="btn ghost" style="padding:.4rem .7rem; font-size:.85rem;">View LinkedIn Post →</a></p>
+          </section>
+
+          <!-- HR ANALYTICS DASHBOARD -->
+          <section role="tabpanel" id="p5" aria-labelledby="t5" class="panel-card holo">
+            <h3>HR Analytics Dashboard — IIT Kanpur</h3>
+            <p class="muted small">Project Intern · E&ICT Academy, IIT Kanpur · May–Jul 2025 · 6 Weeks</p>
+            
+            <p class="panel-title">The Problem</p>
+            <p>HR teams at mid-sized organizations spend hours manually compiling reports from scattered spreadsheets. Leadership decisions on hiring, retention, and workforce planning happen without real-time visibility into key metrics.</p>
+            
+            <p class="panel-title">The Solution</p>
+            <p>Built a comprehensive HR Analytics Dashboard using Advanced Excel that transforms raw employee data into actionable insights—headcount trends, attrition analysis, department breakdowns, and performance distributions.</p>
+            
+            <p class="panel-title">Key Results</p>
+            <ul class="list tight">
+              <li>Reduced manual reporting time from <strong>4 hours to 15 minutes weekly</strong> (94% reduction)</li>
+              <li>Identified <strong>23% attrition spike in Q3</strong>, enabling targeted retention interventions</li>
+              <li>Dashboard serves <strong>200+ employee organization</strong> with automated refresh</li>
+            </ul>
+            
+            <p class="panel-title">Technical Implementation</p>
+            <ul class="list tight">
+              <li>Advanced Excel: XLOOKUP, INDEX-MATCH, dynamic arrays, conditional formatting</li>
+              <li>Data visualization: Interactive charts, slicers, pivot tables</li>
+              <li>Automated calculations: Turnover rates, tenure analysis, department metrics</li>
+            </ul>
+            
+            <div class="tags"><span>Excel</span><span>HR Analytics</span><span>Data Visualization</span><span>Power BI</span><span>Dashboard Design</span></div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Experience</h2>
+        <div class="timeline">
+          
+          <!-- FAMILY CONSULTANCY -->
+          <div class="t-item drift">
+            <h3>Business Operations & AI Transformation — MSME Loan Consultancy (Family Enterprise)</h3>
+            <p class="muted">2023 – Present · Noida</p>
+            <p>Spearheading generational transformation of a 25-year-old MSME loan consultancy.</p>
+            <ul class="list">
+              <li>Processed <strong>multi-crore cumulative deal value</strong> (₹3-100 crore per case) across manufacturing, trading, and service sectors with <strong>65-75% approval rate</strong>—nearly 2x typical MSME lending conversion</li>
+              <li>Building <strong>agentic AI workflows</strong> for document verification, ITR/GST parsing, and automated bank eligibility matching across 7 partner banks (SIDBI, SBI, ICICI, Canara, PNB, PSB, Karnataka Bank)—targeting <strong>40% faster processing</strong></li>
+              <li>Designed integrated tracking system across 12-person team: case pipeline dashboard, bank relationship database, qualification scorecards, and KPI dashboard</li>
+              <li>Identified <strong>₹15L+ annual revenue leakage</strong> from flat commission structure; developed transformation roadmap with tiered pricing model</li>
+              <li>Conducted financial restructuring for complex cases—analyzing DSCR, current ratios, and capital structure to reposition client financials for banking thresholds</li>
+            </ul>
+            <div class="tags"><span>Operations</span><span>AI Automation</span><span>Financial Analysis</span><span>Team Management</span></div>
+          </div>
+          
+          <!-- S.K. CHADHA -->
+          <div class="t-item drift">
+            <h3>Management Consulting Intern — S.K. Chadha & Associates</h3>
+            <p class="muted">May 2025 – Jun 2025 · Boutique Consulting · Clients: boAt, AMS Healthcare</p>
+            <p><strong>boAt (Consumer Electronics):</strong></p>
+            <ul class="list">
+              <li>Built <strong>automated review tracking system</strong> for boAt & competitors across Amazon and Flipkart for focused product lines</li>
+              <li>Conducted <strong>20+ mystery audits</strong> across General Trade (GT) and Modern Trade (MT) stores</li>
+              <li>Delivered comprehensive <strong>competitive intelligence report</strong> with market positioning insights</li>
+            </ul>
+            <p><strong>AMS Healthcare (Medical Devices):</strong></p>
+            <ul class="list">
+              <li>Redesigned pricing strategy for CPAP/BIPAP medical devices; achieved <strong>35% faster quote turnaround</strong> and projected <strong>12% margin increase</strong></li>
+              <li>Built competitive analysis framework (Excel, Power BI) tracking <strong>8 competitors</strong>; identified <strong>$50K+ annual margin leakage</strong></li>
+              <li>Delivered <strong>GTM strategy</strong> with tiered bundles and channel optimization</li>
+            </ul>
+            <div class="tags"><span>Pricing Strategy</span><span>Competitive Analysis</span><span>Mystery Audits</span><span>GTM Strategy</span></div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section id="leadership" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Leadership & Initiatives</h2>
+        <div class="lead-grid">
+          
+          <article class="lead-card holo">
+            <header><h3>Finance & AI Cell — Youngest Office Bearer</h3><p class="muted">University-wide · Workshops & Ops</p></header>
+            <ul class="list tight">
+              <li>Led primers on financial modelling and AI-in-finance demos for <strong>50+ students</strong></li>
+              <li>Standardized session outlines & evaluation rubrics</li>
+            </ul>
+          </article>
+          
+          <article class="lead-card holo">
+            <header><h3>UNAI Millennium Fellowship (2025)</h3><p class="muted">Global Student Leadership · Top 4% globally</p></header>
+            <ul class="list tight">
+              <li>Selected from ~60,000 applicants worldwide</li>
+              <li>Designed campus project aligned with UN SDGs with measurable impact and peer accountability</li>
+            </ul>
+          </article>
+          
+          <article class="lead-card holo">
+            <header><h3>IIT Delhi MoU Representative</h3><p class="muted">Institutional Partnership · Since Feb 2025</p></header>
+            <ul class="list tight">
+              <li>Led institutional partnership between <strong>IIT Delhi eDC × Christ University</strong></li>
+              <li>Coordinated cross-campus entrepreneurship initiatives</li>
+            </ul>
+          </article>
+          
+          <article class="lead-card holo">
+            <header><h3>Student Council Representative</h3><p class="muted">Governance & Mediation</p></header>
+            <ul class="list tight">
+              <li>Coordinated student–faculty feedback loops and academic policy inputs for <strong>450+ students</strong></li>
+              <li>Facilitated town-halls; documented action items transparently</li>
+            </ul>
+          </article>
+          
+          <article class="lead-card holo">
+            <header><h3>Peer Educator — Student Well-being & Learning</h3><p class="muted">Programs & Enablement</p></header>
+            <ul class="list tight">
+              <li>Designed sessions on study systems, EI, Excel/Python/Power BI</li>
+              <li>Shipped a 7-day "Exam Sprint" with templates and checklists</li>
+            </ul>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Research & Working Papers</h2>
+        
+        <div class="panel holo" style="margin-bottom:1.2rem;">
+          <h3>Sunk Cost Fallacy Detection in SEC Filings</h3>
+          <p class="muted small">Status: Targeting Journal of Finance / RFS</p>
+          <p>Developing AI system to detect cognitive biases in corporate MD&A disclosures. Validated methodology against <strong>$6.5B+ in subsequent write-offs</strong> across NVIDIA and Alphabet. Building commercial application for M&A due diligence.</p>
+        </div>
+        
+        <div class="panel holo" style="margin-bottom:1.2rem;">
+          <h3>IndustriAI Conference — IIT Madras</h3>
+          <p class="muted small">Status: Paper Accepted</p>
+          <p>Working paper accepted for presentation at IIT Madras conference on AI applications in industry.</p>
+        </div>
+        
+        <div class="panel holo">
+          <h3>AI & Blockchain Synergy in Green Supply Chains</h3>
+          <p class="muted small">Status: Presented at DigitBase 2024, University of Malaysia</p>
+          <p>Research on traceability, data assurance, and incentive mechanisms for sustainable supply chain management.</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Achievements</h2>
+        <ul class="bullets">
+          <li><strong>SRCC Consulting Quiz</strong> — Top 1% (Rank 14 out of 1,368+ participants)</li>
+          <li><strong>UN Millennium Fellowship</strong> — Top 4% globally (~60,000 applicants)</li>
+          <li><strong>IIM Udaipur Business Quiz</strong> — Finalist</li>
+          <li><strong>IIT Delhi MoU Representative</strong> — Led institutional partnership between IIT Delhi eDC × Christ University (since Feb 2025)</li>
+          <li><strong>Finance & AI Cell Office Bearer</strong> — Youngest across university; led AI-in-finance workshops for 50+ students</li>
+          <li><strong>IIM Ahmedabad</strong> — Certificates of Appreciation (Chaos, Amaethon)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS (interactive) -->
+    <section id="certifications" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Certifications (Selected) & Skills</h2>
+        <div class="accordion" role="tablist" aria-label="Certifications">
+          <button class="acc" aria-expanded="false"><span>Finance & Strategy</span></button>
+          <div class="acc-panel">
+            <ul class="bullets">
+              <li><strong>Strategy & Game Theory for Management</strong> — IIM Ahmedabad</li>
+              <li><strong>Bloomberg Market Concepts (BMC)</strong></li>
+              <li><strong>McKinsey Forward</strong></li>
+            </ul>
+          </div>
+          <button class="acc" aria-expanded="false"><span>Analytics & Data</span></button>
+          <div class="acc-panel">
+            <ul class="bullets">
+              <li><strong>Foundations of Data Analytics</strong> — Google</li>
+              <li><strong>Advanced Excel</strong> — IIT Kanpur</li>
+            </ul>
+          </div>
+          <button class="acc" aria-expanded="false"><span>Leadership & Communication</span></button>
+          <div class="acc-panel">
+            <ul class="bullets">
+              <li><strong>10‑Week Leadership Training Program</strong></li>
+              <li><strong>Effective Listening</strong> — LinkedIn Learning</li>
+            </ul>
+          </div>
+          <button class="acc" aria-expanded="false"><span>Other</span></button>
+          <div class="acc-panel">
+            <ul class="bullets">
+              <li><strong>Circular Economy</strong> — University of London</li>
+              <li><strong>Positive Psychology: Visionary Thinking</strong> — University of Pennsylvania</li>
+              <li><strong>IoT</strong> — IIT Bombay</li>
+            </ul>
+          </div>
+        </div>
+        
+        <h3 style="font-size:1.1rem; margin-top:1.5rem;">Technical Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">SQL</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Excel</span>
+              <span class="skill-level">Expert</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Power BI / Tableau</span>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">React / Firebase</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">NLP / ML</span>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1.1rem; margin-top:1.5rem;">Business Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Financial Modeling</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Market Analysis</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">GTM Strategy</span>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Stakeholder Management</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing" class="section">
+      <div class="wrap">
+        <h2 class="reveal">Writing & Thought Leadership</h2>
+        <p class="muted" style="margin-bottom:1.5rem;">Research papers, articles, and insights on behavioral finance, AI applications, and product building.</p>
+
+        <div class="articles-grid">
+          <article class="article-card holo drift">
+            <span class="article-badge">Research</span>
+            <h3>Detecting Cognitive Biases in SEC Filings</h3>
+            <p class="muted small">Research methodology and findings from $6.5B validation study. Using LLMs to identify sunk cost fallacy patterns in corporate disclosures.</p>
+            <div class="article-meta">
+              <span class="article-date">Ongoing Research</span>
+              <span class="article-time">15 min read</span>
+            </div>
+          </article>
+
+          <article class="article-card holo drift">
+            <span class="article-badge">NLP Analysis</span>
+            <h3>Why Neutral Sentiment Often Hides Risk</h3>
+            <p class="muted small">NLP analysis of linguistic patterns in bank earnings calls. Exploring how neutral language can mask underlying financial stress.</p>
+            <div class="article-meta">
+              <span class="article-date">Draft</span>
+              <span class="article-time">8 min read</span>
+            </div>
+          </article>
+
+          <article class="article-card holo drift">
+            <span class="article-badge">Product</span>
+            <h3>Building Peer-Learning Systems That Work</h3>
+            <p class="muted small">Lessons from building Cosmos: what actually drives engagement in educational platforms, and why most peer-learning fails.</p>
+            <div class="article-meta">
+              <span class="article-date">Draft</span>
+              <span class="article-time">10 min read</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <h2 class="reveal">Contact</h2>
+        <div class="contact-card holo">
+          <p style="margin-bottom:1rem;"><strong>Currently seeking:</strong> Product/Business Analyst internship for Summer 2026 (Available: April 2026)</p>
+          <div class="contact-actions">
+            <button class="btn primary" data-copy="divyanshu@nova-cosmos.com">Copy Email</button>
+            <a class="btn" href="mailto:divyanshu@nova-cosmos.com">Email Me</a>
+            <button class="btn" data-copy="+917979877403">Copy Phone</button>
+            <a class="btn ghost" target="_blank" rel="noopener" href="https://linkedin.com/in/divyanshukumar27">LinkedIn</a>
+            <a class="btn" href="Divyanshu_Kumar_Resume.pdf" download>Download Résumé</a>
+          </div>
+          <p class="muted small" style="margin-top:1rem;">Prefer email for collaboration or opportunities; replies within 48 hours on weekdays.</p>
+        </div>
+      </div>
+    </section>
+    </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <p>© <span id="year"></span> Divyanshu Kumar — Built for clarity, speed, and accessibility.</p>
+      <a href="#home" class="to-top" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <!-- Command Palette -->
+  <div class="kbar" id="kbar">
+    <div class="kpanel" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="khead">
+        <span>⌘/Ctrl+K</span>
+        <input class="kinput" id="kinput" type="text" placeholder="Type a command…">
+      </div>
+      <div class="klist" id="klist"></div>
+    </div>
+  </div>
+
+  <!-- Top progress bar -->
+  <div class="progress"></div>
+
+  <!-- Site JS -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js" defer></script>
+
+  <!-- Black Hole runtime -->
+  <script src="js/blackhole-interstellar-v5.js"></script>
+  <script>
+    (function(){
+      const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+      if (window.InterstellarBH && window.InterstellarBH.mount) {
+        window.InterstellarBH.mount({
+          selector: "#bh-hero",
+          heightVh: isMobile ? 70 : 82,
+          
