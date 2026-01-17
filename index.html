@@ -52,6 +52,142 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Cinematic Storytelling Welcome: Nova's Journey -->
+  <div id="cinema-welcome" class="cinema-welcome" aria-hidden="true">
+    <!-- Cosmic canvas background -->
+    <canvas id="cinema-canvas"></canvas>
+    <!-- Cinematic vignette -->
+    <div class="vignette"></div>
+
+    <!-- Scene 1: The Cosmos -->
+    <div class="cinema-scene scene-cosmos" data-scene="1">
+      <div class="cosmos-text">
+        <span class="cosmos-line line-1">In a universe of infinite possibilities...</span>
+      </div>
+    </div>
+
+    <!-- Scene 2: Nova Birth -->
+    <div class="cinema-scene scene-nova" data-scene="2">
+      <div id="nova-container" class="nova-container">
+        <div id="nova" class="nova">
+          <div class="nova-core"></div>
+          <div class="nova-glow"></div>
+          <div class="nova-rings">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="nova-particles">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <div class="nova-birth-text">
+        <span>A spark of curiosity emerges</span>
+      </div>
+    </div>
+
+    <!-- Scene 3: The Stats Reveal -->
+    <div class="cinema-scene scene-stats" data-scene="3">
+      <div class="stats-cinematic">
+        <div class="stat-reveal" data-delay="0">
+          <span class="stat-big">₹100Cr+</span>
+          <span class="stat-desc">MSME Deal Flow Processed</span>
+        </div>
+        <div class="stat-reveal" data-delay="1">
+          <span class="stat-big">$6.5B</span>
+          <span class="stat-desc">Research Validation</span>
+        </div>
+        <div class="stat-reveal" data-delay="2">
+          <span class="stat-big">30+</span>
+          <span class="stat-desc">Beta Users on Cosmos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 4: The Identity -->
+    <div class="cinema-scene scene-identity" data-scene="4">
+      <div class="identity-content">
+        <div class="identity-roles">
+          <span class="role-tag" data-delay="0">MSME Lending</span>
+          <span class="role-separator">×</span>
+          <span class="role-tag" data-delay="1">AI Research</span>
+          <span class="role-separator">×</span>
+          <span class="role-tag" data-delay="2">Product Builder</span>
+        </div>
+        <h1 class="identity-name">DIVYANSHU KUMAR</h1>
+        <p class="identity-tagline">Building AI to detect cognitive biases in SEC filings — validated against $6.5B in write-offs</p>
+        <div class="identity-education">
+          <span>BBA Finance & Marketing Analytics</span>
+          <span class="edu-separator">•</span>
+          <span>Christ University, Delhi NCR '27</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 5: The Invitation -->
+    <div class="cinema-scene scene-invitation" data-scene="5">
+      <div class="invitation-content">
+        <p class="invitation-text">Welcome to my story</p>
+        <div class="invitation-cta">
+          <span class="scroll-indicator">
+            <span class="scroll-arrow"></span>
+          </span>
+          <span class="scroll-text">Scroll to explore</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="cinema-progress">
+      <div class="cinema-progress-bar"></div>
+      <div class="cinema-progress-dots">
+        <span class="progress-dot active" data-scene="1"></span>
+        <span class="progress-dot" data-scene="2"></span>
+        <span class="progress-dot" data-scene="3"></span>
+        <span class="progress-dot" data-scene="4"></span>
+        <span class="progress-dot" data-scene="5"></span>
+      </div>
+    </div>
+
+    <!-- Skip control -->
+    <button id="cinema-skip" class="cinema-skip" aria-label="Skip intro">
+      <span class="skip-text">Skip Intro</span>
+      <span class="skip-timer"></span>
+      <span class="skip-key">ESC</span>
+    </button>
+
+    <!-- Sound toggle -->
+    <button id="cinema-sound" class="cinema-sound" aria-label="Toggle sound">
+      <svg class="sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      </svg>
+      <svg class="sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Replay Intro Button (appears after intro) -->
+  <button id="replay-intro" class="replay-intro" aria-label="Replay introduction">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+    </svg>
+    <span>Replay Intro</span>
+  </button>
+
+  <!-- Global Audio Control -->
+  <button id="audio-control" class="audio-control" aria-label="Toggle sound" data-muted="true">
+    <svg class="audio-icon-on" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+    <svg class="audio-icon-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+  </button>
+
   <!-- Loading Screen -->
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader-logo">DK</div>
@@ -107,15 +243,41 @@
   </div>
 
   <!-- Right-rail section mini-map -->
-  <aside class="minimap" aria-label="Section map">
-    <a href="#about" aria-label="About"></a>
-    <a href="#projects" aria-label="Projects"></a>
-    <a href="#experience" aria-label="Experience"></a>
-    <a href="#leadership" aria-label="Leadership"></a>
-    <a href="#research" aria-label="Research"></a>
-    <a href="#achievements" aria-label="Achievements"></a>
-    <a href="#certifications" aria-label="Skills"></a>
-    <a href="#contact" aria-label="Contact"></a>
+  <!-- Story Progress Indicator -->
+  <aside class="story-progress" aria-label="Story progress">
+    <div class="story-progress-bar">
+      <div class="story-progress-fill"></div>
+    </div>
+    <div class="story-chapters">
+      <a href="#about" class="story-chapter" data-chapter="1" data-tooltip="The Origin Story">
+        <span class="chapter-dot"></span>
+      </a>
+      <a href="#projects" class="story-chapter" data-chapter="2" data-tooltip="The Creations">
+        <span class="chapter-dot"></span>
+      </a>
+      <a href="#experience" class="story-chapter" data-chapter="3" data-tooltip="The Journey">
+        <span class="chapter-dot"></span>
+      </a>
+      <a href="#leadership" class="story-chapter" data-chapter="4" data-tooltip="The Impact">
+        <span class="chapter-dot"></span>
+      </a>
+      <a href="#research" class="story-chapter" data-chapter="5" data-tooltip="The Frontier">
+        <span class="chapter-dot"></span>
+      </a>
+      <a href="#achievements" class="story-chapter" data-chapter="6" data-tooltip="The Milestones">
+        <span class="chapter-dot"></span>
+      </a>
+      <a href="#certifications" class="story-chapter" data-chapter="7" data-tooltip="The Arsenal">
+        <span class="chapter-dot"></span>
+      </a>
+      <a href="#contact" class="story-chapter" data-chapter="9" data-tooltip="The Next Chapter">
+        <span class="chapter-dot"></span>
+      </a>
+    </div>
+    <div class="current-chapter-display">
+      <span class="current-chapter-num">01</span>
+      <span class="current-chapter-name">The Origin Story</span>
+    </div>
   </aside>
 
   <main id="main-content">
@@ -204,9 +366,13 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section">
+    <section id="about" class="section" data-chapter="1">
       <div class="wrap">
-        <h2 class="reveal">About</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 01</span>
+          <h2 class="chapter-title">The Origin Story</h2>
+          <div class="chapter-line"></div>
+        </div>
         <p>I'm a Christ University (Delhi NCR) sophomore who runs <strong>multi-crore MSME lending operations</strong> while building <strong>AI systems to detect cognitive biases in SEC filings</strong>.</p>
         
         <p>I learn best through real stakes—processing ₹3-100 crore loan cases taught me more about financial analysis than any textbook could:</p>
@@ -240,9 +406,13 @@
     </section>
 
     <!-- PROJECTS (Interactive Tabs) -->
-    <section id="projects" class="section">
+    <section id="projects" class="section" data-chapter="2">
       <div class="wrap">
-        <h2 class="reveal">Signature Projects</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 02</span>
+          <h2 class="chapter-title">The Creations</h2>
+          <div class="chapter-line"></div>
+        </div>
         <p class="section-subtitle muted">Building products with real users and publishing research with measurable impact</p>
         <div class="tabs" role="tablist" aria-label="Projects">
           <button role="tab" aria-selected="true" aria-controls="p1" id="t1" class="tab" data-magnet>
@@ -811,9 +981,13 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="section">
+    <section id="experience" class="section" data-chapter="3">
       <div class="wrap">
-        <h2 class="reveal">Experience</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 03</span>
+          <h2 class="chapter-title">The Journey</h2>
+          <div class="chapter-line"></div>
+        </div>
         <p class="section-subtitle muted">Real-world impact through operations, consulting, and transformation</p>
 
         <div class="experience-timeline">
@@ -973,9 +1147,13 @@
     </section>
 
     <!-- LEADERSHIP -->
-    <section id="leadership" class="section">
+    <section id="leadership" class="section" data-chapter="4">
       <div class="wrap">
-        <h2 class="reveal">Leadership & Initiatives</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 04</span>
+          <h2 class="chapter-title">The Impact</h2>
+          <div class="chapter-line"></div>
+        </div>
         <p class="section-subtitle muted">Building communities, driving change, and enabling others</p>
 
         <!-- Leadership Stats Overview -->
@@ -1102,9 +1280,13 @@
     </section>
 
     <!-- RESEARCH -->
-    <section id="research" class="section">
+    <section id="research" class="section" data-chapter="5">
       <div class="wrap">
-        <h2 class="reveal">Research & Working Papers</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 05</span>
+          <h2 class="chapter-title">The Frontier</h2>
+          <div class="chapter-line"></div>
+        </div>
         <p class="section-subtitle muted">Academic research at the intersection of AI, behavioral finance, and sustainable systems</p>
 
         <div class="research-grid">
@@ -1174,9 +1356,13 @@
     </section>
 
     <!-- ACHIEVEMENTS -->
-    <section id="achievements" class="section">
+    <section id="achievements" class="section" data-chapter="6">
       <div class="wrap">
-        <h2 class="reveal">Achievements</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 06</span>
+          <h2 class="chapter-title">The Milestones</h2>
+          <div class="chapter-line"></div>
+        </div>
         <ul class="bullets">
           <li><strong>SRCC Consulting Quiz</strong> — Top 1% (Rank 14 out of 1,368+ participants)</li>
           <li><strong>UN Millennium Fellowship</strong> — Top 4% globally (~60,000 applicants)</li>
@@ -1189,9 +1375,13 @@
     </section>
 
     <!-- CERTIFICATIONS (interactive) -->
-    <section id="certifications" class="section">
+    <section id="certifications" class="section" data-chapter="7">
       <div class="wrap">
-        <h2 class="reveal">Certifications (Selected) & Skills</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 07</span>
+          <h2 class="chapter-title">The Arsenal</h2>
+          <div class="chapter-line"></div>
+        </div>
         <div class="accordion" role="tablist" aria-label="Certifications">
           <button class="acc" aria-expanded="false"><span>Finance & Strategy</span></button>
           <div class="acc-panel">
@@ -1306,9 +1496,13 @@
     </section>
 
     <!-- WRITING -->
-    <section id="writing" class="section">
+    <section id="writing" class="section" data-chapter="8">
       <div class="wrap">
-        <h2 class="reveal">Writing & Thought Leadership</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">Chapter 08</span>
+          <h2 class="chapter-title">The Voice</h2>
+          <div class="chapter-line"></div>
+        </div>
         <p class="muted" style="margin-bottom:1.5rem;">Research papers, articles, and insights on behavioral finance, AI applications, and product building.</p>
 
         <div class="articles-grid">
@@ -1346,9 +1540,13 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact" data-chapter="9">
       <div class="wrap">
-        <h2 class="reveal">Contact</h2>
+        <div class="chapter-reveal">
+          <span class="chapter-number">The Final Chapter</span>
+          <h2 class="chapter-title">The Next Chapter</h2>
+          <div class="chapter-line"></div>
+        </div>
         <div class="contact-card holo">
           <p style="margin-bottom:1rem;"><strong>Currently seeking:</strong> Product/Business Analyst internship for Summer 2026 (Available: April 2026)</p>
           <div class="contact-actions">
