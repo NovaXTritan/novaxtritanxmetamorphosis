@@ -1,11 +1,11 @@
 // Stale-while-revalidate service worker for fresh content
-const CACHE = 'novax-cache-v11';
+const CACHE = 'novax-cache-v14';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
   './script.js',
-  './js/blackhole-interstellar-v5.js'
+  './data/live-status.json'
 ];
 
 self.addEventListener('install', (e) => {
