@@ -25,17 +25,17 @@
 
   // ===== Multi-Scene Cinematic Welcome: Nova's Journey =====
   const CinematicWelcome = {
-    // Total duration ~15 seconds for immersive experience
-    totalDuration: 15000,
-    skipDelay: 2000,
+    // Total duration ~6 seconds for quick but impactful experience
+    totalDuration: 6000,
+    skipDelay: 0, // Show skip button immediately for recruiters
 
-    // Scene timing (ms) - each scene has start time and duration
+    // Scene timing (ms) - compressed for faster experience
     scenes: {
-      1: { start: 0, duration: 3000 },      // Cosmos text
-      2: { start: 3000, duration: 3000 },   // Nova birth
-      3: { start: 6000, duration: 3000 },   // Stats reveal
-      4: { start: 9000, duration: 3500 },   // Identity
-      5: { start: 12500, duration: 2500 }   // Invitation
+      1: { start: 0, duration: 1200 },      // Cosmos text
+      2: { start: 1200, duration: 1200 },   // Nova birth
+      3: { start: 2400, duration: 1200 },   // Stats reveal
+      4: { start: 3600, duration: 1400 },   // Identity
+      5: { start: 5000, duration: 1000 }    // Invitation
     },
 
     currentScene: 0,
