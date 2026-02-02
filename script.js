@@ -1,6 +1,6 @@
 /**
- * Portfolio JavaScript - Cosmos Design System
- * Clean, minimal functionality: command palette, scroll reveal, navigation
+ * Portfolio JavaScript - Operations Dashboard
+ * Cosmos Design System Implementation
  */
 (function() {
   'use strict';
@@ -13,31 +13,64 @@
   const yearEl = $('#year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ===== Mobile Navigation =====
-  const hamburger = $('.hamburger');
-  const navLinks = $('.nav-links');
+  // ===== Cursor Spotlight =====
+  const spotlight = $('#spotlight');
+  if (spotlight && !('ontouchstart' in window)) {
+    document.addEventListener('mousemove', (e) => {
+      spotlight.style.left = e.clientX + 'px';
+      spotlight.style.top = e.clientY + 'px';
+    });
+  } else if (spotlight) {
+    spotlight.style.display = 'none';
+  }
 
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', !isOpen);
-      navLinks.classList.toggle('open', !isOpen);
+  // ===== Scroll Progress Bar =====
+  const progressBar = $('#scrollProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    }, { passive: true });
+  }
+
+  // ===== Navigation Scroll Effect =====
+  const navbar = $('#navbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // ===== Mobile Navigation =====
+  const mobileToggle = $('#mobileToggle');
+  const mobileMenu = $('#mobileMenu');
+
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', !isOpen);
+      mobileMenu.classList.toggle('open', !isOpen);
     });
 
     // Close menu when clicking a link
-    navLinks.addEventListener('click', (e) => {
+    mobileMenu.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('open');
       }
     });
 
     // Close on escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('open');
-        hamburger.focus();
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileMenu.classList.remove('open');
       }
     });
   }
@@ -58,93 +91,200 @@
     }
   });
 
-  // ===== Scroll Progress Bar =====
-  const progressBar = $('#progress-bar');
-
-  if (progressBar) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + '%';
-    }, { passive: true });
-  }
-
   // ===== Scroll Reveal (IntersectionObserver) =====
-  const fadeElements = $$('.fade-in');
-  const staggerElements = $$('.stagger-children');
-
-  if (fadeElements.length || staggerElements.length) {
+  const revealElements = $$('.scroll-reveal');
+  if (revealElements.length) {
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('revealed');
           revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    fadeElements.forEach(el => revealObserver.observe(el));
-    staggerElements.forEach(el => revealObserver.observe(el));
+    revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // ===== Skills Progress Bars =====
-  const skillFills = $$('.skill-fill[data-width]');
+  // ===== 3D Card Tilt Effect =====
+  $$('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-  if (skillFills.length) {
-    const skillsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fill = entry.target;
-          const width = fill.getAttribute('data-width') || 0;
-          fill.style.width = width + '%';
-          skillsObserver.unobserve(fill);
-        }
-      });
-    }, { threshold: 0.3 });
+      card.style.transform = `
+        perspective(1000px)
+        rotateY(${x * 8}deg)
+        rotateX(${-y * 8}deg)
+        scale(1.02)
+      `;
+    });
 
-    skillFills.forEach(el => skillsObserver.observe(el));
-  }
-
-  // ===== Accordion =====
-  const accordionBtns = $$('.accordion-btn');
-
-  accordionBtns.forEach(btn => {
-    const panel = btn.nextElementSibling;
-
-    btn.addEventListener('click', () => {
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-      // Close all other accordions
-      accordionBtns.forEach(otherBtn => {
-        if (otherBtn !== btn) {
-          otherBtn.setAttribute('aria-expanded', 'false');
-          otherBtn.nextElementSibling.style.display = 'none';
-        }
-      });
-
-      // Toggle current
-      btn.setAttribute('aria-expanded', !isOpen);
-      panel.style.display = isOpen ? 'none' : 'block';
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
     });
   });
 
-  // ===== Copy to Clipboard =====
-  $$('[data-copy]').forEach(btn => {
-    const originalText = btn.textContent;
+  // ===== Magnetic Buttons =====
+  $$('.magnetic-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
 
-    btn.addEventListener('click', async () => {
-      const text = btn.getAttribute('data-copy');
-      try {
-        await navigator.clipboard.writeText(text);
-        btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = originalText, 1500);
-      } catch {
-        btn.textContent = 'Failed';
-        setTimeout(() => btn.textContent = originalText, 1500);
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // ===== Time-Aware Greeting =====
+  function setTimeGreeting() {
+    const hour = new Date().getHours();
+    const greetingEl = $('#timeGreeting');
+    const timeEl = $('#currentTime');
+
+    let greeting;
+    if (hour < 6) greeting = "You're up late";
+    else if (hour < 12) greeting = "Good morning";
+    else if (hour < 17) greeting = "Good afternoon";
+    else if (hour < 21) greeting = "Good evening";
+    else greeting = "Working late?";
+
+    if (greetingEl) greetingEl.textContent = greeting;
+    if (timeEl) {
+      timeEl.textContent = new Date().toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZoneName: 'short'
+      });
+    }
+  }
+
+  setTimeGreeting();
+  setInterval(setTimeGreeting, 60000);
+
+  // ===== Returning Visitor Detection =====
+  function handleReturningVisitor() {
+    const visitCount = parseInt(localStorage.getItem('visitCount') || '0');
+    localStorage.setItem('visitCount', (visitCount + 1).toString());
+    localStorage.setItem('lastVisit', new Date().toISOString());
+
+    if (visitCount > 2) {
+      const greetingEl = $('#timeGreeting');
+      if (greetingEl) greetingEl.textContent = "Welcome back";
+    }
+  }
+
+  handleReturningVisitor();
+
+  // ===== GitHub Activity Feed =====
+  async function fetchGitHubActivity() {
+    const username = 'NovaXTritan';
+    const feedContainer = $('#githubFeed');
+
+    if (!feedContainer) return;
+
+    try {
+      const response = await fetch(`https://api.github.com/users/${username}/events/public?per_page=10`);
+      const events = await response.json();
+
+      if (!Array.isArray(events) || events.length === 0) {
+        feedContainer.innerHTML = `
+          <div class="activity-error">
+            No recent activity. <a href="https://github.com/${username}" target="_blank">View on GitHub</a>
+          </div>
+        `;
+        return;
       }
-    });
-  });
+
+      const activityHTML = events.slice(0, 6).map(event => {
+        const time = new Date(event.created_at);
+        const timeAgo = getTimeAgo(time);
+        const icon = getEventIcon(event.type);
+        const description = getEventDescription(event);
+
+        return `
+          <div class="activity-item">
+            <span class="activity-icon">${icon}</span>
+            <div class="activity-content">
+              <span class="activity-text">${description}</span>
+              <span class="activity-time">${timeAgo}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      feedContainer.innerHTML = activityHTML;
+
+    } catch (error) {
+      feedContainer.innerHTML = `
+        <div class="activity-error">
+          Unable to fetch activity. <a href="https://github.com/${username}" target="_blank">View on GitHub</a>
+        </div>
+      `;
+    }
+  }
+
+  function getTimeAgo(date) {
+    const seconds = Math.floor((new Date() - date) / 1000);
+    const intervals = {
+      year: 31536000,
+      month: 2592000,
+      week: 604800,
+      day: 86400,
+      hour: 3600,
+      minute: 60
+    };
+
+    for (const [unit, secondsInUnit] of Object.entries(intervals)) {
+      const interval = Math.floor(seconds / secondsInUnit);
+      if (interval >= 1) {
+        return `${interval} ${unit}${interval > 1 ? 's' : ''} ago`;
+      }
+    }
+    return 'Just now';
+  }
+
+  function getEventIcon(type) {
+    const icons = {
+      PushEvent: '⬆',
+      CreateEvent: '✨',
+      PullRequestEvent: '🔀',
+      IssuesEvent: '🎯',
+      WatchEvent: '⭐',
+      ForkEvent: '🍴',
+      default: '📌'
+    };
+    return icons[type] || icons.default;
+  }
+
+  function getEventDescription(event) {
+    const repo = event.repo.name.split('/')[1];
+    switch (event.type) {
+      case 'PushEvent':
+        const commits = event.payload.commits?.length || 0;
+        return `Pushed ${commits} commit${commits > 1 ? 's' : ''} to <strong>${repo}</strong>`;
+      case 'CreateEvent':
+        return `Created ${event.payload.ref_type} in <strong>${repo}</strong>`;
+      case 'PullRequestEvent':
+        return `${event.payload.action} PR in <strong>${repo}</strong>`;
+      case 'IssuesEvent':
+        return `${event.payload.action} issue in <strong>${repo}</strong>`;
+      case 'WatchEvent':
+        return `Starred <strong>${repo}</strong>`;
+      case 'ForkEvent':
+        return `Forked <strong>${repo}</strong>`;
+      default:
+        return `Activity in <strong>${repo}</strong>`;
+    }
+  }
+
+  fetchGitHubActivity();
+  setInterval(fetchGitHubActivity, 300000); // Refresh every 5 minutes
 
   // ===== Command Palette =====
   const cmdPalette = $('#command-palette');
@@ -153,15 +293,13 @@
   const cmdBtn = $('#cmd-btn');
 
   const commands = [
-    { label: 'Go to About', href: '#about' },
-    { label: 'Go to Projects', href: '#projects' },
-    { label: 'Go to Experience', href: '#experience' },
-    { label: 'Go to Leadership', href: '#leadership' },
-    { label: 'Go to Research', href: '#research' },
-    { label: 'Go to Skills', href: '#skills' },
+    { label: 'Go to Operations', href: '#operations' },
+    { label: 'Go to Evidence', href: '#evidence' },
+    { label: 'Go to About', href: '#transparency' },
+    { label: 'Go to Activity', href: '#activity' },
     { label: 'Go to Contact', href: '#contact' },
     { label: 'Download Resume', run: () => window.open('Divyanshu_Kumar_Resume.pdf', '_blank') },
-    { label: 'Email Divyanshu', run: () => location.href = 'mailto:divyanshu@nova-cosmos.com' },
+    { label: 'Email Divyanshu', run: () => location.href = 'mailto:divyanshukumar27@gmail.com' },
     { label: 'Open LinkedIn', run: () => window.open('https://linkedin.com/in/divyanshukumar27', '_blank') },
     { label: 'Open GitHub', run: () => window.open('https://github.com/NovaXTritan', '_blank') },
     { label: 'View Cosmos', run: () => window.open('https://cosmos-e42b5.web.app/', '_blank') },
@@ -270,6 +408,42 @@
       const item = e.target.closest('.command-item');
       if (item) executeCommand(+item.getAttribute('data-idx'));
     });
+  }
+
+  // ===== Live Data Updates =====
+  function updateElement(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  }
+
+  // Update last updated time
+  function updateLastUpdated() {
+    const lastUpdatedEl = $('#lastUpdated');
+    const syncTimeEl = $('#syncTime');
+
+    if (lastUpdatedEl) lastUpdatedEl.textContent = getTimeAgo(new Date(Date.now() - 2 * 60 * 60 * 1000));
+    if (syncTimeEl) syncTimeEl.textContent = getTimeAgo(new Date(Date.now() - 2 * 60 * 1000));
+  }
+
+  updateLastUpdated();
+
+  // ===== Active Nav Link Highlighting =====
+  const sections = $$('section[id]');
+  const navLinks = $$('.nav-links a');
+
+  if (sections.length && navLinks.length) {
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
+
+    sections.forEach(section => navObserver.observe(section));
   }
 
 })();

@@ -1,818 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Divyanshu Kumar - MSME Lending × AI Research × Product Builder</title>
-  <meta name="description" content="I run family MSME lending operations while building AI to detect cognitive biases in SEC filings—validated against $6.5B in subsequent write-offs. BBA Finance student at Christ University.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Divyanshu Kumar - MSME Lending Operations, AI Research, Product Builder. Running Rs600Cr+ deal flow while building AI to detect cognitive biases in SEC filings.">
+  <meta name="keywords" content="Divyanshu Kumar, MSME Lending, AI Research, Product Builder, FinSight, Cosmos">
+  <meta name="author" content="Divyanshu Kumar">
   <meta name="theme-color" content="#0a0a0f">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Divyanshu Kumar - MSME Lending × AI Research × Product Builder">
-  <meta property="og:description" content="Portfolio showcasing lending operations, AI research validated against $6.5B write-offs, and product development.">
-  <meta property="og:image" content="images/1745733549930.jpg">
+  <meta property="og:title" content="Divyanshu Kumar - Operations Dashboard">
+  <meta property="og:description" content="MSME Lending x AI Research x Product Builder">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://divyanshukumar.me">
+  <meta property="og:url" content="https://novaxtritan.github.io/novaxtritanxmetamorphosis/">
+  <meta property="og:image" content="images/profile.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Divyanshu Kumar - MSME Lending × AI Research × Product Builder">
-  <meta name="twitter:description" content="Portfolio showcasing lending operations, AI research validated against $6.5B write-offs, and product development.">
-  <meta name="twitter:image" content="https://divyanshukumar.me/images/1745733549930.jpg">
+  <meta name="twitter:title" content="Divyanshu Kumar - Operations Dashboard">
+  <meta name="twitter:description" content="MSME Lending x AI Research x Product Builder">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://divyanshukumar.me">
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Divyanshu Kumar",
-    "url": "https://divyanshukumar.me",
-    "image": "https://divyanshukumar.me/images/1745733549930.jpg",
-    "jobTitle": "MSME Lending Consultant & AI Researcher",
-    "description": "I run family MSME lending operations while building AI to detect cognitive biases in SEC filings—validated against $6.5B in subsequent write-offs.",
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Christ University",
-      "address": "Delhi NCR, India"
-    },
-    "knowsAbout": ["MSME Lending", "AI Research", "Product Development", "Financial Analysis", "Machine Learning"],
-    "sameAs": [
-      "https://www.linkedin.com/in/divyanshukumar27",
-      "https://github.com/NovaXTritan"
-    ],
-    "email": "divyanshu@nova-cosmos.com"
-  }
-  </script>
+  <title>Divyanshu Kumar | Operations Dashboard</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.8em%27 font-size=%2780%27>D</text></svg>">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon-180.png">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>D</text></svg>">
 </head>
 <body>
+
   <!-- Skip Link -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Progress Bar -->
-  <div class="progress-bar" id="progress-bar"></div>
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Cursor Spotlight -->
+  <div class="cursor-spotlight" id="spotlight"></div>
 
   <!-- Navigation -->
-  <header class="nav" role="banner">
-    <div class="container nav-inner">
-      <a href="#hero" class="nav-brand">Divyanshu Kumar</a>
+  <nav class="nav-glass" id="navbar">
+    <a href="#" class="nav-logo">
+      <span class="logo-text">Divyanshu Kumar</span>
+      <span class="logo-status">
+        <span class="status-dot"></span>
+        Building
+      </span>
+    </a>
 
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#research">Research</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="btn btn-ghost" id="cmd-btn" aria-label="Open command palette">Cmd+K</button>
-      </div>
+    <div class="nav-links">
+      <a href="#operations">Operations</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#transparency">About</a>
+      <a href="#activity">Activity</a>
+      <a href="#contact">Contact</a>
     </div>
-  </header>
+
+    <div class="nav-actions">
+      <a href="https://github.com/NovaXTritan" target="_blank" class="nav-github" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+      <button class="btn btn-primary btn-sm magnetic-btn" id="cmd-btn">Cmd+K</button>
+    </div>
+
+    <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#operations">Operations</a>
+    <a href="#evidence">Evidence</a>
+    <a href="#transparency">About</a>
+    <a href="#activity">Activity</a>
+    <a href="#contact">Contact</a>
+  </div>
 
   <main id="main">
+
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content fade-in">
-          <h1>Divyanshu Kumar</h1>
-          <p class="hero-tagline gradient-text">MSME Lending × AI Research × Product Builder</p>
-          <p class="hero-description">I run family lending operations while building AI to detect cognitive biases in SEC filings—validated against $6.5B in subsequent write-offs.</p>
+    <section class="hero" id="home">
+      <div class="container">
 
-          <div class="hero-badges">
-            <span class="badge badge-purple">Operations</span>
-            <span class="badge badge-green">Research</span>
-            <span class="badge badge-purple">Building</span>
-          </div>
-
-          <div class="hero-stats stagger-children">
-            <div class="stat-card">
-              <span class="stat-value">₹100Cr+</span>
-              <span class="stat-label">Deal Flow</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">$6.5B</span>
-              <span class="stat-label">Validated</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">30+</span>
-              <span class="stat-label">Beta Users</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-value">5+</span>
-              <span class="stat-label">AI Projects</span>
-            </div>
-          </div>
-
-          <div class="hero-ctas">
-            <a href="Divyanshu_Kumar_Resume.pdf" download class="btn btn-primary">Download Resume</a>
-            <a href="mailto:divyanshu@nova-cosmos.com" class="btn btn-secondary">Email Me</a>
-          </div>
+        <!-- Time-aware greeting -->
+        <div class="hero-greeting scroll-reveal">
+          <span class="greeting-text" id="timeGreeting">Good evening</span>
+          <span class="greeting-dot">.</span>
+          <span class="greeting-time" id="currentTime">10:45 PM IST</span>
         </div>
 
-        <div class="hero-photo fade-in">
-          <img src="images/1745733549930.jpg" alt="Divyanshu Kumar" width="400" height="400" loading="eager">
+        <div class="hero-grid">
+
+          <!-- Left: Copy -->
+          <div class="hero-copy">
+            <p class="eyebrow scroll-reveal">BBA Finance & Marketing Analytics . Christ University '27</p>
+
+            <h1 class="hero-title scroll-reveal">Divyanshu Kumar</h1>
+
+            <p class="hero-tagline gradient-text scroll-reveal">
+              MSME Lending x AI Research x Product Builder
+            </p>
+
+            <p class="hero-description scroll-reveal">
+              I run family lending operations while building AI to detect cognitive biases in SEC filings - validated against $6.5B in subsequent write-offs.
+            </p>
+
+            <div class="hero-badges scroll-reveal">
+              <span class="badge badge-purple badge-status">Operations</span>
+              <span class="badge badge-green badge-status">Research</span>
+              <span class="badge badge-cyan badge-status">Building</span>
+            </div>
+
+            <div class="hero-cta scroll-reveal">
+              <a href="Divyanshu_Kumar_Resume.pdf" class="btn btn-primary magnetic-btn" download>
+                Download Resume
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </a>
+              <a href="#contact" class="btn btn-secondary magnetic-btn">
+                Email Me
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Live status -->
+            <div class="hero-live-status scroll-reveal">
+              <span class="status-indicator"></span>
+              <span class="status-text">Last updated: <span id="lastUpdated">2 hours ago</span></span>
+            </div>
+          </div>
+
+          <!-- Right: Photo -->
+          <div class="hero-visual scroll-reveal">
+            <div class="hero-photo-wrapper tilt-card glass-card gradient-border">
+              <img src="images/profile.jpg" alt="Divyanshu Kumar" class="hero-photo">
+              <div class="photo-badge">
+                <span>Evidence over promises</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <!-- Operations Dashboard Section -->
+    <section class="operations" id="operations">
       <div class="container">
-        <div class="section-header fade-in">
-          <h2>About</h2>
-          <p class="section-subtitle text-muted">Building at the intersection of finance and technology</p>
-        </div>
 
-        <div class="about-content">
-          <div class="about-text fade-in">
-            <p>I'm a Christ University (Delhi NCR) sophomore who runs <strong>multi-crore MSME lending operations</strong> while building <strong>AI systems to detect cognitive biases in SEC filings</strong>.</p>
-
-            <p>I learn best through real stakes:</p>
-            <ul>
-              <li>Processing ₹3-100 crore loan cases across 7 banking partners</li>
-              <li>Consulting for brands like <strong>boAt</strong> and <strong>AMS Healthcare</strong></li>
-              <li>Building products with real users and publishing research validated against <strong>$6.5B+ in corporate write-offs</strong></li>
-            </ul>
-
-            <p><strong>Operating principles:</strong> Evidence over promises. Ship before perfecting. Real stakes over simulations.</p>
-          </div>
-
-          <div class="about-panel fade-in">
-            <h3>What I'm Building (2025-2027)</h3>
-            <ul>
-              <li><strong>Cosmos</strong> — Peer learning platform with 30 active beta pods</li>
-              <li><strong>FinSight</strong> — AI-powered market anomaly detection for retail traders</li>
-              <li><strong>SEC Bias Detection</strong> — Targeting publication at Journal of Finance / RFS</li>
-            </ul>
+        <div class="section-header scroll-reveal">
+          <span class="section-label">LIVE DASHBOARD</span>
+          <h2 class="section-title">Active Operations</h2>
+          <p class="section-subtitle">Real-time view into what I'm building and running</p>
+          <div class="last-sync">
+            <span class="sync-dot"></span>
+            Last sync: <span id="syncTime">2 minutes ago</span>
           </div>
         </div>
+
+        <div class="ops-grid">
+
+          <!-- MSME Lending Card -->
+          <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
+            <div class="ops-card-header">
+              <span class="ops-icon">🏦</span>
+              <span class="ops-status badge badge-green badge-status">Active</span>
+            </div>
+            <span class="ops-label">MSME LENDING</span>
+            <span class="ops-value gradient-text" id="msmeDealFlow">Rs600Cr+</span>
+            <span class="ops-metric">Lifetime Deal Flow</span>
+            <div class="ops-stats">
+              <div class="ops-stat">
+                <span class="ops-stat-value" id="msmeThisMonth">Rs12.4Cr</span>
+                <span class="ops-stat-label">This month</span>
+              </div>
+              <div class="ops-stat">
+                <span class="ops-stat-value positive" id="msmeMoM">+23%</span>
+                <span class="ops-stat-label">MoM</span>
+              </div>
+            </div>
+            <div class="ops-footer">
+              <span class="ops-detail">65-75% approval vs 35-40% industry</span>
+              <a href="#evidence-msme" class="ops-link">View evidence</a>
+            </div>
+          </div>
+
+          <!-- FinSight Card -->
+          <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
+            <div class="ops-card-header">
+              <span class="ops-icon">📊</span>
+              <span class="ops-status badge badge-purple badge-status">Building</span>
+            </div>
+            <span class="ops-label">FINSIGHT</span>
+            <span class="ops-value gradient-text" id="finsightVersion">v0.3.2</span>
+            <span class="ops-metric">AI Market Anomaly Detection</span>
+            <div class="ops-stats">
+              <div class="ops-stat">
+                <span class="ops-stat-value" id="anomaliesDetected">4</span>
+                <span class="ops-stat-label">Anomalies found</span>
+              </div>
+              <div class="ops-stat">
+                <span class="ops-stat-value">Rs5K</span>
+                <span class="ops-stat-label">Total cost</span>
+              </div>
+            </div>
+            <div class="ops-footer">
+              <span class="ops-detail">Competitors charge $200/mo</span>
+              <a href="#evidence-finsight" class="ops-link">View project</a>
+            </div>
+          </div>
+
+          <!-- Cosmos Card -->
+          <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
+            <div class="ops-card-header">
+              <span class="ops-icon">🌌</span>
+              <span class="ops-status badge badge-green badge-status">Live</span>
+            </div>
+            <span class="ops-label">COSMOS</span>
+            <span class="ops-value gradient-text" id="cosmosUsers">34</span>
+            <span class="ops-metric">Active Beta Users</span>
+            <div class="ops-stats">
+              <div class="ops-stat">
+                <span class="ops-stat-value" id="cosmosProofs">156</span>
+                <span class="ops-stat-label">Proofs submitted</span>
+              </div>
+              <div class="ops-stat">
+                <span class="ops-stat-value positive">+3</span>
+                <span class="ops-stat-label">This week</span>
+              </div>
+            </div>
+            <div class="ops-footer">
+              <span class="ops-detail">Peer learning platform</span>
+              <a href="https://cosmos-e42b5.web.app/" target="_blank" class="ops-link">View live</a>
+            </div>
+          </div>
+
+          <!-- SEC Research Card -->
+          <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
+            <div class="ops-card-header">
+              <span class="ops-icon">🔬</span>
+              <span class="ops-status badge badge-orange badge-status">In Progress</span>
+            </div>
+            <span class="ops-label">SEC RESEARCH</span>
+            <span class="ops-value gradient-text" id="researchProgress">67%</span>
+            <span class="ops-metric">Paper Completion</span>
+            <div class="ops-stats">
+              <div class="ops-stat">
+                <span class="ops-stat-value">$6.5B</span>
+                <span class="ops-stat-label">Write-offs analyzed</span>
+              </div>
+              <div class="ops-stat">
+                <span class="ops-stat-value">JF&E</span>
+                <span class="ops-stat-label">Target journal</span>
+              </div>
+            </div>
+            <div class="ops-footer">
+              <span class="ops-detail">Cognitive bias detection in earnings calls</span>
+              <a href="#evidence-research" class="ops-link">View research</a>
+            </div>
+          </div>
+
+          <!-- Leadership Card -->
+          <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
+            <div class="ops-card-header">
+              <span class="ops-icon">👥</span>
+              <span class="ops-status badge badge-outline">Active</span>
+            </div>
+            <span class="ops-label">STUDENT COUNCIL</span>
+            <span class="ops-value gradient-text">450+</span>
+            <span class="ops-metric">Students Led</span>
+            <div class="ops-stats">
+              <div class="ops-stat">
+                <span class="ops-stat-value">President</span>
+                <span class="ops-stat-label">Role</span>
+              </div>
+              <div class="ops-stat">
+                <span class="ops-stat-value">Apr '26</span>
+                <span class="ops-stat-label">Term ends</span>
+              </div>
+            </div>
+            <div class="ops-footer">
+              <span class="ops-detail">School-wide leadership</span>
+              <a href="#evidence-leadership" class="ops-link">View impact</a>
+            </div>
+          </div>
+
+          <!-- Recognition Card -->
+          <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
+            <div class="ops-card-header">
+              <span class="ops-icon">🏆</span>
+              <span class="ops-status badge badge-purple">Achievement</span>
+            </div>
+            <span class="ops-label">SRCC QUIZ</span>
+            <span class="ops-value gradient-text">Top 1%</span>
+            <span class="ops-metric">National Ranking</span>
+            <div class="ops-stats">
+              <div class="ops-stat">
+                <span class="ops-stat-value">SRCC</span>
+                <span class="ops-stat-label">Business Conclave</span>
+              </div>
+              <div class="ops-stat">
+                <span class="ops-stat-value">2025</span>
+                <span class="ops-stat-label">Year</span>
+              </div>
+            </div>
+            <div class="ops-footer">
+              <span class="ops-detail">National-level recognition</span>
+              <a href="#evidence-srcc" class="ops-link">View certificate</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Current Focus -->
+        <div class="current-focus glass-card scroll-reveal">
+          <span class="focus-label">CURRENT FOCUS</span>
+          <p class="focus-text" id="currentFocus">FinSight anomaly detection accuracy - fixing 2 false positives from last week</p>
+          <span class="focus-updated">Updated: <span id="focusDate">Feb 3, 2026</span></span>
+        </div>
+
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
+    <!-- Evidence Section -->
+    <section class="evidence" id="evidence">
       <div class="container">
-        <div class="section-header fade-in">
-          <h2>Projects</h2>
-          <p class="section-subtitle text-muted">Building products with real users and publishing research with measurable impact</p>
+
+        <div class="section-header scroll-reveal">
+          <span class="section-label">VERIFICATION</span>
+          <h2 class="section-title">Proof of Work</h2>
+          <p class="section-subtitle">Don't trust claims. Verify them. Click any card to see evidence.</p>
         </div>
 
-        <div class="projects-grid">
-          <!-- Cosmos -->
-          <article class="project-card fade-in">
-            <div class="project-header">
-              <h3 class="project-title">Cosmos</h3>
-              <span class="project-status status-live">Live</span>
+        <div class="evidence-grid">
+
+          <!-- MSME Evidence -->
+          <div class="evidence-card glass-card scroll-reveal" id="evidence-msme">
+            <div class="evidence-header">
+              <span class="evidence-claim">Rs600Cr+ Deal Flow</span>
+              <span class="evidence-levels">3 verification levels</span>
             </div>
-            <p class="project-meta">Peer Learning Platform · Founder & Developer</p>
-            <p class="project-description">Evidence-based peer learning platform with pods of 5-8 students, daily proof submissions, and weekly reflections. Built on learning science research.</p>
-
-            <div class="project-stats">
-              <div class="project-stat">
-                <span class="project-stat-value">30</span>
-                <span class="project-stat-label">Beta Pods</span>
-              </div>
-              <div class="project-stat">
-                <span class="project-stat-value">15+</span>
-                <span class="project-stat-label">Papers Reviewed</span>
-              </div>
-            </div>
-
-            <div class="project-tags">
-              <span class="project-tag">React</span>
-              <span class="project-tag">Firebase</span>
-              <span class="project-tag">Real-time Sync</span>
-            </div>
-
-            <div class="project-links">
-              <a href="https://cosmos-e42b5.web.app/" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                View Live
-              </a>
-              <a href="https://github.com/NovaXTritan" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                GitHub
-              </a>
-            </div>
-          </article>
-
-          <!-- SEC Bias Detection -->
-          <article class="project-card fade-in">
-            <div class="project-header">
-              <h3 class="project-title">SEC Bias Detection</h3>
-              <span class="project-status status-research">Research</span>
-            </div>
-            <p class="project-meta">Behavioral Finance × AI × NLP</p>
-            <p class="project-description">AI system to detect sunk cost fallacy in corporate MD&A disclosures. Validated methodology against $6.5B+ in subsequent write-offs.</p>
-
-            <div class="project-stats">
-              <div class="project-stat">
-                <span class="project-stat-value">$6.5B+</span>
-                <span class="project-stat-label">Validated</span>
-              </div>
-              <div class="project-stat">
-                <span class="project-stat-value">8</span>
-                <span class="project-stat-label">SCF Found</span>
-              </div>
-            </div>
-
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Claude AI</span>
-              <span class="project-tag">SEC EDGAR</span>
-              <span class="project-tag">NLP</span>
-            </div>
-
-            <div class="project-links">
-              <a href="https://github.com/NovaXTritan" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                View Code
-              </a>
-            </div>
-          </article>
-
-          <!-- FinSight -->
-          <article class="project-card fade-in">
-            <div class="project-header">
-              <h3 class="project-title">FinSight</h3>
-              <span class="project-status status-building">Building</span>
-            </div>
-            <p class="project-meta">Market Anomaly Detection · FinTech</p>
-            <p class="project-description">Institutional-grade anomaly detection for retail traders. Multi-timeframe analysis with AI agent-based decision system.</p>
-
-            <div class="project-stats">
-              <div class="project-stat">
-                <span class="project-stat-value">Multi</span>
-                <span class="project-stat-label">Timeframe</span>
-              </div>
-              <div class="project-stat">
-                <span class="project-stat-value">AI</span>
-                <span class="project-stat-label">Agent System</span>
-              </div>
-            </div>
-
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">FastAPI</span>
-              <span class="project-tag">PostgreSQL</span>
-              <span class="project-tag">JWT</span>
-            </div>
-
-            <div class="project-links">
-              <a href="https://github.com/NovaXTritan" target="_blank" rel="noopener" class="project-link">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                View Code
-              </a>
-            </div>
-          </article>
-
-          <!-- Stock Bubble Detection -->
-          <article class="project-card fade-in">
-            <div class="project-header">
-              <h3 class="project-title">Stock Bubble Detection</h3>
-              <span class="project-status status-completed">Completed</span>
-            </div>
-            <p class="project-meta">Econometrics · Python</p>
-            <p class="project-description">Nobel Prize-winning Phillips-Shi-Yu methodology to detect explosive price behavior. Analyzed 7 major tech stocks.</p>
-
-            <div class="project-stats">
-              <div class="project-stat">
-                <span class="project-stat-value">7</span>
-                <span class="project-stat-label">Stocks</span>
-              </div>
-              <div class="project-stat">
-                <span class="project-stat-value">Nobel</span>
-                <span class="project-stat-label">Methodology</span>
-              </div>
-            </div>
-
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Econometrics</span>
-              <span class="project-tag">Time Series</span>
-            </div>
-          </article>
-
-          <!-- HR Analytics -->
-          <article class="project-card fade-in">
-            <div class="project-header">
-              <h3 class="project-title">HR Analytics Dashboard</h3>
-              <span class="project-status status-completed">Completed</span>
-            </div>
-            <p class="project-meta">IIT Kanpur · Project Intern</p>
-            <p class="project-description">Comprehensive HR Analytics Dashboard transforming raw data into actionable insights. Reduced weekly reporting time by 94%.</p>
-
-            <div class="project-stats">
-              <div class="project-stat">
-                <span class="project-stat-value">94%</span>
-                <span class="project-stat-label">Time Saved</span>
-              </div>
-              <div class="project-stat">
-                <span class="project-stat-value">200+</span>
-                <span class="project-stat-label">Employees</span>
-              </div>
-            </div>
-
-            <div class="project-tags">
-              <span class="project-tag">Excel</span>
-              <span class="project-tag">Power BI</span>
-              <span class="project-tag">Data Viz</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Experience</h2>
-          <p class="section-subtitle text-muted">Real-world impact through operations, consulting, and transformation</p>
-        </div>
-
-        <div class="experience-timeline">
-          <!-- Family Consultancy -->
-          <article class="experience-card fade-in">
-            <div class="experience-header">
-              <div>
-                <h3 class="experience-title">Business Operations & AI Transformation</h3>
-                <p class="experience-company">MSME Loan Consultancy (Family Enterprise)</p>
-                <p class="experience-meta">2023 - Present · Noida</p>
-              </div>
-              <div class="experience-metrics">
-                <div class="experience-metric">
-                  <span class="experience-metric-value">₹100Cr+</span>
-                  <span class="experience-metric-label">Deal Value</span>
+            <div class="evidence-chain">
+              <div class="evidence-level" data-level="1">
+                <span class="level-num">L1</span>
+                <div>
+                  <span class="level-label">Screenshot</span>
+                  <span class="level-desc">Anonymized deal tracker</span>
                 </div>
-                <div class="experience-metric">
-                  <span class="experience-metric-value">65-75%</span>
-                  <span class="experience-metric-label">Approval Rate</span>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="2">
+                <span class="level-num">L2</span>
+                <div>
+                  <span class="level-label">Process Doc</span>
+                  <span class="level-desc">Loan processing methodology</span>
                 </div>
+                <button class="btn btn-ghost btn-sm">View</button>
               </div>
-            </div>
-
-            <ul class="experience-highlights">
-              <li>Processing ₹3-100 crore per case across manufacturing, trading, and service sectors</li>
-              <li>Building agentic AI workflows for document verification across 7 partner banks (SIDBI, SBI, ICICI, Canara, PNB, PSB, Karnataka)</li>
-              <li>Identified ₹15L+ annual revenue leakage; developed tiered pricing transformation roadmap</li>
-              <li>Integrated tracking across 12-person team: pipeline dashboard, bank database, KPI dashboard</li>
-            </ul>
-
-            <div class="experience-tags">
-              <span class="project-tag">Operations</span>
-              <span class="project-tag">AI Automation</span>
-              <span class="project-tag">Financial Analysis</span>
-              <span class="project-tag">Team Management</span>
-            </div>
-          </article>
-
-          <!-- S.K. Chadha -->
-          <article class="experience-card fade-in">
-            <div class="experience-header">
-              <div>
-                <h3 class="experience-title">Management Consulting Intern</h3>
-                <p class="experience-company">S.K. Chadha & Associates</p>
-                <p class="experience-meta">2025 · 2 months</p>
-              </div>
-              <div class="experience-metrics">
-                <div class="experience-metric">
-                  <span class="experience-metric-value">35%</span>
-                  <span class="experience-metric-label">Faster Quotes</span>
+              <div class="evidence-level" data-level="3">
+                <span class="level-num">L3</span>
+                <div>
+                  <span class="level-label">Reference</span>
+                  <span class="level-desc">Talk to S.K. Chadha & Associates</span>
                 </div>
+                <button class="btn btn-ghost btn-sm">Request</button>
               </div>
             </div>
+          </div>
 
-            <ul class="experience-highlights">
-              <li><strong>boAt:</strong> Automated review tracking across Amazon & Flipkart; 20+ mystery audits; competitive intelligence report</li>
-              <li><strong>AMS Healthcare:</strong> Redesigned CPAP/BIPAP pricing (35% faster quotes, 12% margin increase); found $50K+ margin leakage</li>
-              <li>GTM strategy with tiered bundles and channel optimization for medical devices</li>
+          <!-- Cosmos Evidence -->
+          <div class="evidence-card glass-card scroll-reveal" id="evidence-cosmos">
+            <div class="evidence-header">
+              <span class="evidence-claim">34 Beta Users</span>
+              <span class="evidence-levels">3 verification levels</span>
+            </div>
+            <div class="evidence-chain">
+              <div class="evidence-level" data-level="1">
+                <span class="level-num">L1</span>
+                <div>
+                  <span class="level-label">Analytics</span>
+                  <span class="level-desc">User dashboard screenshot</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="2">
+                <span class="level-num">L2</span>
+                <div>
+                  <span class="level-label">Feedback</span>
+                  <span class="level-desc">Real user testimonials</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="3">
+                <span class="level-num">L3</span>
+                <div>
+                  <span class="level-label">User Call</span>
+                  <span class="level-desc">Talk to a beta user</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">Request</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Research Evidence -->
+          <div class="evidence-card glass-card scroll-reveal" id="evidence-research">
+            <div class="evidence-header">
+              <span class="evidence-claim">$6.5B Validation</span>
+              <span class="evidence-levels">3 verification levels</span>
+            </div>
+            <div class="evidence-chain">
+              <div class="evidence-level" data-level="1">
+                <span class="level-num">L1</span>
+                <div>
+                  <span class="level-label">Methodology</span>
+                  <span class="level-desc">Research approach document</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="2">
+                <span class="level-num">L2</span>
+                <div>
+                  <span class="level-label">Dataset</span>
+                  <span class="level-desc">Sample data + sources</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="3">
+                <span class="level-num">L3</span>
+                <div>
+                  <span class="level-label">Full Paper</span>
+                  <span class="level-desc">Review draft (NDA)</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">Request</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SRCC Evidence -->
+          <div class="evidence-card glass-card scroll-reveal" id="evidence-srcc">
+            <div class="evidence-header">
+              <span class="evidence-claim">SRCC Top 1%</span>
+              <span class="evidence-levels">2 verification levels</span>
+            </div>
+            <div class="evidence-chain">
+              <div class="evidence-level" data-level="1">
+                <span class="level-num">L1</span>
+                <div>
+                  <span class="level-label">Certificate</span>
+                  <span class="level-desc">Official documentation</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="2">
+                <span class="level-num">L2</span>
+                <div>
+                  <span class="level-label">Event Details</span>
+                  <span class="level-desc">Participant count, ranking</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section class="transparency" id="transparency">
+      <div class="container">
+
+        <div class="section-header scroll-reveal">
+          <span class="section-label">FULL DISCLOSURE</span>
+          <h2 class="section-title">Radical Transparency</h2>
+          <p class="section-subtitle">What most people hide, I share openly</p>
+        </div>
+
+        <div class="transparency-grid">
+
+          <!-- What I'm Good At -->
+          <div class="transparency-card glass-card scroll-reveal">
+            <div class="transparency-header">
+              <span class="transparency-icon">✓</span>
+              <h3>What I'm Actually Good At</h3>
+            </div>
+            <ul class="transparency-list good">
+              <li>Taking complex operations and systematizing them</li>
+              <li>Building MVPs that real users actually use</li>
+              <li>Finding patterns in financial data</li>
+              <li>Writing clearly about complex topics</li>
+              <li>Learning fast and applying immediately</li>
             </ul>
+          </div>
 
-            <div class="experience-tags">
-              <span class="project-tag">Pricing Strategy</span>
-              <span class="project-tag">Competitive Analysis</span>
-              <span class="project-tag">GTM Strategy</span>
+          <!-- What I'm Learning -->
+          <div class="transparency-card glass-card scroll-reveal">
+            <div class="transparency-header">
+              <span class="transparency-icon">↗</span>
+              <h3>What I'm Still Learning</h3>
             </div>
-          </article>
+            <ul class="transparency-list learning">
+              <li>System design at scale (>10K users)</li>
+              <li>Deep ML theory (I'm application-focused)</li>
+              <li>Managing people (led 450, but it's still hard)</li>
+              <li>Saying no to interesting distractions</li>
+              <li>Balancing speed with polish</li>
+            </ul>
+          </div>
+
+          <!-- Failures -->
+          <div class="transparency-card glass-card scroll-reveal">
+            <div class="transparency-header">
+              <span class="transparency-icon">x</span>
+              <h3>Failures I've Learned From</h3>
+            </div>
+            <ul class="transparency-list failures">
+              <li><strong>Cosmos v1:</strong> 0 users for 3 weeks - built features nobody asked for</li>
+              <li><strong>12 rejections:</strong> Last internship cycle - led with credentials, not evidence</li>
+              <li><strong>Research paper:</strong> Rejected once - methodology wasn't rigorous enough</li>
+            </ul>
+          </div>
+
+          <!-- My Biases -->
+          <div class="transparency-card glass-card scroll-reveal">
+            <div class="transparency-header">
+              <span class="transparency-icon">!</span>
+              <h3>My Biases (That I Know Of)</h3>
+            </div>
+            <ul class="transparency-list biases">
+              <li>Over-index on building vs. networking</li>
+              <li>Prefer evidence over credentials (might miss pedigree value)</li>
+              <li>Ship fast, sometimes too fast</li>
+              <li>Optimistic timelines (working on this)</li>
+            </ul>
+          </div>
+
         </div>
+
+        <!-- Constraints & Looking For -->
+        <div class="transparency-footer scroll-reveal">
+
+          <div class="transparency-block glass-card">
+            <h4>My Constraints</h4>
+            <p>Final year student - limited time bandwidth. Based in Delhi NCR - open to remote/relocation. Available: Summer 2026 onwards.</p>
+          </div>
+
+          <div class="transparency-block glass-card">
+            <h4>What I'm Looking For</h4>
+            <p>Access to problems worth solving at scale. People better than me to learn from. Resources to accelerate what I'm already building. Not optimizing for compensation - optimizing for trajectory.</p>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
-    <!-- Leadership Section -->
-    <section id="leadership" class="section">
+    <!-- GitHub Activity Section -->
+    <section class="activity" id="activity">
       <div class="container">
-        <div class="section-header fade-in">
-          <h2>Leadership</h2>
-          <p class="section-subtitle text-muted">Building communities, driving change, and enabling others</p>
+
+        <div class="section-header scroll-reveal">
+          <span class="section-label">LIVE FEED</span>
+          <h2 class="section-title">Recent Activity</h2>
+          <p class="section-subtitle">Real-time from GitHub</p>
         </div>
 
-        <div class="leadership-stats fade-in stagger-children">
-          <div class="leadership-stat">
-            <div class="leadership-stat-icon">🏆</div>
-            <span class="leadership-stat-value">5</span>
-            <span class="leadership-stat-label">Leadership Roles</span>
-          </div>
-          <div class="leadership-stat">
-            <div class="leadership-stat-icon">🌍</div>
-            <span class="leadership-stat-value">Top 4%</span>
-            <span class="leadership-stat-label">Global Selection</span>
-          </div>
-          <div class="leadership-stat">
-            <div class="leadership-stat-icon">👥</div>
-            <span class="leadership-stat-value">500+</span>
-            <span class="leadership-stat-label">Students Impacted</span>
+        <div class="activity-feed glass-card scroll-reveal" id="githubFeed">
+          <div class="activity-loading">
+            <span class="loading-spinner"></span>
+            Fetching latest activity...
           </div>
         </div>
 
-        <div class="leadership-grid">
-          <!-- Finance & AI Cell -->
-          <article class="leadership-card featured fade-in">
-            <span class="leadership-badge youngest">Youngest Office Bearer</span>
-            <div class="leadership-card-header">
-              <div class="leadership-card-icon">🤖</div>
-              <div>
-                <h3>Finance & AI Cell</h3>
-                <p class="leadership-card-scope">University-wide · Workshops & Ops</p>
-              </div>
-            </div>
-            <div class="leadership-card-details">
-              <p>Led primers on financial modelling and AI-in-finance demos for 50+ students</p>
-              <p>Standardized session outlines & evaluation rubrics</p>
-            </div>
-          </article>
-
-          <!-- Millennium Fellowship -->
-          <article class="leadership-card featured fade-in">
-            <span class="leadership-badge global">Global Recognition</span>
-            <div class="leadership-card-header">
-              <div class="leadership-card-icon">🌐</div>
-              <div>
-                <h3>UNAI Millennium Fellowship</h3>
-                <p class="leadership-card-scope">2025 · Global Student Leadership</p>
-              </div>
-            </div>
-            <div class="leadership-card-details">
-              <p>Top 4% of 60,000 applicants worldwide</p>
-              <p>Designed campus project aligned with UN SDGs</p>
-            </div>
-          </article>
-
-          <!-- IIT Delhi -->
-          <article class="leadership-card fade-in">
-            <span class="leadership-badge partnership">Partnership</span>
-            <div class="leadership-card-header">
-              <div class="leadership-card-icon">🎓</div>
-              <div>
-                <h3>IIT Delhi MoU Representative</h3>
-                <p class="leadership-card-scope">Since Feb 2025</p>
-              </div>
-            </div>
-            <div class="leadership-card-details">
-              <p>Led partnership: IIT Delhi eDC × Christ University</p>
-              <p>Coordinated cross-campus entrepreneurship initiatives</p>
-            </div>
-          </article>
-
-          <!-- Student Council -->
-          <article class="leadership-card fade-in">
-            <span class="leadership-badge governance">Governance</span>
-            <div class="leadership-card-header">
-              <div class="leadership-card-icon">🏛</div>
-              <div>
-                <h3>Student Council Representative</h3>
-                <p class="leadership-card-scope">Governance & Mediation</p>
-              </div>
-            </div>
-            <div class="leadership-card-details">
-              <p>Representing 450+ students in student-faculty feedback loops</p>
-              <p>Facilitated town-halls with transparent documentation</p>
-            </div>
-          </article>
-
-          <!-- Peer Educator -->
-          <article class="leadership-card fade-in">
-            <span class="leadership-badge enablement">Enablement</span>
-            <div class="leadership-card-header">
-              <div class="leadership-card-icon">🌱</div>
-              <div>
-                <h3>Peer Educator</h3>
-                <p class="leadership-card-scope">Student Well-being & Learning</p>
-              </div>
-            </div>
-            <div class="leadership-card-details">
-              <p>Sessions on study systems, EI, Excel/Python/Power BI</p>
-              <p>Shipped 7-day "Exam Sprint" with templates & checklists</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research" class="section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Research</h2>
-          <p class="section-subtitle text-muted">Academic research at the intersection of AI, behavioral finance, and sustainable systems</p>
-        </div>
-
-        <div class="research-grid">
-          <!-- Featured Research -->
-          <article class="research-card featured fade-in">
-            <div class="research-status-bar">
-              <span class="research-status targeting">Targeting Publication</span>
-              <span class="research-venue">Journal of Finance / RFS</span>
-            </div>
-            <h3>Sunk Cost Fallacy Detection in SEC Filings</h3>
-            <p class="research-meta">Behavioral Finance × AI × NLP</p>
-            <p class="text-muted">Developing AI system to detect cognitive biases in corporate MD&A disclosures. Validated methodology against $6.5B+ in subsequent write-offs across NVIDIA and Alphabet.</p>
-
-            <div class="research-highlights">
-              <div class="research-stat">
-                <span class="research-stat-number">$6.5B+</span>
-                <span class="research-stat-desc">Validated Against</span>
-              </div>
-              <div class="research-stat">
-                <span class="research-stat-number">8</span>
-                <span class="research-stat-desc">SCF Instances</span>
-              </div>
-              <div class="research-stat">
-                <span class="research-stat-number">2-3x</span>
-                <span class="research-stat-desc">Higher in Struggling</span>
-              </div>
-            </div>
-
-            <div class="research-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Claude AI</span>
-              <span class="project-tag">SEC EDGAR</span>
-              <span class="project-tag">NLP</span>
-            </div>
-          </article>
-
-          <!-- IIT Madras -->
-          <article class="research-card fade-in">
-            <div class="research-status-bar">
-              <span class="research-status accepted">Paper Accepted</span>
-              <span class="research-venue">IIT Madras</span>
-            </div>
-            <h3>IndustriAI Conference - IIT Madras</h3>
-            <p class="research-meta">AI Applications in Industry</p>
-            <p class="text-muted">Working paper accepted for presentation at IIT Madras conference on AI applications in industry.</p>
-
-            <div class="research-tags">
-              <span class="project-tag">AI</span>
-              <span class="project-tag">Industry 4.0</span>
-              <span class="project-tag">Machine Learning</span>
-            </div>
-          </article>
-
-          <!-- DigitBase -->
-          <article class="research-card fade-in">
-            <div class="research-status-bar">
-              <span class="research-status presented">Presented</span>
-              <span class="research-venue">DigitBase 2024 · University of Malaysia</span>
-            </div>
-            <h3>AI & Blockchain Synergy in Green Supply Chains</h3>
-            <p class="research-meta">Sustainability × Blockchain × AI</p>
-            <p class="text-muted">Research on traceability, data assurance, and incentive mechanisms for sustainable supply chain management.</p>
-
-            <div class="research-tags">
-              <span class="project-tag">Blockchain</span>
-              <span class="project-tag">Sustainability</span>
-              <span class="project-tag">Supply Chain</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Achievements</h2>
-          <p class="section-subtitle text-muted">Recognition and milestones</p>
-        </div>
-
-        <ul class="achievements-list fade-in">
-          <li><strong>SRCC Consulting Quiz</strong> — Top 1% (Rank 14 out of 1,368+ participants)</li>
-          <li><strong>UN Millennium Fellowship</strong> — Top 4% globally (~60,000 applicants)</li>
-          <li><strong>IIM Udaipur Business Quiz</strong> — Finalist</li>
-          <li><strong>IIT Delhi MoU Representative</strong> — Led institutional partnership between IIT Delhi eDC × Christ University</li>
-          <li><strong>Finance & AI Cell Office Bearer</strong> — Youngest across university; led AI-in-finance workshops for 50+ students</li>
-          <li><strong>IIM Ahmedabad</strong> — Certificates of Appreciation (Chaos, Amaethon)</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Skills & Certifications</h2>
-          <p class="section-subtitle text-muted">Technical and business capabilities</p>
-        </div>
-
-        <!-- Certifications Accordion -->
-        <div class="skills-accordion fade-in">
-          <div class="accordion-item">
-            <button class="accordion-btn" aria-expanded="false">
-              <span>Finance & Strategy</span>
-            </button>
-            <div class="accordion-panel">
-              <ul>
-                <li><strong>Strategy & Game Theory for Management</strong> — IIM Ahmedabad</li>
-                <li><strong>Bloomberg Market Concepts (BMC)</strong></li>
-                <li><strong>McKinsey Forward</strong></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-btn" aria-expanded="false">
-              <span>Analytics & Data</span>
-            </button>
-            <div class="accordion-panel">
-              <ul>
-                <li><strong>Foundations of Data Analytics</strong> — Google</li>
-                <li><strong>Advanced Excel</strong> — IIT Kanpur</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-btn" aria-expanded="false">
-              <span>Leadership & Communication</span>
-            </button>
-            <div class="accordion-panel">
-              <ul>
-                <li><strong>10-Week Leadership Training Program</strong></li>
-                <li><strong>Effective Listening</strong> — LinkedIn Learning</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <button class="accordion-btn" aria-expanded="false">
-              <span>Other Certifications</span>
-            </button>
-            <div class="accordion-panel">
-              <ul>
-                <li><strong>Circular Economy</strong> — University of London</li>
-                <li><strong>Positive Psychology: Visionary Thinking</strong> — University of Pennsylvania</li>
-                <li><strong>IoT</strong> — IIT Bombay</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Skills Grid -->
-        <div class="skills-grid fade-in">
-          <div class="skill-category">
-            <h4>Technical Skills</h4>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Python</span>
-                <span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">SQL</span>
-                <span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Excel</span>
-                <span class="skill-level">Expert</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">React / Firebase</span>
-                <span class="skill-level">Intermediate</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">NLP / ML</span>
-                <span class="skill-level">Proficient</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <h4>Business Skills</h4>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Financial Modeling</span>
-                <span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Market Analysis</span>
-                <span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">GTM Strategy</span>
-                <span class="skill-level">Proficient</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Stakeholder Mgmt</span>
-                <span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section class="contact" id="contact">
       <div class="container">
-        <div class="section-header fade-in">
-          <h2>Let's Connect</h2>
-          <p class="section-subtitle text-muted">Currently seeking Product/Business Analyst internship for Summer 2026</p>
-        </div>
 
-        <div class="contact-card fade-in">
-          <h3>Available: April 2026</h3>
-          <p class="text-muted">Interested in product, strategy, and AI-focused roles. Let's discuss how I can contribute to your team.</p>
+        <div class="contact-grid">
 
-          <div class="contact-actions">
-            <a href="mailto:divyanshu@nova-cosmos.com?subject=Let's%20Connect" class="btn btn-primary">Email Me</a>
-            <button class="btn btn-secondary" data-copy="divyanshu@nova-cosmos.com">Copy Email</button>
-            <a href="https://www.linkedin.com/in/divyanshukumar27" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-            <a href="https://github.com/NovaXTritan" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-            <a href="Divyanshu_Kumar_Resume.pdf" download class="btn btn-secondary">Download Resume</a>
+          <div class="contact-copy scroll-reveal">
+            <span class="section-label">GET IN TOUCH</span>
+            <h2 class="section-title">Let's Talk</h2>
+            <p class="contact-description">
+              I'm not looking for "a job." I'm looking for access to problems worth solving at scale,
+              people better than me to learn from, and resources to accelerate what I'm already building.
+            </p>
+            <p class="contact-note">
+              If that trade makes sense, let's talk. If not, no worries - I'll keep building anyway.
+            </p>
           </div>
 
-          <p class="contact-note">Replies within 48 hours on weekdays</p>
+          <div class="contact-cards">
+
+            <a href="mailto:divyanshukumar27@gmail.com" class="contact-card glass-card tilt-card scroll-reveal">
+              <span class="contact-icon">✉</span>
+              <div>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">divyanshukumar27@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/divyanshukumar27" target="_blank" class="contact-card glass-card tilt-card scroll-reveal">
+              <span class="contact-icon">in</span>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">/in/divyanshukumar27</span>
+              </div>
+            </a>
+
+            <a href="https://github.com/NovaXTritan" target="_blank" class="contact-card glass-card tilt-card scroll-reveal">
+              <span class="contact-icon">&lt;/&gt;</span>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">@NovaXTritan</span>
+              </div>
+            </a>
+
+          </div>
+
         </div>
+
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Divyanshu Kumar — Built for clarity, speed, and accessibility.</p>
-      <a href="#hero" class="to-top" aria-label="Back to top">&uarr;</a>
+    <div class="container">
+      <div class="footer-inner">
+        <p>&copy; <span id="year">2026</span> Divyanshu Kumar. Evidence over promises.</p>
+        <div class="footer-links">
+          <a href="https://github.com/NovaXTritan" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/divyanshukumar27" target="_blank">LinkedIn</a>
+          <a href="mailto:divyanshukumar27@gmail.com">Email</a>
+        </div>
+      </div>
     </div>
   </footer>
 
   <!-- Command Palette -->
   <div class="command-palette" id="command-palette">
-    <div class="command-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="command-panel">
       <div class="command-header">
         <span>Cmd+K</span>
-        <input type="text" class="command-input" id="command-input" placeholder="Type a command...">
+        <input type="text" class="command-input" id="command-input" placeholder="Type a command or search..." autocomplete="off">
       </div>
       <div class="command-list" id="command-list"></div>
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
+
 </body>
 </html>
