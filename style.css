@@ -37,6 +37,11 @@
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
 
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 20px;
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
@@ -336,17 +341,36 @@ p {
 }
 
 .stat-card {
+  position: relative;
   padding: 1rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   text-align: center;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-fast), box-shadow var(--transition-normal);
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, var(--purple-glow), transparent 70%);
+  border-radius: var(--radius-md);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: -1;
 }
 
 .stat-card:hover {
-  transform: translateY(-2px);
+  transform: perspective(800px) rotateX(3deg) translateY(-4px);
   border-color: var(--purple);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
 }
 
 .stat-value {
@@ -383,10 +407,17 @@ p {
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: var(--radius-xl);
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   margin: 0 auto;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
+.hero-photo:hover img {
+  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Gradient border */
 .hero-photo::before {
   content: "";
   position: absolute;
@@ -395,6 +426,27 @@ p {
   border-radius: calc(var(--radius-xl) + 2px);
   z-index: -1;
   opacity: 0.5;
+}
+
+/* Ambient glow behind photo */
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, var(--purple-glow) 0%, transparent 60%);
+  filter: blur(40px);
+  z-index: -2;
+  opacity: 0.8;
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
 }
 
 /* ===== 7. Buttons ===== */
@@ -422,11 +474,26 @@ p {
   background: linear-gradient(135deg, var(--purple), #7c3aed);
   color: white;
   border-color: var(--purple);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px var(--purple-glow);
+  transform: perspective(500px) rotateX(5deg) translateY(-3px);
+  box-shadow: 0 10px 30px var(--purple-glow), 0 0 20px var(--purple-glow);
+}
+
+.btn-primary:hover::before {
+  transform: translateX(100%);
 }
 
 .btn-secondary {
@@ -453,17 +520,19 @@ p {
 
 /* ===== 8. Cards ===== */
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: var(--card-padding);
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-fast), box-shadow var(--transition-normal);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: var(--shadow-md);
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px var(--purple-glow);
 }
 
 .card-header {
@@ -524,10 +593,18 @@ p {
 }
 
 .about-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: var(--card-padding);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.about-panel:hover {
+  transform: perspective(800px) rotateX(1deg) rotateY(-1deg) translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .about-panel h3 {
@@ -557,16 +634,39 @@ p {
 }
 
 .project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: var(--card-padding);
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-fast), box-shadow var(--transition-normal);
+  overflow: hidden;
+}
+
+/* Ambient glow on hover */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--purple-glow) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(139, 92, 246, 0.3);
+  transform: perspective(1000px) rotateX(2deg) rotateY(-3deg) translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 40px var(--purple-glow);
+}
+
+.project-card:hover::before {
+  opacity: 0.5;
 }
 
 .project-header {
@@ -692,16 +792,20 @@ p {
 }
 
 .experience-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: var(--card-padding);
   position: relative;
-  transition: border-color var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-fast), box-shadow var(--transition-normal);
 }
 
 .experience-card:hover {
-  border-color: rgba(139, 92, 246, 0.3);
+  transform: perspective(1000px) rotateX(1deg) rotateY(-2deg) translateY(-4px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 30px var(--purple-glow);
 }
 
 .experience-card::before {
@@ -802,11 +906,34 @@ p {
 }
 
 .leadership-stat {
+  position: relative;
   text-align: center;
   padding: 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.leadership-stat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--purple-glow) 0%, transparent 60%);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.leadership-stat:hover {
+  transform: perspective(800px) rotateX(3deg) translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.leadership-stat:hover::before {
+  opacity: 1;
 }
 
 .leadership-stat-icon {
@@ -834,20 +961,47 @@ p {
 }
 
 .leadership-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: var(--card-padding);
-  transition: border-color var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-fast), box-shadow var(--transition-normal);
+  overflow: hidden;
+}
+
+.leadership-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(ellipse at top, var(--purple-glow) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
 }
 
 .leadership-card:hover {
-  border-color: rgba(139, 92, 246, 0.3);
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-5px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 30px var(--purple-glow);
+}
+
+.leadership-card:hover::before {
+  opacity: 0.5;
 }
 
 .leadership-card.featured {
   border-color: var(--purple);
-  background: linear-gradient(135deg, var(--surface), rgba(139, 92, 246, 0.05));
+  background: linear-gradient(135deg, var(--glass-bg), rgba(139, 92, 246, 0.08));
+}
+
+.leadership-card.featured::before {
+  opacity: 0.3;
 }
 
 .leadership-badge {
@@ -921,20 +1075,47 @@ p {
 }
 
 .research-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   padding: var(--card-padding);
-  transition: border-color var(--transition-fast);
+  transition: transform var(--transition-normal), border-color var(--transition-fast), box-shadow var(--transition-normal);
+  overflow: hidden;
+}
+
+.research-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--green-glow) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
 }
 
 .research-card:hover {
-  border-color: rgba(139, 92, 246, 0.3);
+  transform: perspective(1000px) rotateX(1deg) rotateY(-2deg) translateY(-5px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 30px var(--purple-glow);
+}
+
+.research-card:hover::before {
+  opacity: 0.6;
 }
 
 .research-card.featured {
-  background: linear-gradient(135deg, var(--surface), rgba(139, 92, 246, 0.05));
+  background: linear-gradient(135deg, var(--glass-bg), rgba(139, 92, 246, 0.08));
   border-color: var(--purple);
+}
+
+.research-card.featured::before {
+  opacity: 0.3;
 }
 
 .research-status-bar {
@@ -1067,17 +1248,20 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   color: var(--text);
   font-size: 1rem;
   cursor: pointer;
-  transition: background var(--transition-fast), border-color var(--transition-fast);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .accordion-btn:hover {
-  background: var(--surface-hover);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
 }
 
 .accordion-btn[aria-expanded="true"] {
@@ -1099,8 +1283,10 @@ p {
 .accordion-panel {
   display: none;
   padding: 1rem 1.25rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(18, 18, 26, 0.6);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-top: none;
   border-radius: 0 0 var(--radius-md) var(--radius-md);
 }
@@ -1162,13 +1348,38 @@ p {
 
 /* ===== 16. Contact Section ===== */
 .contact-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
   padding: 2rem;
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  overflow: hidden;
+}
+
+/* Ambient glow behind contact card */
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(ellipse at center, var(--purple-glow) 0%, var(--green-glow) 50%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.contact-card:hover {
+  transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 60px var(--purple-glow);
 }
 
 .contact-card h3 {
@@ -1249,10 +1460,12 @@ p {
 .command-panel {
   width: 100%;
   max-width: 500px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(18, 18, 26, 0.9);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 100px var(--purple-glow);
   overflow: hidden;
 }
 
