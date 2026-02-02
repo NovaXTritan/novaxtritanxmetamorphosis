@@ -3168,17 +3168,50 @@ body.loaded .hero-card {
   .btn, .chips li { border-color: #ccc; background: #fff; color: #111; }
 }
 
+/* GitHub link styling for projects */
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all var(--transition-fast) var(--ease-out);
+}
+
+.project-link:hover {
+  border-color: var(--accent);
+  background: rgba(100, 255, 218, 0.08);
+  transform: translateY(-2px);
+}
+
+.project-link svg {
+  width: 16px;
+  height: 16px;
+}
+
 /* ===== Mobile Responsive ===== */
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .hero-copy {
     order: 2;
   }
-  
+
   .hero-card {
     order: 1;
     max-width: 300px;
@@ -3303,9 +3336,17 @@ body.loaded .hero-card {
   .contact-actions {
     flex-direction: column;
   }
-  
+
   .contact-actions .btn {
     width: 100%;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .project-link {
+    justify-content: center;
     justify-content: center;
   }
 
