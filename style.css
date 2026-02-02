@@ -194,9 +194,9 @@ body::before {
 
 /* ===== Layout ===== */
 .wrap {
-  max-width: 400px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 6rem;
   position: relative;
   z-index: 2;
 }
