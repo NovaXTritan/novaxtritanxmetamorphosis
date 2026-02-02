@@ -1,5 +1,5 @@
 // Stale-while-revalidate service worker for fresh content
-const CACHE = 'novax-cache-v5';
+const CACHE = 'novax-cache-v6';
 const ASSETS = [
   './',
   './index.html',
