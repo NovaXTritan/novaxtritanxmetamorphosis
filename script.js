@@ -416,7 +416,46 @@
     if (el) el.textContent = value;
   }
 
-  // Update last updated time
+  // Load live status data from JSON
+  async function loadLiveStatus() {
+    try {
+      const response = await fetch('data/live-status.json');
+      const data = await response.json();
+
+      // Update operations dashboard
+      updateElement('msmeDealFlow', data.operations.msme.lifetime);
+      updateElement('msmeThisMonth', data.operations.msme.thisMonth);
+      updateElement('msmeMoM', data.operations.msme.momGrowth);
+
+      updateElement('finsightVersion', data.operations.finsight.version);
+      updateElement('anomaliesDetected', data.operations.finsight.anomaliesDetected);
+
+      updateElement('cosmosUsers', data.operations.cosmos.users);
+      updateElement('cosmosProofs', data.operations.cosmos.proofsThisWeek);
+
+      updateElement('researchProgress', data.operations.research.completion + '%');
+
+      updateElement('currentFocus', data.currentFocus);
+
+      // Update last sync time
+      const lastUpdated = new Date(data.lastUpdated);
+      updateElement('syncTime', getTimeAgo(lastUpdated));
+      updateElement('lastUpdated', getTimeAgo(lastUpdated));
+
+      // Update focus date
+      updateElement('focusDate', lastUpdated.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      }));
+
+    } catch (error) {
+      console.log('Live status data not available, using defaults');
+      updateLastUpdated();
+    }
+  }
+
+  // Fallback update last updated time
   function updateLastUpdated() {
     const lastUpdatedEl = $('#lastUpdated');
     const syncTimeEl = $('#syncTime');
@@ -425,7 +464,16 @@
     if (syncTimeEl) syncTimeEl.textContent = getTimeAgo(new Date(Date.now() - 2 * 60 * 1000));
   }
 
-  updateLastUpdated();
+  loadLiveStatus();
+
+  // ===== Text Reveal Animation =====
+  $$('.text-reveal').forEach(el => {
+    const text = el.textContent;
+    const words = text.split(' ');
+    el.innerHTML = words.map((word, i) =>
+      `<span style="animation-delay: ${i * 0.1}s">${word}</span>`
+    ).join(' ');
+  });
 
   // ===== Active Nav Link Highlighting =====
   const sections = $$('section[id]');
