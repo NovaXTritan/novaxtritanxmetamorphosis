@@ -410,6 +410,157 @@
     });
   }
 
+  // ===== Project Detail Modal =====
+  const projectModal = $('#projectModal');
+  const modalBackdrop = $('#modalBackdrop');
+  const modalClose = $('#modalClose');
+  const modalContent = $('#modalContent');
+  const modalTitle = $('#modalTitle');
+  const modalIcon = $('#modalIcon');
+  const modalStatus = $('#modalStatus');
+
+  // Project metadata mapping
+  const projectMeta = {
+    cosmos: { icon: '🌌', title: 'COSMOS', status: 'Live', statusClass: 'badge-green badge-status' },
+    finsight: { icon: '📊', title: 'FINSIGHT', status: 'Building', statusClass: 'badge-purple badge-status' },
+    bubble: { icon: '📈', title: 'AI Bubble Detection', status: 'Complete', statusClass: 'badge-green' },
+    research: { icon: '🔬', title: 'SCF Research', status: 'In Progress', statusClass: 'badge-orange badge-status' },
+    internship: { icon: '💼', title: 'S.K. Chadha Internship', status: 'Completed', statusClass: 'badge-green' },
+    msme: { icon: '🏦', title: 'MSME Lending', status: 'Active', statusClass: 'badge-green badge-status' },
+    leadership: { icon: '👥', title: 'Leadership Roles', status: 'Active', statusClass: 'badge-outline' },
+    iitk: { icon: '🎓', title: 'IIT Kanpur Internship', status: 'Completed', statusClass: 'badge-green' },
+    achievements: { icon: '🏆', title: 'Achievements', status: '', statusClass: '' },
+    srcc: { icon: '🏆', title: 'SRCC Quiz', status: 'Achievement', statusClass: 'badge-purple' }
+  };
+
+  function openProjectModal(projectId, scrollToSection = null) {
+    if (!projectModal) return;
+
+    const template = $(`#template-${projectId}`);
+    if (!template) {
+      console.warn(`Project template not found: template-${projectId}`);
+      return;
+    }
+
+    // Get metadata
+    const meta = projectMeta[projectId] || { icon: '📁', title: projectId, status: '', statusClass: '' };
+
+    // Set modal header
+    if (modalTitle) modalTitle.textContent = meta.title;
+    if (modalIcon) modalIcon.textContent = meta.icon;
+    if (modalStatus) {
+      modalStatus.textContent = meta.status;
+      modalStatus.className = 'modal-status badge ' + meta.statusClass;
+      modalStatus.style.display = meta.status ? 'inline-flex' : 'none';
+    }
+
+    // Clone template content into modal
+    const content = template.content.cloneNode(true);
+    modalContent.innerHTML = '';
+    modalContent.appendChild(content);
+
+    // Open modal
+    projectModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Scroll to specific section if requested
+    if (scrollToSection) {
+      setTimeout(() => {
+        const section = $(`#${scrollToSection}`, modalContent);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+
+    // Focus management
+    setTimeout(() => modalClose && modalClose.focus(), 50);
+  }
+
+  function closeProjectModal() {
+    if (!projectModal) return;
+    projectModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Modal Event Listeners
+  if (projectModal) {
+    // Close button
+    if (modalClose) {
+      modalClose.addEventListener('click', closeProjectModal);
+    }
+
+    // Backdrop click
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', closeProjectModal);
+    }
+
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && projectModal.getAttribute('aria-hidden') === 'false') {
+        closeProjectModal();
+      }
+    });
+  }
+
+  // Wire up project-trigger buttons
+  $$('.project-trigger').forEach(btn => {
+    const projectId = btn.getAttribute('data-project');
+    if (projectId && $(`#template-${projectId}`)) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openProjectModal(projectId);
+      });
+    }
+  });
+
+  // Wire up evidence section buttons
+  $$('.evidence-card').forEach(card => {
+    const cardId = card.id;
+    const projectId = cardId.replace('evidence-', '');
+
+    // Map evidence IDs to template IDs
+    const templateMap = {
+      'cosmos': 'cosmos',
+      'research': 'research',
+      'srcc': 'achievements',
+      'finsight': 'finsight'
+    };
+
+    const templateId = templateMap[projectId];
+
+    if (templateId) {
+      // Wire up evidence level buttons
+      $$('.evidence-level button', card).forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const level = e.target.closest('.evidence-level').getAttribute('data-level');
+
+          // Map levels to sections
+          const sectionMap = {
+            '1': `${projectId}-metrics`,
+            '2': `${projectId}-evidence`,
+            '3': `${projectId}-evidence`
+          };
+
+          openProjectModal(templateId, sectionMap[level]);
+        });
+      });
+    }
+  });
+
+  // Add project commands to command palette
+  commands.push(
+    { label: 'View COSMOS Details', run: () => openProjectModal('cosmos') },
+    { label: 'View FinSight Details', run: () => openProjectModal('finsight') },
+    { label: 'View AI Bubble Detection', run: () => openProjectModal('bubble') },
+    { label: 'View SCF Research', run: () => openProjectModal('research') },
+    { label: 'View MSME Operations', run: () => openProjectModal('msme') },
+    { label: 'View S.K. Chadha Internship', run: () => openProjectModal('internship') },
+    { label: 'View Leadership Roles', run: () => openProjectModal('leadership') },
+    { label: 'View IIT Kanpur Internship', run: () => openProjectModal('iitk') }
+  );
+
   // ===== Live Data Updates =====
   function updateElement(id, value) {
     const el = document.getElementById(id);
