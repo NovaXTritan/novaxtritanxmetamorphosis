@@ -299,7 +299,7 @@
     { label: 'Go to Activity', href: '#activity' },
     { label: 'Go to Contact', href: '#contact' },
     { label: 'Download Resume', run: () => window.open('Divyanshu_Kumar_Resume.pdf', '_blank') },
-    { label: 'Email Divyanshu', run: () => location.href = 'mailto:divyanshukumar27@gmail.com' },
+    { label: 'Email Divyanshu', run: () => location.href = 'mailto:divyanshu@nov-cosmos.com' },
     { label: 'Open LinkedIn', run: () => window.open('https://linkedin.com/in/divyanshukumar27', '_blank') },
     { label: 'Open GitHub', run: () => window.open('https://github.com/NovaXTritan', '_blank') },
     { label: 'View Cosmos', run: () => window.open('https://cosmos-e42b5.web.app/', '_blank') },
