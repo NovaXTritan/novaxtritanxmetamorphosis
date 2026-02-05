@@ -277,6 +277,31 @@
             </div>
           </div>
 
+          <!-- AI Bubble Detection Card -->
+          <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
+            <div class="ops-card-header">
+              <span class="ops-icon">📈</span>
+              <span class="ops-status badge badge-green">Complete</span>
+            </div>
+            <span class="ops-label">AI BUBBLE DETECTION</span>
+            <span class="ops-value gradient-text">17</span>
+            <span class="ops-metric">Bubbles Detected</span>
+            <div class="ops-stats">
+              <div class="ops-stat">
+                <span class="ops-stat-value">19.5K+</span>
+                <span class="ops-stat-label">Statistical tests</span>
+              </div>
+              <div class="ops-stat">
+                <span class="ops-stat-value">Mag-7</span>
+                <span class="ops-stat-label">Stocks analyzed</span>
+              </div>
+            </div>
+            <div class="ops-footer">
+              <span class="ops-detail">Phillips-Shi-Yu econometric framework</span>
+              <button class="project-trigger" data-project="bubble">View research</button>
+            </div>
+          </div>
+
           <!-- Leadership Card -->
           <div class="ops-card glass-card tilt-card gradient-border scroll-reveal stagger-item">
             <div class="ops-card-header">
@@ -447,6 +472,40 @@
                 <div>
                   <span class="level-label">Code Review</span>
                   <span class="level-desc">Technical deep-dive call</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">Request</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Bubble Detection Evidence -->
+          <div class="evidence-card glass-card scroll-reveal" id="evidence-bubble">
+            <div class="evidence-header">
+              <span class="evidence-claim">17 Bubbles Detected</span>
+              <span class="evidence-levels">3 verification levels</span>
+            </div>
+            <div class="evidence-chain">
+              <div class="evidence-level" data-level="1">
+                <span class="level-num">L1</span>
+                <div>
+                  <span class="level-label">Live Dashboard</span>
+                  <span class="level-desc">Streamlit visualization</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="2">
+                <span class="level-num">L2</span>
+                <div>
+                  <span class="level-label">Raw Data</span>
+                  <span class="level-desc">CSV files, methodology docs</span>
+                </div>
+                <button class="btn btn-ghost btn-sm">View</button>
+              </div>
+              <div class="evidence-level" data-level="3">
+                <span class="level-num">L3</span>
+                <div>
+                  <span class="level-label">Research Call</span>
+                  <span class="level-desc">Full methodology walkthrough</span>
                 </div>
                 <button class="btn btn-ghost btn-sm">Request</button>
               </div>
@@ -1033,30 +1092,35 @@
     <div class="project-detail">
       <div class="project-meta">
         <span class="project-dates">Completed Jan 2025</span>
-        <a href="https://lbk9v7grh6h2rqqvwvpkqc.streamlit.app" target="_blank" class="btn btn-primary btn-sm">View Dashboard</a>
+        <a href="https://lbk9v7grh6h2rqqvwvpkqc.streamlit.app" target="_blank" class="btn btn-primary btn-sm">View Live Dashboard</a>
       </div>
 
       <section class="project-section">
         <h3 class="project-section-title">The Business Problem</h3>
-        <p>When NVIDIA surged 200%+ in 2023 and AI dominated every investment headline, a critical question emerged: <strong>Is this real value creation, or are we watching dot-com 2.0 unfold?</strong></p>
-        <p>Traditional approaches failed: valuation metrics break down during paradigm shifts, media narratives offer opinions not data, and no systematic framework existed to test if this statistically resembles past bubbles.</p>
+        <p>When NVIDIA surged 200%+ in 2023 and AI dominated every investment headline, a critical question emerged that billions of dollars hinged upon: <strong>Is this real value creation, or are we watching dot-com 2.0 unfold in real-time?</strong></p>
+        <p>Traditional approaches failed to answer this:</p>
+        <ul class="project-list">
+          <li><strong>Valuation metrics (P/E ratios)</strong> break down during paradigm shifts</li>
+          <li><strong>Media narratives</strong> offer opinions, not data-driven answers</li>
+          <li><strong>No systematic framework</strong> existed to test: "Does this statistically resemble past bubbles?"</li>
+        </ul>
       </section>
 
       <section class="project-section">
         <h3 class="project-section-title">What I Built</h3>
-        <p>An <strong>econometric detection system</strong> analyzing the "Magnificent Seven" tech stocks plus NASDAQ to identify whether their valuations show statistical signatures of speculative bubbles.</p>
+        <p>An <strong>econometric detection system</strong> analyzing the "Magnificent Seven" tech stocks plus NASDAQ Composite Index to identify whether their valuations show statistical signatures of speculative bubbles.</p>
         <div class="data-table">
           <table>
             <thead>
-              <tr><th>Ticker</th><th>Company</th><th>Sector</th></tr>
+              <tr><th>Ticker</th><th>Company</th><th>Sector Focus</th></tr>
             </thead>
             <tbody>
-              <tr><td>NVDA</td><td>NVIDIA Corp.</td><td>AI Infrastructure</td></tr>
               <tr><td>AAPL</td><td>Apple Inc.</td><td>Consumer Electronics</td></tr>
-              <tr><td>MSFT</td><td>Microsoft Corp.</td><td>Software/Cloud/AI</td></tr>
+              <tr><td>AMZN</td><td>Amazon.com Inc.</td><td>E-commerce/Cloud</td></tr>
               <tr><td>GOOG</td><td>Alphabet Inc.</td><td>Search/AI</td></tr>
-              <tr><td>AMZN</td><td>Amazon.com</td><td>E-commerce/Cloud</td></tr>
-              <tr><td>META</td><td>Meta Platforms</td><td>Social/Metaverse</td></tr>
+              <tr><td>META</td><td>Meta Platforms Inc.</td><td>Social/Metaverse</td></tr>
+              <tr><td>MSFT</td><td>Microsoft Corp.</td><td>Software/Cloud/AI</td></tr>
+              <tr><td>NVDA</td><td>NVIDIA Corp.</td><td>AI Infrastructure</td></tr>
               <tr><td>TSLA</td><td>Tesla Inc.</td><td>EV/Energy</td></tr>
               <tr><td>^IXIC</td><td>NASDAQ Composite</td><td>Market Benchmark</td></tr>
             </tbody>
@@ -1066,14 +1130,41 @@
 
       <section class="project-section">
         <h3 class="project-section-title">Methodology: Phillips-Shi-Yu Framework</h3>
-        <p>I implemented the <strong>gold-standard econometric methodology</strong> for bubble detection—the same framework economists used to study the 2008 housing crisis and 1990s dot-com crash.</p>
+        <p>I implemented the <strong>gold-standard econometric methodology</strong> for bubble detection—the same framework economists used to study the 2008 housing crisis and 1990s dot-com crash (Phillips, Shi & Yu, 2011, 2015).</p>
+
+        <h4 class="subsection-title">5-Step Detection Process</h4>
         <div class="methodology-steps">
-          <div class="step"><span class="step-num">1</span><span>Collect 15 years of monthly stock prices (2010-2025)</span></div>
-          <div class="step"><span class="step-num">2</span><span>Convert to log prices, normalize to Base=100</span></div>
-          <div class="step"><span class="step-num">3</span><span>Run BSADF test: "Is this price behavior explosive?"</span></div>
-          <div class="step"><span class="step-num">4</span><span>Compare to critical values (150 wild bootstrap simulations)</span></div>
-          <div class="step"><span class="step-num">5</span><span>Date-stamp bubbles with 6-month minimum duration filter</span></div>
+          <div class="step"><span class="step-num">1</span><span><strong>Collect Data:</strong> Download 15 years of monthly stock prices (2010-2025) from Yahoo Finance + Fama-French factor libraries</span></div>
+          <div class="step"><span class="step-num">2</span><span><strong>Transform Prices:</strong> Convert raw prices to log prices, normalize to Base=100</span></div>
+          <div class="step"><span class="step-num">3</span><span><strong>Run BSADF Test:</strong> For each point in time, run statistical test asking: "Is this price behavior explosive?"</span></div>
+          <div class="step"><span class="step-num">4</span><span><strong>Compare to Threshold:</strong> Generate critical values using 150 wild bootstrap simulations with Rademacher multipliers</span></div>
+          <div class="step"><span class="step-num">5</span><span><strong>Date-Stamp Bubbles:</strong> Mark when bubbles START and END, apply 6-month minimum duration filter</span></div>
         </div>
+
+        <h4 class="subsection-title" style="margin-top: 1.5rem;">Statistical Engine Specifications</h4>
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr><th>Parameter</th><th>Value</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Total ADF Tests</td><td>19,500+ per stock</td><td>Comprehensive coverage</td></tr>
+              <tr><td>Bootstrap Replications</td><td>150</td><td>Robust critical value estimation</td></tr>
+              <tr><td>Rolling Windows</td><td>~130 per stock</td><td>Temporal analysis</td></tr>
+              <tr><td>Min Bubble Duration</td><td>6 months</td><td>False positive filter</td></tr>
+              <tr><td>Confidence Level</td><td>95%</td><td>Statistical significance</td></tr>
+              <tr><td>Data Period</td><td>Jan 2010 – Sep 2025</td><td>15+ years / 191 months</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="subsection-title" style="margin-top: 1.5rem;">Fama-French Factor Decomposition</h4>
+        <p>Separated returns into components to understand what drives each stock:</p>
+        <ul class="project-list">
+          <li><strong>Alpha:</strong> Excess return beyond market factors — indicates company-specific value creation or speculative premium</li>
+          <li><strong>Beta:</strong> Market sensitivity — how much the stock amplifies market movements</li>
+          <li><strong>R²:</strong> Variance explained by market — distinguishes market-driven vs. company-specific behavior</li>
+        </ul>
       </section>
 
       <section class="project-section" id="bubble-metrics">
@@ -1095,19 +1186,31 @@
             <span class="metric-value">95%</span>
             <span class="metric-label">Confidence Level</span>
           </div>
+          <div class="metric-card">
+            <span class="metric-value">8</span>
+            <span class="metric-label">Securities Covered</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value">150</span>
+            <span class="metric-label">Bootstrap Replications</span>
+          </div>
         </div>
 
-        <h4 class="subsection-title" style="margin-top: 2rem;">Stock-by-Stock Results</h4>
+        <h4 class="subsection-title" style="margin-top: 2rem;">Complete Stock-by-Stock Results</h4>
         <div class="data-table">
           <table>
             <thead>
-              <tr><th>Stock</th><th>Alpha (Ann.)</th><th>Beta</th><th>R²</th><th>Bubbles</th></tr>
+              <tr><th>Stock</th><th>Alpha (Ann.)</th><th>Beta</th><th>R²</th><th>Bubbles</th><th>Risk Profile</th></tr>
             </thead>
             <tbody>
-              <tr><td>TSLA</td><td class="highlight">18.9%</td><td>1.29</td><td>0.24</td><td>2</td></tr>
-              <tr><td>NVDA</td><td class="highlight">14.7%</td><td class="highlight">1.77</td><td>0.39</td><td>2</td></tr>
-              <tr><td>META</td><td>5.9%</td><td>1.16</td><td>0.23</td><td class="highlight">3</td></tr>
-              <tr><td>MSFT</td><td>4.7%</td><td>1.06</td><td>0.53</td><td>2</td></tr>
+              <tr><td>TSLA</td><td class="highlight">18.9%</td><td>1.29</td><td>0.24</td><td>2</td><td>Highest alpha, lowest market correlation</td></tr>
+              <tr><td>NVDA</td><td class="highlight">14.7%</td><td class="highlight">1.77</td><td>0.39</td><td>2</td><td>AI king, highest volatility</td></tr>
+              <tr><td>AAPL</td><td>8.8%</td><td>1.11</td><td>0.40</td><td>2</td><td>Solid, moderate risk</td></tr>
+              <tr><td>META</td><td>5.9%</td><td>1.16</td><td>0.23</td><td class="highlight">3</td><td>Only stock with double AI-era bubbles</td></tr>
+              <tr><td>AMZN</td><td>5.5%</td><td>1.22</td><td>0.51</td><td>2</td><td>Moderate across all metrics</td></tr>
+              <tr><td>MSFT</td><td>4.7%</td><td>1.06</td><td>0.53</td><td>2</td><td>Most stable Mag-7 stock</td></tr>
+              <tr><td>GOOG</td><td>4.2%</td><td>1.09</td><td>0.41</td><td>2</td><td>Balanced profile</td></tr>
+              <tr><td>^IXIC</td><td>0.1%</td><td>1.09</td><td class="highlight">0.95</td><td>2</td><td>Benchmark (tracks market)</td></tr>
             </tbody>
           </table>
         </div>
@@ -1116,26 +1219,107 @@
       <section class="project-section">
         <h3 class="project-section-title">Five Major Discoveries</h3>
         <ul class="project-list">
-          <li><strong>Universal Bubble Presence:</strong> All eight securities show statistically significant bubble behavior in BOTH pre-AI (2010-2022) AND AI boom era (2022-2025)</li>
-          <li><strong>NVIDIA Leads:</strong> 40,000%+ returns since 2010, highest beta (1.77)</li>
-          <li><strong>Tesla Generates Highest Alpha:</strong> 18.9% annualized excess returns, yet lowest R² (0.24)</li>
-          <li><strong>META Shows Multiple AI-Era Bubbles:</strong> Uniquely exhibits TWO distinct bubble periods during AI boom</li>
-          <li><strong>Market-Wide Phenomenon:</strong> NASDAQ mirrors individual patterns—systematic, not idiosyncratic</li>
+          <li><strong>Universal Bubble Presence:</strong> All eight securities exhibit statistically significant bubble behavior in BOTH the pre-AI period (2010-2022) AND the AI boom era (2022-2025)</li>
+          <li><strong>NVIDIA Leads in Explosive Growth:</strong> With 40,000%+ returns since 2010, 14.7% annualized alpha, and the highest market beta (1.77), NVIDIA shows the most aggressive growth characteristics</li>
+          <li><strong>Tesla Generates Highest Alpha:</strong> Despite market volatility, Tesla produces 18.9% annualized excess returns—the highest among all analyzed securities—yet shows one of the lowest R² values (0.24)</li>
+          <li><strong>META Shows Multiple AI-Era Bubbles:</strong> Uniquely among the Magnificent Seven, META exhibits two distinct bubble periods during the AI boom (Dec 2022–Sep 2025), suggesting heightened speculative activity around its AI/metaverse pivot</li>
+          <li><strong>Market-Wide Phenomenon:</strong> The NASDAQ index mirrors individual stock bubble patterns, indicating this is systematic rather than idiosyncratic speculative behavior—the entire tech sector is moving together</li>
         </ul>
+      </section>
+
+      <section class="project-section">
+        <h3 class="project-section-title">Understanding the Metrics (Plain English)</h3>
+
+        <h4 class="subsection-title">Alpha — "The Extra Juice"</h4>
+        <p><strong>What it measures:</strong> Returns beyond what the overall market gives you.</p>
+        <p><strong>Think of it like:</strong> You invested in a stock and the market went up 10%. If your stock went up 15%, that extra 5% is roughly your alpha—the "bonus" you got.</p>
+        <div class="learning-item learning-success">
+          <strong>Why Tesla's 18.9% alpha matters:</strong> Tesla returned almost 19% extra per year on top of market returns. That's either incredible value creation... or a speculative premium waiting to correct.
+        </div>
+
+        <h4 class="subsection-title" style="margin-top: 1.5rem;">Beta — "The Roller Coaster Factor"</h4>
+        <p><strong>What it measures:</strong> How much the stock swings compared to the market.</p>
+        <ul class="project-list">
+          <li>Beta = 1.0 → Moves exactly with market</li>
+          <li>Beta > 1.0 → Amplifies market movements</li>
+          <li>Beta < 1.0 → Dampens market movements</li>
+        </ul>
+        <div class="learning-item learning-failure">
+          <strong>Why NVIDIA's 1.77 beta matters:</strong> When the market goes up 10%, NVIDIA goes up 17.7%. But when the market drops 10%, NVIDIA drops 17.7%. High beta = high risk, high reward.
+        </div>
+
+        <h4 class="subsection-title" style="margin-top: 1.5rem;">R² — "The Independence Score"</h4>
+        <p><strong>What it measures:</strong> What percentage of the stock's movement is explained by the overall market.</p>
+        <ul class="project-list">
+          <li><strong>NASDAQ's 0.95 R²:</strong> 95% of its movement is just the market moving</li>
+          <li><strong>META's 0.23 R²:</strong> Only 23% is market-driven—the other 77% is company-specific factors (or speculation)</li>
+        </ul>
+        <p><strong>Low R² + High Alpha = Either genuine innovation OR speculative bubble behavior</strong></p>
       </section>
 
       <section class="project-section">
         <h3 class="project-section-title">Technical Stack</h3>
         <div class="tech-stack">
-          <span class="tech-badge">Python</span>
+          <span class="tech-badge">Python 3.x</span>
           <span class="tech-badge">pandas</span>
           <span class="tech-badge">NumPy</span>
           <span class="tech-badge">statsmodels</span>
           <span class="tech-badge">scipy</span>
+          <span class="tech-badge">scikit-learn</span>
           <span class="tech-badge">yfinance</span>
-          <span class="tech-badge">Streamlit</span>
           <span class="tech-badge">matplotlib</span>
+          <span class="tech-badge">seaborn</span>
+          <span class="tech-badge">Streamlit</span>
         </div>
+        <h4 class="subsection-title" style="margin-top: 1.5rem;">Data Sources</h4>
+        <ul class="project-list">
+          <li><strong>Price Data:</strong> Yahoo Finance (monthly OHLC)</li>
+          <li><strong>Factor Data:</strong> Kenneth French Data Library (Fama-French factors)</li>
+        </ul>
+        <h4 class="subsection-title" style="margin-top: 1rem;">Deliverables</h4>
+        <ul class="project-list">
+          <li>Interactive Streamlit Dashboard</li>
+          <li>8 publication-quality PNG visualizations</li>
+          <li>CSV summaries of bubble periods</li>
+          <li>Fama-French regression results</li>
+          <li>HBS-style PDF research report</li>
+        </ul>
+      </section>
+
+      <section class="project-section">
+        <h3 class="project-section-title">Investment Implications</h3>
+        <p>The evidence suggests that current AI stock valuations contain a <strong>significant speculative component</strong> that extends beyond fundamental value creation.</p>
+        <div class="learning-item learning-failure">
+          <strong>Historical precedent:</strong> Bubble periods tend to end with substantial corrections
+        </div>
+        <div class="learning-item learning-success">
+          <strong>Risk differentiation:</strong> High R² stocks (MSFT, AMZN) are more market-driven and "safer"; Low R² stocks (TSLA, META) carry more idiosyncratic risk
+        </div>
+        <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.875rem;"><em>This analysis does not constitute investment advice but provides a quantitative framework for risk assessment.</em></p>
+      </section>
+
+      <section class="project-section">
+        <h3 class="project-section-title">Skills Demonstrated</h3>
+        <div class="data-table">
+          <table>
+            <thead>
+              <tr><th>Category</th><th>Skills</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Technical</td><td>Econometric modeling, time series analysis, statistical hypothesis testing, bootstrap inference, API integration, data visualization</td></tr>
+              <tr><td>Business</td><td>Quantitative research design, financial analysis, technical writing, complex concept simplification, risk assessment</td></tr>
+              <tr><td>Tools</td><td>Python, pandas, NumPy, statsmodels, scipy, matplotlib, seaborn, Streamlit, Git</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="project-section">
+        <h3 class="project-section-title">What I Learned</h3>
+        <div class="learning-item learning-success">
+          Building this system taught me that the best business decisions sit at the intersection of <strong>quantitative rigor</strong> and <strong>strategic thinking</strong>. Markets tell stories through data. My job was to listen.
+        </div>
+        <p style="margin-top: 1rem;">The difference between "transformative technology" and "speculative mania" isn't philosophical—it's measurable. This project gave me the tools to measure it.</p>
       </section>
 
       <section class="project-section project-evidence" id="bubble-evidence">
@@ -1145,7 +1329,7 @@
             <span class="level-num">L1</span>
             <div>
               <span class="level-label">Live Dashboard</span>
-              <span class="level-desc">Interactive Streamlit visualization</span>
+              <span class="level-desc">Interactive Streamlit visualization with all charts</span>
             </div>
             <span class="level-status available">Available</span>
           </div>
@@ -1153,7 +1337,7 @@
             <span class="level-num">L2</span>
             <div>
               <span class="level-label">Methodology + Raw Data</span>
-              <span class="level-desc">CSV files, documentation</span>
+              <span class="level-desc">psy_bubble_summary.csv, fama_french_loadings_psy.csv</span>
             </div>
             <span class="level-status available">Available</span>
           </div>
@@ -1161,7 +1345,7 @@
             <span class="level-num">L3</span>
             <div>
               <span class="level-label">Research Walkthrough</span>
-              <span class="level-desc">Full methodology call</span>
+              <span class="level-desc">Full methodology call + HBS-style PDF report</span>
             </div>
             <span class="level-status request">On Request</span>
           </div>

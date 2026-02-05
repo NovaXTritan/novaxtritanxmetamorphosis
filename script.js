@@ -524,7 +524,8 @@
       'cosmos': 'cosmos',
       'research': 'research',
       'srcc': 'achievements',
-      'finsight': 'finsight'
+      'finsight': 'finsight',
+      'bubble': 'bubble'
     };
 
     const templateId = templateMap[projectId];
