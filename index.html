@@ -19,8 +19,41 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Divyanshu Kumar - Operations Dashboard">
   <meta name="twitter:description" content="MSME Lending x AI Research x Product Builder">
+  <meta name="twitter:image" content="https://novaxtritan.github.io/novaxtritanxmetamorphosis/images/1745733549930.jpg">
+
+  <!-- OG Image Dimensions -->
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="600">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://novaxtritan.github.io/novaxtritanxmetamorphosis/">
 
   <title>Divyanshu Kumar | Operations Dashboard</title>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Divyanshu Kumar",
+      "url": "https://novaxtritan.github.io/novaxtritanxmetamorphosis/",
+      "image": "https://novaxtritan.github.io/novaxtritanxmetamorphosis/images/1745733549930.jpg",
+      "jobTitle": "MSME Lending Operations & AI Researcher",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Christ University"
+      },
+      "knowsAbout": ["MSME Lending", "AI Research", "Product Building", "Financial Analytics"],
+      "sameAs": [
+        "https://github.com/NovaXTritan",
+        "https://linkedin.com/in/divyanshukumar27"
+      ]
+    }
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +63,10 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Favicon -->
+  <!-- Favicon & PWA -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>D</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon-180.png">
 </head>
 <body>
 
@@ -150,7 +185,7 @@
           <!-- Right: Photo -->
           <div class="hero-visual scroll-reveal">
             <div class="hero-photo-wrapper tilt-card glass-card gradient-border">
-              <img src="images/1745733549930.jpg" alt="Divyanshu Kumar" class="hero-photo">
+              <img src="images/1745733549930.jpg" alt="Divyanshu Kumar" class="hero-photo" width="600" height="600" loading="eager" decoding="async">
               <div class="photo-badge">
                 <span>Evidence over promises</span>
               </div>
@@ -698,17 +733,18 @@
 
   <!-- Command Palette -->
   <div class="command-palette" id="command-palette">
-    <div class="command-panel">
+    <div class="command-panel" role="dialog" aria-label="Command palette">
       <div class="command-header">
         <span>Cmd+K</span>
+        <label for="command-input" class="sr-only">Type a command or search</label>
         <input type="text" class="command-input" id="command-input" placeholder="Type a command or search..." autocomplete="off">
       </div>
-      <div class="command-list" id="command-list"></div>
+      <div class="command-list" id="command-list" role="listbox" aria-label="Commands"></div>
     </div>
   </div>
 
   <!-- Project Detail Modal -->
-  <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog">
+  <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-label="Project details">
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-panel glass-card">
       <div class="modal-header">
@@ -1858,6 +1894,13 @@
 
   <!-- Scripts -->
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+  </script>
 
 </body>
 </html>

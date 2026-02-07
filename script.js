@@ -5,9 +5,48 @@
 (function() {
   'use strict';
 
+  // ===== Configuration =====
+  const CONFIG = {
+    github: { username: 'NovaXTritan' },
+    email: 'divyanshu@nova-cosmos.com',
+    social: {
+      linkedin: 'https://linkedin.com/in/divyanshukumar27',
+      github: 'https://github.com/NovaXTritan',
+      cosmos: 'https://cosmos-e42b5.web.app/'
+    },
+    fetchTimeout: 8000,
+    activityRefreshInterval: 300000,
+    greetingRefreshInterval: 60000
+  };
+
   // ===== Utilities =====
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function fetchWithTimeout(url, options = {}, timeout = CONFIG.fetchTimeout) {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+    return fetch(url, { ...options, signal: controller.signal })
+      .finally(() => clearTimeout(id));
+  }
+
+  function throttleRAF(fn) {
+    let ticking = false;
+    return function(...args) {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        fn.apply(this, args);
+        ticking = false;
+      });
+    };
+  }
 
   // ===== Footer Year =====
   const yearEl = $('#year');
@@ -16,35 +55,30 @@
   // ===== Cursor Spotlight =====
   const spotlight = $('#spotlight');
   if (spotlight && !('ontouchstart' in window)) {
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', throttleRAF((e) => {
       spotlight.style.left = e.clientX + 'px';
       spotlight.style.top = e.clientY + 'px';
-    });
+    }));
   } else if (spotlight) {
     spotlight.style.display = 'none';
   }
 
   // ===== Scroll Progress Bar =====
   const progressBar = $('#scrollProgress');
-  if (progressBar) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = progress + '%';
-    }, { passive: true });
-  }
-
-  // ===== Navigation Scroll Effect =====
   const navbar = $('#navbar');
-  if (navbar) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
+
+  if (progressBar || navbar) {
+    window.addEventListener('scroll', throttleRAF(() => {
+      const scrollTop = window.scrollY;
+      if (progressBar) {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = progress + '%';
       }
-    }, { passive: true });
+      if (navbar) {
+        navbar.classList.toggle('scrolled', scrollTop > 50);
+      }
+    }), { passive: true });
   }
 
   // ===== Mobile Navigation =====
@@ -58,7 +92,6 @@
       mobileMenu.classList.toggle('open', !isOpen);
     });
 
-    // Close menu when clicking a link
     mobileMenu.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') {
         mobileToggle.setAttribute('aria-expanded', 'false');
@@ -66,7 +99,6 @@
       }
     });
 
-    // Close on escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
         mobileToggle.setAttribute('aria-expanded', 'false');
@@ -108,7 +140,7 @@
 
   // ===== 3D Card Tilt Effect =====
   $$('.tilt-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+    card.addEventListener('mousemove', throttleRAF((e) => {
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -119,7 +151,7 @@
         rotateX(${-y * 8}deg)
         scale(1.02)
       `;
-    });
+    }));
 
     card.addEventListener('mouseleave', () => {
       card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
@@ -128,13 +160,13 @@
 
   // ===== Magnetic Buttons =====
   $$('.magnetic-btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
+    btn.addEventListener('mousemove', throttleRAF((e) => {
       const rect = btn.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
 
       btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-    });
+    }));
 
     btn.addEventListener('mouseleave', () => {
       btn.style.transform = 'translate(0, 0)';
@@ -142,6 +174,8 @@
   });
 
   // ===== Time-Aware Greeting =====
+  let greetingTimer = null;
+
   function setTimeGreeting() {
     const hour = new Date().getHours();
     const greetingEl = $('#timeGreeting');
@@ -165,17 +199,33 @@
   }
 
   setTimeGreeting();
-  setInterval(setTimeGreeting, 60000);
+  greetingTimer = setInterval(setTimeGreeting, CONFIG.greetingRefreshInterval);
+
+  // Clean up on page hide
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(greetingTimer);
+      clearInterval(activityTimer);
+    } else {
+      setTimeGreeting();
+      greetingTimer = setInterval(setTimeGreeting, CONFIG.greetingRefreshInterval);
+      activityTimer = setInterval(fetchGitHubActivity, CONFIG.activityRefreshInterval);
+    }
+  });
 
   // ===== Returning Visitor Detection =====
   function handleReturningVisitor() {
-    const visitCount = parseInt(localStorage.getItem('visitCount') || '0');
-    localStorage.setItem('visitCount', (visitCount + 1).toString());
-    localStorage.setItem('lastVisit', new Date().toISOString());
+    try {
+      const visitCount = parseInt(localStorage.getItem('visitCount') || '0', 10);
+      localStorage.setItem('visitCount', (visitCount + 1).toString());
+      localStorage.setItem('lastVisit', new Date().toISOString());
 
-    if (visitCount > 2) {
-      const greetingEl = $('#timeGreeting');
-      if (greetingEl) greetingEl.textContent = "Welcome back";
+      if (visitCount > 2) {
+        const greetingEl = $('#timeGreeting');
+        if (greetingEl) greetingEl.textContent = "Welcome back";
+      }
+    } catch (_) {
+      // localStorage unavailable (private browsing, quota exceeded)
     }
   }
 
@@ -183,19 +233,24 @@
 
   // ===== GitHub Activity Feed =====
   async function fetchGitHubActivity() {
-    const username = 'NovaXTritan';
     const feedContainer = $('#githubFeed');
-
     if (!feedContainer) return;
 
     try {
-      const response = await fetch(`https://api.github.com/users/${username}/events/public?per_page=10`);
+      const response = await fetchWithTimeout(
+        `https://api.github.com/users/${CONFIG.github.username}/events/public?per_page=10`
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
       const events = await response.json();
 
       if (!Array.isArray(events) || events.length === 0) {
         feedContainer.innerHTML = `
           <div class="activity-error">
-            No recent activity. <a href="https://github.com/${username}" target="_blank">View on GitHub</a>
+            No recent activity. <a href="${CONFIG.social.github}" target="_blank" rel="noopener">View on GitHub</a>
           </div>
         `;
         return;
@@ -212,7 +267,7 @@
             <span class="activity-icon">${icon}</span>
             <div class="activity-content">
               <span class="activity-text">${description}</span>
-              <span class="activity-time">${timeAgo}</span>
+              <span class="activity-time">${escapeHTML(timeAgo)}</span>
             </div>
           </div>
         `;
@@ -220,10 +275,10 @@
 
       feedContainer.innerHTML = activityHTML;
 
-    } catch (error) {
+    } catch (_) {
       feedContainer.innerHTML = `
         <div class="activity-error">
-          Unable to fetch activity. <a href="https://github.com/${username}" target="_blank">View on GitHub</a>
+          Unable to fetch activity. <a href="${CONFIG.social.github}" target="_blank" rel="noopener">View on GitHub</a>
         </div>
       `;
     }
@@ -251,29 +306,31 @@
 
   function getEventIcon(type) {
     const icons = {
-      PushEvent: '⬆',
-      CreateEvent: '✨',
-      PullRequestEvent: '🔀',
-      IssuesEvent: '🎯',
-      WatchEvent: '⭐',
-      ForkEvent: '🍴',
-      default: '📌'
+      PushEvent: '\u2B06',
+      CreateEvent: '\u2728',
+      PullRequestEvent: '\uD83D\uDD00',
+      IssuesEvent: '\uD83C\uDFAF',
+      WatchEvent: '\u2B50',
+      ForkEvent: '\uD83C\uDF74',
+      default: '\uD83D\uDCCC'
     };
     return icons[type] || icons.default;
   }
 
   function getEventDescription(event) {
-    const repo = event.repo.name.split('/')[1];
+    const repoName = event.repo && event.repo.name ? event.repo.name.split('/')[1] : 'unknown';
+    const repo = escapeHTML(repoName);
     switch (event.type) {
-      case 'PushEvent':
-        const commits = event.payload.commits?.length || 0;
+      case 'PushEvent': {
+        const commits = (event.payload && event.payload.commits) ? event.payload.commits.length : 0;
         return `Pushed ${commits} commit${commits > 1 ? 's' : ''} to <strong>${repo}</strong>`;
+      }
       case 'CreateEvent':
-        return `Created ${event.payload.ref_type} in <strong>${repo}</strong>`;
+        return `Created ${escapeHTML(event.payload?.ref_type || 'resource')} in <strong>${repo}</strong>`;
       case 'PullRequestEvent':
-        return `${event.payload.action} PR in <strong>${repo}</strong>`;
+        return `${escapeHTML(event.payload?.action || 'updated')} PR in <strong>${repo}</strong>`;
       case 'IssuesEvent':
-        return `${event.payload.action} issue in <strong>${repo}</strong>`;
+        return `${escapeHTML(event.payload?.action || 'updated')} issue in <strong>${repo}</strong>`;
       case 'WatchEvent':
         return `Starred <strong>${repo}</strong>`;
       case 'ForkEvent':
@@ -284,7 +341,34 @@
   }
 
   fetchGitHubActivity();
-  setInterval(fetchGitHubActivity, 300000); // Refresh every 5 minutes
+  let activityTimer = setInterval(fetchGitHubActivity, CONFIG.activityRefreshInterval);
+
+  // ===== Modal Utilities (shared) =====
+  function trapFocus(container) {
+    const focusable = container.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    function handler(e) {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    container.addEventListener('keydown', handler);
+    return () => container.removeEventListener('keydown', handler);
+  }
 
   // ===== Command Palette =====
   const cmdPalette = $('#command-palette');
@@ -299,13 +383,14 @@
     { label: 'Go to Activity', href: '#activity' },
     { label: 'Go to Contact', href: '#contact' },
     { label: 'Download Resume', run: () => window.open('Divyanshu_Kumar_Resume.pdf', '_blank') },
-    { label: 'Email Divyanshu', run: () => location.href = 'mailto:divyanshu@nova-cosmos.com' },
-    { label: 'Open LinkedIn', run: () => window.open('https://linkedin.com/in/divyanshukumar27', '_blank') },
-    { label: 'Open GitHub', run: () => window.open('https://github.com/NovaXTritan', '_blank') },
-    { label: 'View Cosmos', run: () => window.open('https://cosmos-e42b5.web.app/', '_blank') },
+    { label: 'Email Divyanshu', run: () => { location.href = 'mailto:' + CONFIG.email; } },
+    { label: 'Open LinkedIn', run: () => window.open(CONFIG.social.linkedin, '_blank') },
+    { label: 'Open GitHub', run: () => window.open(CONFIG.social.github, '_blank') },
+    { label: 'View Cosmos', run: () => window.open(CONFIG.social.cosmos, '_blank') },
   ];
 
   let selectedIdx = 0;
+  let removePaletteTrap = null;
 
   function openPalette() {
     if (!cmdPalette) return;
@@ -313,30 +398,38 @@
     cmdInput.value = '';
     selectedIdx = 0;
     renderCommands('');
-    setTimeout(() => cmdInput.focus(), 50);
+    setTimeout(() => {
+      cmdInput.focus();
+      removePaletteTrap = trapFocus(cmdPalette);
+    }, 50);
   }
 
   function closePalette() {
     if (!cmdPalette) return;
     cmdPalette.classList.remove('open');
+    if (removePaletteTrap) {
+      removePaletteTrap();
+      removePaletteTrap = null;
+    }
+    if (cmdBtn) cmdBtn.focus();
   }
 
   function fuzzyMatch(query, str) {
-    query = query.toLowerCase();
-    str = str.toLowerCase();
-    let qi = 0;
-    for (let si = 0; si < str.length && qi < query.length; si++) {
-      if (query[qi] === str[si]) qi++;
+    const q = query.toLowerCase();
+    const s = str.toLowerCase();
+    let queryIdx = 0;
+    for (let strIdx = 0; strIdx < s.length && queryIdx < q.length; strIdx++) {
+      if (q[queryIdx] === s[strIdx]) queryIdx++;
     }
-    return qi === query.length;
+    return queryIdx === q.length;
   }
 
   function renderCommands(query) {
     const filtered = commands.filter(cmd => !query || fuzzyMatch(query, cmd.label));
 
     cmdList.innerHTML = filtered.map((cmd, i) => `
-      <div class="command-item${i === selectedIdx ? ' selected' : ''}" data-idx="${commands.indexOf(cmd)}">
-        <span>${cmd.label}</span>
+      <div class="command-item${i === selectedIdx ? ' selected' : ''}" data-idx="${commands.indexOf(cmd)}" role="option" aria-selected="${i === selectedIdx}">
+        <span>${escapeHTML(cmd.label)}</span>
         <span>Enter</span>
       </div>
     `).join('');
@@ -357,12 +450,9 @@
     }
   }
 
-  // Command palette events
   if (cmdPalette && cmdInput && cmdList) {
-    // Open with button
     if (cmdBtn) cmdBtn.addEventListener('click', openPalette);
 
-    // Global shortcut Cmd/Ctrl + K
     document.addEventListener('keydown', (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
@@ -370,18 +460,15 @@
       }
     });
 
-    // Close on backdrop click
     cmdPalette.addEventListener('click', (e) => {
       if (e.target === cmdPalette) closePalette();
     });
 
-    // Input handling
     cmdInput.addEventListener('input', () => {
       selectedIdx = 0;
       renderCommands(cmdInput.value);
     });
 
-    // Keyboard navigation
     cmdInput.addEventListener('keydown', (e) => {
       const items = $$('.command-item', cmdList);
 
@@ -403,7 +490,6 @@
       }
     });
 
-    // Click on item
     cmdList.addEventListener('click', (e) => {
       const item = e.target.closest('.command-item');
       if (item) executeCommand(+item.getAttribute('data-idx'));
@@ -419,33 +505,30 @@
   const modalIcon = $('#modalIcon');
   const modalStatus = $('#modalStatus');
 
-  // Project metadata mapping
   const projectMeta = {
-    cosmos: { icon: '🌌', title: 'COSMOS', status: 'Live', statusClass: 'badge-green badge-status' },
-    finsight: { icon: '📊', title: 'FINSIGHT', status: 'Building', statusClass: 'badge-purple badge-status' },
-    bubble: { icon: '📈', title: 'AI Bubble Detection', status: 'Complete', statusClass: 'badge-green' },
-    research: { icon: '🔬', title: 'SCF Research', status: 'In Progress', statusClass: 'badge-orange badge-status' },
-    internship: { icon: '💼', title: 'S.K. Chadha Internship', status: 'Completed', statusClass: 'badge-green' },
-    msme: { icon: '🏦', title: 'MSME Lending', status: 'Active', statusClass: 'badge-green badge-status' },
-    leadership: { icon: '👥', title: 'Leadership Roles', status: 'Active', statusClass: 'badge-outline' },
-    iitk: { icon: '🎓', title: 'IIT Kanpur Internship', status: 'Completed', statusClass: 'badge-green' },
-    achievements: { icon: '🏆', title: 'Achievements', status: '', statusClass: '' },
-    srcc: { icon: '🏆', title: 'SRCC Quiz', status: 'Achievement', statusClass: 'badge-purple' }
+    cosmos: { icon: '\uD83C\uDF0C', title: 'COSMOS', status: 'Live', statusClass: 'badge-green badge-status' },
+    finsight: { icon: '\uD83D\uDCCA', title: 'FINSIGHT', status: 'Building', statusClass: 'badge-purple badge-status' },
+    bubble: { icon: '\uD83D\uDCC8', title: 'AI Bubble Detection', status: 'Complete', statusClass: 'badge-green' },
+    research: { icon: '\uD83D\uDD2C', title: 'SCF Research', status: 'In Progress', statusClass: 'badge-orange badge-status' },
+    internship: { icon: '\uD83D\uDCBC', title: 'S.K. Chadha Internship', status: 'Completed', statusClass: 'badge-green' },
+    msme: { icon: '\uD83C\uDFE6', title: 'MSME Lending', status: 'Active', statusClass: 'badge-green badge-status' },
+    leadership: { icon: '\uD83D\uDC65', title: 'Leadership Roles', status: 'Active', statusClass: 'badge-outline' },
+    iitk: { icon: '\uD83C\uDF93', title: 'IIT Kanpur Internship', status: 'Completed', statusClass: 'badge-green' },
+    achievements: { icon: '\uD83C\uDFC6', title: 'Achievements', status: '', statusClass: '' },
+    srcc: { icon: '\uD83C\uDFC6', title: 'SRCC Quiz', status: 'Achievement', statusClass: 'badge-purple' }
   };
+
+  let removeModalTrap = null;
+  let modalTriggerEl = null;
 
   function openProjectModal(projectId, scrollToSection = null) {
     if (!projectModal) return;
 
     const template = $(`#template-${projectId}`);
-    if (!template) {
-      console.warn(`Project template not found: template-${projectId}`);
-      return;
-    }
+    if (!template) return;
 
-    // Get metadata
-    const meta = projectMeta[projectId] || { icon: '📁', title: projectId, status: '', statusClass: '' };
+    const meta = projectMeta[projectId] || { icon: '\uD83D\uDCC1', title: projectId, status: '', statusClass: '' };
 
-    // Set modal header
     if (modalTitle) modalTitle.textContent = meta.title;
     if (modalIcon) modalIcon.textContent = meta.icon;
     if (modalStatus) {
@@ -454,16 +537,14 @@
       modalStatus.style.display = meta.status ? 'inline-flex' : 'none';
     }
 
-    // Clone template content into modal
     const content = template.content.cloneNode(true);
     modalContent.innerHTML = '';
     modalContent.appendChild(content);
 
-    // Open modal
+    modalTriggerEl = document.activeElement;
     projectModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
 
-    // Scroll to specific section if requested
     if (scrollToSection) {
       setTimeout(() => {
         const section = $(`#${scrollToSection}`, modalContent);
@@ -473,29 +554,35 @@
       }, 100);
     }
 
-    // Focus management
-    setTimeout(() => modalClose && modalClose.focus(), 50);
+    setTimeout(() => {
+      if (modalClose) modalClose.focus();
+      removeModalTrap = trapFocus(projectModal);
+    }, 50);
   }
 
   function closeProjectModal() {
     if (!projectModal) return;
     projectModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (removeModalTrap) {
+      removeModalTrap();
+      removeModalTrap = null;
+    }
+    if (modalTriggerEl) {
+      modalTriggerEl.focus();
+      modalTriggerEl = null;
+    }
   }
 
-  // Modal Event Listeners
   if (projectModal) {
-    // Close button
     if (modalClose) {
       modalClose.addEventListener('click', closeProjectModal);
     }
 
-    // Backdrop click
     if (modalBackdrop) {
       modalBackdrop.addEventListener('click', closeProjectModal);
     }
 
-    // Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && projectModal.getAttribute('aria-hidden') === 'false') {
         closeProjectModal();
@@ -503,7 +590,6 @@
     });
   }
 
-  // Wire up project-trigger buttons
   $$('.project-trigger').forEach(btn => {
     const projectId = btn.getAttribute('data-project');
     if (projectId && $(`#template-${projectId}`)) {
@@ -514,12 +600,10 @@
     }
   });
 
-  // Wire up evidence section buttons
   $$('.evidence-card').forEach(card => {
     const cardId = card.id;
     const projectId = cardId.replace('evidence-', '');
 
-    // Map evidence IDs to template IDs
     const templateMap = {
       'cosmos': 'cosmos',
       'research': 'research',
@@ -531,13 +615,11 @@
     const templateId = templateMap[projectId];
 
     if (templateId) {
-      // Wire up evidence level buttons
       $$('.evidence-level button', card).forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           const level = e.target.closest('.evidence-level').getAttribute('data-level');
 
-          // Map levels to sections
           const sectionMap = {
             '1': `${projectId}-metrics`,
             '2': `${projectId}-evidence`,
@@ -550,7 +632,6 @@
     }
   });
 
-  // Add project commands to command palette
   commands.push(
     { label: 'View COSMOS Details', run: () => openProjectModal('cosmos') },
     { label: 'View FinSight Details', run: () => openProjectModal('finsight') },
@@ -568,13 +649,16 @@
     if (el) el.textContent = value;
   }
 
-  // Load live status data from JSON
   async function loadLiveStatus() {
     try {
-      const response = await fetch('data/live-status.json');
+      const response = await fetchWithTimeout('data/live-status.json');
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
       const data = await response.json();
 
-      // Update operations dashboard
       updateElement('msmeDealFlow', data.operations.msme.lifetime);
       updateElement('msmeThisMonth', data.operations.msme.thisMonth);
       updateElement('msmeMoM', data.operations.msme.momGrowth);
@@ -589,25 +673,21 @@
 
       updateElement('currentFocus', data.currentFocus);
 
-      // Update last sync time
       const lastUpdated = new Date(data.lastUpdated);
       updateElement('syncTime', getTimeAgo(lastUpdated));
       updateElement('lastUpdated', getTimeAgo(lastUpdated));
 
-      // Update focus date
       updateElement('focusDate', lastUpdated.toLocaleDateString('en-US', {
         month: 'short',
         day: 'numeric',
         year: 'numeric'
       }));
 
-    } catch (error) {
-      console.log('Live status data not available, using defaults');
+    } catch (_) {
       updateLastUpdated();
     }
   }
 
-  // Fallback update last updated time
   function updateLastUpdated() {
     const lastUpdatedEl = $('#lastUpdated');
     const syncTimeEl = $('#syncTime');
@@ -623,7 +703,7 @@
     const text = el.textContent;
     const words = text.split(' ');
     el.innerHTML = words.map((word, i) =>
-      `<span style="animation-delay: ${i * 0.1}s">${word}</span>`
+      `<span style="animation-delay: ${i * 0.1}s">${escapeHTML(word)}</span>`
     ).join(' ');
   });
 

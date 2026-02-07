@@ -1396,6 +1396,19 @@ section {
   }
 }
 
+/* ===== 21b. FOCUS VISIBLE ===== */
+:focus-visible {
+  outline: 2px solid var(--purple-primary);
+  outline-offset: 2px;
+}
+
+.command-item:focus-visible,
+.modal-close:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--purple-light);
+  outline-offset: 2px;
+}
+
 /* ===== 22. UTILITY CLASSES ===== */
 .sr-only {
   position: absolute;
