@@ -10,7 +10,7 @@
     github: { username: 'NovaXTritan' },
     email: 'divyanshu@nova-cosmos.com',
     social: {
-      linkedin: 'https://linkedin.com/in/divyanshukumar27',
+      linkedin: 'https://www.linkedin.com/in/divyanshukumar27',
       github: 'https://github.com/NovaXTritan',
       cosmos: 'https://cosmos-e42b5.web.app/'
     },
@@ -507,7 +507,7 @@
 
   const projectMeta = {
     cosmos: { icon: '\uD83C\uDF0C', title: 'COSMOS', status: 'Live', statusClass: 'badge-green badge-status' },
-    finsight: { icon: '\uD83D\uDCCA', title: 'FINSIGHT', status: 'Building', statusClass: 'badge-purple badge-status' },
+    finsight: { icon: '\uD83D\uDCCA', title: 'FINSIGHT', status: 'Prototype', statusClass: 'badge-purple badge-status' },
     bubble: { icon: '\uD83D\uDCC8', title: 'AI Bubble Detection', status: 'Complete', statusClass: 'badge-green' },
     research: { icon: '\uD83D\uDD2C', title: 'SCF Research', status: 'In Progress', statusClass: 'badge-orange badge-status' },
     internship: { icon: '\uD83D\uDCBC', title: 'S.K. Chadha Internship', status: 'Completed', statusClass: 'badge-green' },
@@ -643,60 +643,7 @@
     { label: 'View IIT Kanpur Internship', run: () => openProjectModal('iitk') }
   );
 
-  // ===== Live Data Updates =====
-  function updateElement(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value;
-  }
-
-  async function loadLiveStatus() {
-    try {
-      const response = await fetchWithTimeout('data/live-status.json');
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
-
-      const data = await response.json();
-
-      updateElement('msmeDealFlow', data.operations.msme.lifetime);
-      updateElement('msmeThisMonth', data.operations.msme.thisMonth);
-      updateElement('msmeMoM', data.operations.msme.momGrowth);
-
-      updateElement('finsightVersion', data.operations.finsight.version);
-      updateElement('anomaliesDetected', data.operations.finsight.anomaliesDetected);
-
-      updateElement('cosmosUsers', data.operations.cosmos.users);
-      updateElement('cosmosProofs', data.operations.cosmos.proofsThisWeek);
-
-      updateElement('researchProgress', data.operations.research.completion + '%');
-
-      updateElement('currentFocus', data.currentFocus);
-
-      const lastUpdated = new Date(data.lastUpdated);
-      updateElement('syncTime', getTimeAgo(lastUpdated));
-      updateElement('lastUpdated', getTimeAgo(lastUpdated));
-
-      updateElement('focusDate', lastUpdated.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-      }));
-
-    } catch (_) {
-      updateLastUpdated();
-    }
-  }
-
-  function updateLastUpdated() {
-    const lastUpdatedEl = $('#lastUpdated');
-    const syncTimeEl = $('#syncTime');
-
-    if (lastUpdatedEl) lastUpdatedEl.textContent = getTimeAgo(new Date(Date.now() - 2 * 60 * 60 * 1000));
-    if (syncTimeEl) syncTimeEl.textContent = getTimeAgo(new Date(Date.now() - 2 * 60 * 1000));
-  }
-
-  loadLiveStatus();
+  // ===== Live Data (static — no fake timestamps) =====
 
   // ===== Text Reveal Animation =====
   $$('.text-reveal').forEach(el => {

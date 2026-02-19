@@ -1,46 +1,29 @@
 {
-  "lastUpdated": "2026-02-03T10:30:00Z",
-  "operations": {
-    "msme": {
-      "lifetime": "Multiple Crore",
-      "thisMonth": "Rs12.4Cr",
-      "momGrowth": "+23%",
-      "approvalRate": "65-75%",
-      "industryAvg": "35-40%",
-      "status": "active"
-    },
-    "finsight": {
-      "version": "v0.3.2",
-      "anomaliesDetected": 4,
-      "totalCost": "Rs5K",
-      "competitorCost": "$200/mo",
-      "status": "building",
-      "lastDeploy": "2026-02-01"
-    },
-    "cosmos": {
-      "users": 34,
-      "proofsThisWeek": 156,
-      "newThisWeek": 3,
-      "status": "live"
-    },
-    "research": {
-      "completion": 67,
-      "writeoffsAnalyzed": "$6.5B",
-      "targetJournal": "JF&E",
-      "status": "in-progress"
-    },
-    "leadership": {
-      "studentsLed": "450+",
-      "role": "President",
-      "termEnds": "Apr 2026",
-      "status": "active"
-    },
-    "srcc": {
-      "ranking": "Top 1%",
-      "event": "Business Conclave",
-      "year": "2025"
-    }
+  "msme": {
+    "dealRange": "₹3Cr - ₹100Cr per case",
+    "approvalRate": "65-75%",
+    "industryBenchmark": "35-40%",
+    "bankPartners": 7,
+    "activeSince": 2023
   },
-  "currentFocus": "FinSight anomaly detection accuracy - fixing 2 false positives from last week",
-  "weeklyUpdate": "Shipped RSI divergence detection. Onboarded 3 new Cosmos users. Research methodology section complete."
+  "cosmos": {
+    "betaUsers": 34,
+    "proofsSubmitted": 156,
+    "activePods": 6,
+    "weeklyRetention": "72%"
+  },
+  "finsight": {
+    "status": "Prototype",
+    "anomaliesFound": 4
+  },
+  "secResearch": {
+    "companiesAnalyzed": 50,
+    "completionStatus": "67%",
+    "conference": "IIT Madras IndustriAI"
+  },
+  "bubbleDetection": {
+    "bubblesDetected": 17,
+    "securitiesAnalyzed": 8,
+    "methodology": "Phillips-Shi-Yu BSADF"
+  }
 }
