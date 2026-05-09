@@ -1,29 +1,52 @@
 {
   "msme": {
-    "dealRange": "₹3Cr - ₹100Cr per case",
+    "firm": "Rajesh Credit Consultancy",
+    "cumulativeDealFlow": "₹100Cr+",
     "approvalRate": "65-75%",
     "industryBenchmark": "35-40%",
-    "bankPartners": 7,
+    "bankPartners": 15,
+    "teamSize": 12,
     "activeSince": 2023
   },
-  "cosmos": {
-    "betaUsers": 34,
-    "proofsSubmitted": 156,
-    "activePods": 6,
-    "weeklyRetention": "72%"
+  "kingdom24": {
+    "role": "Strategy & AI Transformation Intern",
+    "period": "Apr–Jul 2026",
+    "ssgPages": 526,
+    "procurementMappedCr": 53,
+    "horecaDataset": 13422,
+    "site": "kingdom24-web.vercel.app"
   },
   "finsight": {
-    "status": "Prototype",
-    "anomaliesFound": 4
+    "status": "Live",
+    "site": "finsight-nova.web.app",
+    "recognition": "1st Place — IIT Roorkee Cognizance IDEAZ 2026",
+    "presented": "IMSICON 2026",
+    "supervisor": "Prof. Sanjeev Sharma",
+    "casIndicators": 5,
+    "backtestSignals": 1046,
+    "backtestStocks": 49,
+    "liveAnomaly": { "ticker": "ICICIBANK", "zScore": 3.18, "date": "2026-03-07" }
+  },
+  "cosmos": {
+    "site": "cosmos-e42b5.web.app",
+    "supervisor": "Prof. Dr. Jasmine Kaur",
+    "activeUsers": 34,
+    "proofsSubmitted": 156,
+    "podSize": "5-8",
+    "recognition": "UN Millennium Fellowship — Top 4% of ~60,000"
   },
   "secResearch": {
-    "companiesAnalyzed": 50,
-    "completionStatus": "67%",
-    "conference": "IIT Madras IndustriAI"
+    "title": "Cognitive Bias Detection in SEC Filings",
+    "supervisor": "Prof. Dr. Jasmine Kaur",
+    "filingsAnalyzed": 818,
+    "companies": 42,
+    "pipeline": "Llama 3.1 → Claude Opus → human",
+    "metaPrecision": "~100%",
+    "underperformanceRange": "12.9-19.2%"
   },
-  "bubbleDetection": {
-    "bubblesDetected": 17,
-    "securitiesAnalyzed": 8,
-    "methodology": "Phillips-Shi-Yu BSADF"
+  "multiAgentMSME": {
+    "title": "Multi-Agentic AI for MSME Lending",
+    "venue": "IIT Madras IndustriAI 2025",
+    "status": "Accepted"
   }
 }

@@ -12,7 +12,9 @@
     social: {
       linkedin: 'https://www.linkedin.com/in/divyanshukumar27',
       github: 'https://github.com/NovaXTritan',
-      cosmos: 'https://cosmos-e42b5.web.app/'
+      cosmos: 'https://cosmos-e42b5.web.app/',
+      finsight: 'https://finsight-nova.web.app',
+      kingdom24: 'https://kingdom24-web.vercel.app'
     },
     fetchTimeout: 8000,
     activityRefreshInterval: 300000,
@@ -386,7 +388,9 @@
     { label: 'Email Divyanshu', run: () => { location.href = 'mailto:' + CONFIG.email; } },
     { label: 'Open LinkedIn', run: () => window.open(CONFIG.social.linkedin, '_blank') },
     { label: 'Open GitHub', run: () => window.open(CONFIG.social.github, '_blank') },
+    { label: 'View FinSight India', run: () => window.open(CONFIG.social.finsight, '_blank') },
     { label: 'View Cosmos', run: () => window.open(CONFIG.social.cosmos, '_blank') },
+    { label: 'View Kingdom 24', run: () => window.open(CONFIG.social.kingdom24, '_blank') },
   ];
 
   let selectedIdx = 0;
@@ -506,16 +510,18 @@
   const modalStatus = $('#modalStatus');
 
   const projectMeta = {
-    cosmos: { icon: '\uD83C\uDF0C', title: 'COSMOS', status: 'Live', statusClass: 'badge-green badge-status' },
-    finsight: { icon: '\uD83D\uDCCA', title: 'FINSIGHT', status: 'Prototype', statusClass: 'badge-purple badge-status' },
-    bubble: { icon: '\uD83D\uDCC8', title: 'AI Bubble Detection', status: 'Complete', statusClass: 'badge-green' },
-    research: { icon: '\uD83D\uDD2C', title: 'SCF Research', status: 'In Progress', statusClass: 'badge-orange badge-status' },
-    internship: { icon: '\uD83D\uDCBC', title: 'S.K. Chadha Internship', status: 'Completed', statusClass: 'badge-green' },
-    msme: { icon: '\uD83C\uDFE6', title: 'MSME Lending', status: 'Active', statusClass: 'badge-green badge-status' },
+    finsight: { icon: '\uD83D\uDCCA', title: 'FinSight India', status: '1st IIT Roorkee', statusClass: 'badge-purple badge-status' },
+    msme: { icon: '\uD83C\uDFE6', title: 'Rajesh Credit Consultancy', status: 'Active', statusClass: 'badge-green badge-status' },
+    kingdom24: { icon: '\uD83D\uDED2', title: 'Kingdom 24 \u2014 Strategy & AI', status: 'Apr\u2013Jul 2026', statusClass: 'badge-cyan badge-status' },
+    cosmos: { icon: '\uD83C\uDF0C', title: 'Cosmos', status: 'Live \u00B7 UN Fellow', statusClass: 'badge-green badge-status' },
+    research: { icon: '\uD83E\uDDE0', title: 'Cognitive Bias in SEC Filings', status: 'Research', statusClass: 'badge-orange badge-status' },
+    multiagent: { icon: '\uD83E\uDD16', title: 'Multi-Agentic AI \u00B7 MSME Lending', status: 'IIT Madras Accepted', statusClass: 'badge-purple badge-status' },
+    internship: { icon: '\uD83D\uDCBC', title: 'S.K. Chadha & Associates', status: 'Completed', statusClass: 'badge-green' },
     leadership: { icon: '\uD83D\uDC65', title: 'Leadership Roles', status: 'Active', statusClass: 'badge-outline' },
     iitk: { icon: '\uD83C\uDF93', title: 'IIT Kanpur Internship', status: 'Completed', statusClass: 'badge-green' },
-    achievements: { icon: '\uD83C\uDFC6', title: 'Achievements', status: '', statusClass: '' },
-    srcc: { icon: '\uD83C\uDFC6', title: 'SRCC Quiz', status: 'Achievement', statusClass: 'badge-purple' }
+    bubble: { icon: '\uD83D\uDCC8', title: 'AI Bubble Detection (Legacy)', status: 'Archived', statusClass: 'badge-outline' },
+    achievements: { icon: '\uD83C\uDFC6', title: 'Achievements & Certifications', status: '', statusClass: '' },
+    srcc: { icon: '\uD83C\uDFC6', title: 'Achievements & Certifications', status: '', statusClass: '' }
   };
 
   let removeModalTrap = null;
@@ -605,11 +611,11 @@
     const projectId = cardId.replace('evidence-', '');
 
     const templateMap = {
+      'finsight': 'finsight',
+      'kingdom24': 'kingdom24',
       'cosmos': 'cosmos',
       'research': 'research',
-      'srcc': 'achievements',
-      'finsight': 'finsight',
-      'bubble': 'bubble'
+      'srcc': 'achievements'
     };
 
     const templateId = templateMap[projectId];
@@ -633,14 +639,15 @@
   });
 
   commands.push(
-    { label: 'View COSMOS Details', run: () => openProjectModal('cosmos') },
-    { label: 'View FinSight Details', run: () => openProjectModal('finsight') },
-    { label: 'View AI Bubble Detection', run: () => openProjectModal('bubble') },
-    { label: 'View SCF Research', run: () => openProjectModal('research') },
-    { label: 'View MSME Operations', run: () => openProjectModal('msme') },
+    { label: 'View FinSight India (1st IIT Roorkee)', run: () => openProjectModal('finsight') },
+    { label: 'View Rajesh Credit Consultancy', run: () => openProjectModal('msme') },
+    { label: 'View Kingdom 24 Internship', run: () => openProjectModal('kingdom24') },
+    { label: 'View Cosmos (UN Fellowship)', run: () => openProjectModal('cosmos') },
+    { label: 'View Cognitive Bias Research', run: () => openProjectModal('research') },
+    { label: 'View Multi-Agentic AI Paper', run: () => openProjectModal('multiagent') },
     { label: 'View S.K. Chadha Internship', run: () => openProjectModal('internship') },
-    { label: 'View Leadership Roles', run: () => openProjectModal('leadership') },
-    { label: 'View IIT Kanpur Internship', run: () => openProjectModal('iitk') }
+    { label: 'View Achievements & Certifications', run: () => openProjectModal('achievements') },
+    { label: 'View Leadership Roles', run: () => openProjectModal('leadership') }
   );
 
   // ===== Live Data (static — no fake timestamps) =====
