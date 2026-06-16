@@ -1,34 +1,35 @@
 ---
-// Featured work. Live products link out; the research project links to its paper.
+// Featured ventures. Each live product links out.
 const projects = [
   {
-    name: 'FinSight',
+    name: 'FinSight India',
     tag: '1st · IIT Roorkee',
     blurb:
-      'AI market anomaly-detection platform. Synthesizes noisy market signals into a single, statistically rigorous score. <strong>1st Place, IIT Roorkee Cognizance IDEAZ 2026.</strong>',
-    stack: ['Python', 'FastAPI', 'JWT auth', 'SQL'],
+      'Market-intelligence platform built around the information gap retail investors face against institutions. A <strong>Composite Anomaly Score</strong> over five signals, backtested on <strong>1,046 signals</strong> across the Nifty 50 — caught a live ICICIBANK move at a <strong>3.18 Z-score</strong>. <strong>1st place, IIT Roorkee Cognizance IDEAZ 2026.</strong>',
+    stack: ['Python', 'NLP', 'Firebase'],
     href: 'https://finsight-nova.web.app',
     hrefLabel: 'finsight-nova.web.app',
     wide: false,
   },
   {
-    name: 'Cosmos',
-    tag: 'Live · 30 beta pods',
+    name: 'Sustainmetric',
+    tag: 'Live',
     blurb:
-      'Peer-learning platform running <strong>30 active beta pods</strong>. Real-time sync, authentication, and streak tracking — built to keep cohorts accountable to each other.',
-    stack: ['React', 'Firebase', 'Real-time sync', 'Auth'],
-    href: 'https://cosmos-nova.web.app',
-    hrefLabel: 'cosmos-nova.web.app',
+      'Geospatial AI for urban climate &amp; BRSR compliance. Pulls Sentinel-2, OpenAQ, Open-Meteo, ERA5 and OSM data through Gemini to produce <strong>audit-grade urban-heat intervention plans</strong>. Targets the BRSR Core mandate for the top 1,000 listed firms.',
+    stack: ['Gemini', 'Sentinel-2', 'Geospatial', 'Python'],
+    href: 'https://sustainmetric.web.app',
+    hrefLabel: 'sustainmetric.web.app',
     wide: false,
   },
   {
-    name: 'BiasSight',
-    sub: 'Sunk-cost-fallacy detection in SEC filings',
-    tag: 'Research',
+    name: 'Cosmos',
+    sub: 'AI peer-accountability platform',
+    tag: 'UN Fellow · 72% WoW',
     blurb:
-      'An AI system that detects cognitive biases in MD&amp;A disclosures. Validated against <strong>$6.5B+ in write-offs</strong> (NVIDIA, Alphabet, FY2022–25). Three-stage pipeline: Llama&nbsp;3.1 → Claude → human verification.',
-    stack: ['Llama 3.1', 'Claude', 'Python', 'NLP'],
-    note: 'Paper accepted at IIT Madras (IndustriAI). Methodology and full draft available on request.',
+      'A peer-accountability platform with an AI journal. <strong>UN Millennium Fellowship — top 4%</strong> of roughly 60,000 applicants, with retention holding at <strong>72% week over week</strong>.',
+    stack: ['React', 'Firebase', 'Gemini API'],
+    href: 'https://cosmos-nova.web.app',
+    hrefLabel: 'cosmos-nova.web.app',
     wide: true,
   },
 ];
@@ -36,7 +37,7 @@ const projects = [
 
 <section class="section" id="projects">
   <div class="wrap">
-    <p class="kicker reveal">Featured Work</p>
+    <p class="kicker reveal">Ventures &amp; Projects</p>
     <h2 class="section-title reveal">Things I shipped, with links.</h2>
 
     <div class="proj-grid">
@@ -56,14 +57,10 @@ const projects = [
             {p.stack.map((s) => <span>{s}</span>)}
           </div>
 
-          {p.href ? (
-            <a class="proj-link" href={p.href} target="_blank" rel="noopener">
-              View live <span class="arrow">↗</span>
-              <span class="sr-only">{p.hrefLabel}</span>
-            </a>
-          ) : (
-            <p class="proj-note">{p.note}</p>
-          )}
+          <a class="proj-link" href={p.href} target="_blank" rel="noopener">
+            View live <span class="arrow">↗</span>
+            <span class="sr-only">{p.hrefLabel}</span>
+          </a>
         </article>
       ))}
     </div>
