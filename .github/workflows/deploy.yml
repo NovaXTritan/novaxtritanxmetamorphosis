@@ -2,8 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,28 +10,30 @@ permissions:
   pages: write
   id-token: write
 
+# Allow one concurrent deployment; let an in-flight run finish.
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      # Installs Node, runs `npm ci && astro build`, and uploads the
+      # Pages artifact from ./dist — base path is read from astro.config.mjs.
+      - name: Build with Astro
+        uses: withastro/action@v3
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

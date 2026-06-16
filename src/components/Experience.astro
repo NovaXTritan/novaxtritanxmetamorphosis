@@ -1,0 +1,57 @@
+---
+// Most important section. Scannable ledger rows, metrics in the prose.
+const roles = [
+  {
+    role: 'Management Consulting Intern',
+    org: 'S.K. Chadha & Associates',
+    meta: 'May – Jun 2025',
+    points: [
+      'Redesigned pricing strategy for CPAP/BIPAP medical devices — <strong>35% faster quote turnaround</strong>, projected <strong>12% margin increase</strong>.',
+      'Built a competitive-analysis framework in Excel / Power BI tracking 8 competitors; identified <strong>$50K+ in annual margin leakage</strong>.',
+      'Delivered the GTM strategy: tiered bundles and channel optimization.',
+    ],
+  },
+  {
+    role: 'Business Operations & AI Transformation',
+    org: 'Family MSME Loan Consultancy',
+    meta: '2023 – Present',
+    points: [
+      'Drive operations for a 25-year-old consultancy. <strong>₹600+ crore</strong> in cumulative deal value across <strong>7 banking partners</strong> at a <strong>65–75% approval rate</strong> (vs. 35–40% industry benchmark).',
+      'Building agentic AI workflows for document verification, ITR/GST parsing, and bank-eligibility matching — targeting <strong>40% faster processing</strong>.',
+      'Designed the integrated tracking system (pipeline dashboard, bank database, scorecards) across a 12-person team; identified <strong>₹15L+ in revenue leakage</strong>.',
+    ],
+  },
+  {
+    role: 'Project Intern',
+    org: 'E&ICT Academy, IIT Kanpur',
+    meta: 'May – Jul 2025',
+    points: [
+      'Built an HR analytics dashboard (Excel / Power BI) for a 200+ employee organization. Cut weekly reporting from <strong>4 hrs → 15 min</strong>; surfaced a <strong>23% attrition spike</strong>.',
+    ],
+  },
+];
+---
+
+<section class="section" id="work">
+  <div class="wrap">
+    <p class="kicker reveal">Selected Experience</p>
+    <h2 class="section-title reveal">Where the numbers come from.</h2>
+
+    <ol class="exp-list">
+      {roles.map((r, i) => (
+        <li class="exp-row reveal">
+          <span class="exp-num">{String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <div class="exp-head">
+              <h3 class="exp-role">{r.role} <span class="exp-org">· {r.org}</span></h3>
+              <span class="exp-meta">{r.meta}</span>
+            </div>
+            <ul class="exp-points">
+              {r.points.map((p) => <li set:html={p} />)}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

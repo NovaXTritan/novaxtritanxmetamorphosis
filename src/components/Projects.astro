@@ -1,0 +1,71 @@
+---
+// Featured work. Live products link out; the research project links to its paper.
+const projects = [
+  {
+    name: 'FinSight',
+    tag: '1st · IIT Roorkee',
+    blurb:
+      'AI market anomaly-detection platform. Synthesizes noisy market signals into a single, statistically rigorous score. <strong>1st Place, IIT Roorkee Cognizance IDEAZ 2026.</strong>',
+    stack: ['Python', 'FastAPI', 'JWT auth', 'SQL'],
+    href: 'https://finsight-nova.web.app',
+    hrefLabel: 'finsight-nova.web.app',
+    wide: false,
+  },
+  {
+    name: 'Cosmos',
+    tag: 'Live · 30 beta pods',
+    blurb:
+      'Peer-learning platform running <strong>30 active beta pods</strong>. Real-time sync, authentication, and streak tracking — built to keep cohorts accountable to each other.',
+    stack: ['React', 'Firebase', 'Real-time sync', 'Auth'],
+    href: 'https://cosmos-nova.web.app',
+    hrefLabel: 'cosmos-nova.web.app',
+    wide: false,
+  },
+  {
+    name: 'BiasSight',
+    sub: 'Sunk-cost-fallacy detection in SEC filings',
+    tag: 'Research',
+    blurb:
+      'An AI system that detects cognitive biases in MD&amp;A disclosures. Validated against <strong>$6.5B+ in write-offs</strong> (NVIDIA, Alphabet, FY2022–25). Three-stage pipeline: Llama&nbsp;3.1 → Claude → human verification.',
+    stack: ['Llama 3.1', 'Claude', 'Python', 'NLP'],
+    note: 'Paper accepted at IIT Madras (IndustriAI). Methodology and full draft available on request.',
+    wide: true,
+  },
+];
+---
+
+<section class="section" id="projects">
+  <div class="wrap">
+    <p class="kicker reveal">Featured Work</p>
+    <h2 class="section-title reveal">Things I shipped, with links.</h2>
+
+    <div class="proj-grid">
+      {projects.map((p) => (
+        <article class={`proj-card reveal${p.wide ? ' wide' : ''}`}>
+          <div class="proj-top">
+            <h3 class="proj-name">
+              {p.name}
+              {p.sub && <span class="proj-note"> — {p.sub}</span>}
+            </h3>
+            <span class="proj-tag">{p.tag}</span>
+          </div>
+
+          <p class="proj-blurb" set:html={p.blurb} />
+
+          <div class="proj-stack">
+            {p.stack.map((s) => <span>{s}</span>)}
+          </div>
+
+          {p.href ? (
+            <a class="proj-link" href={p.href} target="_blank" rel="noopener">
+              View live <span class="arrow">↗</span>
+              <span class="sr-only">{p.hrefLabel}</span>
+            </a>
+          ) : (
+            <p class="proj-note">{p.note}</p>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

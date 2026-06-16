@@ -1,0 +1,29 @@
+---
+const technical = [
+  'Python (pandas, statsmodels, scikit-learn)', 'SQL', 'Power BI', 'Tableau',
+  'Advanced Excel', 'NLP / LLM pipelines', 'React / Next.js', 'FastAPI',
+  'PostgreSQL', 'GCP / Firebase', 'Web scraping',
+];
+const business = [
+  'Financial modeling', 'Market sizing', 'Competitive analysis',
+  'GTM strategy', 'Stakeholder management',
+];
+---
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <p class="kicker reveal">Capabilities</p>
+    <h2 class="section-title reveal">What I work with.</h2>
+
+    <div class="skills-grid">
+      <div class="skills-col reveal">
+        <h3>Technical</h3>
+        <div class="skills-tags">{technical.map((s) => <span>{s}</span>)}</div>
+      </div>
+      <div class="skills-col reveal">
+        <h3>Business</h3>
+        <div class="skills-tags">{business.map((s) => <span>{s}</span>)}</div>
+      </div>
+    </div>
+  </div>
+</section>

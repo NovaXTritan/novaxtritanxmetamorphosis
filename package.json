@@ -1,0 +1,17 @@
+{
+  "name": "divyanshu-kumar-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio — Divyanshu Kumar. Astro static site, deployed to GitHub Pages.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource-variable/inter": "^5.1.0",
+    "astro": "^5.7.0"
+  }
+}

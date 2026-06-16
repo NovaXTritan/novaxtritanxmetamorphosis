@@ -1,0 +1,15 @@
+---
+import { contact } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© {year} Divyanshu Kumar · Built by hand, no template.</p>
+    <div class="footer-links">
+      <a href={`mailto:${contact.email}`}>Email</a>
+      <a href={contact.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      <a href={contact.github} target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>

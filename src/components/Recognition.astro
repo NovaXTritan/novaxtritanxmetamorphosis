@@ -1,0 +1,84 @@
+---
+// Achievements, leadership, and research. Rajya Sabha YAC leads deliberately.
+const leadership = [
+  {
+    title: 'Youth Advisory Committee — sitting Rajya Sabha MP',
+    sub: 'One of India’s first such committees. Advising a sitting Member of Parliament.',
+    lead: true,
+  },
+  {
+    title: 'IIT Delhi MoU Representative',
+    sub: 'Led the institutional partnership — IIT Delhi eDC × Christ University.',
+  },
+  {
+    title: 'Finance & AI Cell — Office Bearer',
+    sub: 'Youngest office bearer university-wide.',
+  },
+];
+
+const distinctions = [
+  {
+    title: 'Two research papers accepted — IIT Madras (IndustriAI)',
+    sub: 'Multi-agentic AI for MSME loan decisioning · NLP cognitive-bias detection in SEC filings.',
+  },
+  {
+    title: 'UN Millennium Fellowship — Top 4%',
+    sub: 'Globally, from 60,000+ applicants.',
+  },
+  {
+    title: 'SRCC Consulting Quiz — Top 1%',
+    sub: '1,368+ participants.',
+  },
+  {
+    title: 'IIM Udaipur Business Quiz — Finalist',
+    sub: '',
+  },
+];
+
+const certs = [
+  'Strategy & Game Theory — IIM Ahmedabad',
+  'Bloomberg Market Concepts',
+  'Google Data Analytics',
+  'Advanced Excel — IIT Kanpur',
+];
+---
+
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="kicker reveal">Recognition &amp; Research</p>
+    <h2 class="section-title reveal">Outside the day job.</h2>
+
+    <div class="rec-grid">
+      <div class="rec-col reveal">
+        <h3>Leadership</h3>
+        <ul class="rec-list">
+          {leadership.map((it) => (
+            <li class={it.lead ? 'lead-item' : ''}>
+              <span class="rec-item-title">
+                {it.lead && <span class="star">★ </span>}{it.title}
+              </span>
+              {it.sub && <span class="rec-item-sub">{it.sub}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="rec-col reveal">
+        <h3>Research &amp; Distinctions</h3>
+        <ul class="rec-list">
+          {distinctions.map((it) => (
+            <li>
+              <span class="rec-item-title">{it.title}</span>
+              {it.sub && <span class="rec-item-sub">{it.sub}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="certs reveal">
+      <span class="certs-label">Certifications</span>
+      {certs.map((c) => <span>{c}</span>)}
+    </div>
+  </div>
+</section>

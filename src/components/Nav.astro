@@ -1,0 +1,44 @@
+---
+import { site, contact, asset } from '../data/site';
+---
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap nav-inner">
+    <a href="#main" class="nav-name" aria-label={`${site.name} — home`}>
+      Divyanshu&nbsp;<span class="mark">Kumar</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <line x1="3" y1="7" x2="21" y2="7" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="17" x2="21" y2="17" />
+      </svg>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-resume" href={asset(contact.resume)} target="_blank" rel="noopener">Résumé ↗</a>
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  // Mobile menu: toggle + close on link tap.
+  (() => {
+    const btn = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (!btn || !links) return;
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    links.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      })
+    );
+  })();
+</script>
