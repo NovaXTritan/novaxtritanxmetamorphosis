@@ -9,9 +9,8 @@ export const site = {
   description:
     'Divyanshu Kumar — business operator who builds. Runs credit operations at a 25-year MSME lending firm (₹100Cr+ deal value, 15 bank partners) and ships AI products in finance: FinSight (1st, IIT Roorkee), Sustainmetric, and Cosmos (UN Fellow).',
   url: 'https://novaxtritan.github.io/novaxtritanxmetamorphosis/',
-  // Square portrait; doubles as the social-card image for now.
-  // TODO: replace with a dedicated 1200×630 OG card for richer link previews.
-  ogImage: 'https://novaxtritan.github.io/novaxtritanxmetamorphosis/images/1745733549930.jpg',
+  // Dedicated 1200×630 editorial social card (rendered from _ogcard.html).
+  ogImage: 'https://novaxtritan.github.io/novaxtritanxmetamorphosis/images/og-card.png',
   locale: 'en_IN',
 } as const;
 
